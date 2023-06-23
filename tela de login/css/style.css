@@ -4,25 +4,23 @@
     margin-left: 0;
     padding: 0;
     box-sizing: border-box;
+    border-radius: 0.3rem;
 }
 body {
     font-family: 'Open Sans', sans-serif;
 }
 .content {
     background-color: #fff;
-    border-radius: 15px;
-    height: 50%;
+    height: 100%;
     justify-content: space-between;
     align-items: center;
-    position: relative;
 }
 .content::before {
     content: "";
     position: absolute;
     background-color: #58af9b;
     width: 40%;
-    height: 182%;
-    left: 0;
+    height: 100%;
 }
 .title {
     font-size: 28px;
@@ -78,18 +76,21 @@ body {
     border: 1px solid #ffffff;
 }
 .btn-third {
-    background-color: #4684FB;
-    border: 1px solid #4684FB;
+    background-color: #ffffff;
+    border: 0.1rem solid #55AD63;
+    color: #55AD63;
     transition: background-color .5s;
 }
-.btn-second:hover {
-    background-color: #5a91f7;
-    border: 1px solid #ffffff;
+.btn-third:hover {
+    background-color: #55AD63;
+    border: 0.1rem solid #ffffff;
+    color: #ffffff;
 }
 .first-content {
     display: flex;
 }
 .first-content .second-column {
+    height: 45.5rem;
     z-index: 11;
 }
 .first-column {
@@ -104,6 +105,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+input {
+    padding: 1rem;
+    font-size: inherit;
+    outline: none !important ;
 }
 .social-media {
     margin: 1rem 0;
@@ -152,7 +158,7 @@ input:-webkit-autofill
     background-color: #ecf0f1;
     display: flex;
     align-items: center;
-    margin: 8px;
+    margin: 0.5rem;
 }
 .icon-modify {
     color: #7f8c8d;
@@ -227,18 +233,18 @@ input:-webkit-autofill
 /* DESLOCAMENTO CONTEÚDO ATRÁS DO CONTENT:BEFORE*/
 .sign-in-js .first-content .second-column {
     z-index: -1;
-    position: relative;
+    position: absolute;
     animation: deslocamentoEsq 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
 }
 
 .sign-up-js .second-content .second-column {
-    position: relative;
+    position: absolute;
     z-index: -1;
     animation: deslocamentoDir 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
 }
 
 .informations-field{
-    margin-top: 12rem;
+    margin-top: 8rem;
 }
 
 /*ANIMAÇÃO CSS PARA O CONTEÚDO*/
