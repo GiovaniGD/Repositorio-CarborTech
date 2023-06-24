@@ -10,35 +10,25 @@
     <title>CarborTech</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">CarborTech</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Início</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorias</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Contatos</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
-            </form>
-          </div>
+    <header>
+        <h1 class="logo">
+            <img src="caminho-para-a-imagem.png" alt="Logo">
+            CarborTech
+        </h1>
+        <ul class="nav-items">
+            <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Categorias</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contatos</a></li>
+        </ul>
+        <form class="search-form" action="#" method="GET">
+            <input type="text" name="search" placeholder="Pesquise aqui">
+            <input type="submit" value="Buscar">
+        </form>
+        <div class="buttons">
+            <button>Entrar</button>
+            <button>Cadastrar-se</button>
         </div>
-      </nav>
+    </header>
 </body>
 <script src="./js/script.js"></script>
 </html>
