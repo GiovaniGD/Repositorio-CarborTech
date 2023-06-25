@@ -1,10 +1,17 @@
 header {
     background-color: #ECECEC;
-    padding: 0.9rem;
+    padding: 0.8rem;
     color: #3F3F3F;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+}
+
+.logo img {
+    float: left;
+    width: 2.3rem;
+    height: 2rem;
+    margin-left: 2rem;
+    margin-right: 1rem;
 }
 
 .logo {
@@ -15,20 +22,20 @@ header {
     color: #4BA95A;
 }
 
-.logo img {
-    width: 30px;
-    height: 30px;
-    margin-right: 0.5rem;
-}
-
 .nav-items {
     list-style: none;
     margin: 0;
     display: flex;
+    margin-left: 5rem;
 }
 
 .nav-item {
     margin-right: 1rem;
+}
+
+.nav-item:hover {
+    margin-right: 1rem;
+    color: #8a8a8a;
 }
 
 .nav-link {
@@ -39,6 +46,7 @@ header {
 .search-form {
     display: flex;
     align-items: center;
+    margin-left: 24rem;
 }
 
 .search-form input[type="text"] {
@@ -51,23 +59,49 @@ header {
     padding: 0.3rem 0.6rem;
     background-color: #fff;
     color: #797979;
-    border: none;
     cursor: pointer;
+    border: none;
     border-radius: 0.1rem;
     margin-left: 0.5rem;
+}
+
+.search-form input[type="submit"]:hover {
+    background-color: #fbfbfb;
 }
 
 .buttons {
     display: flex;
     align-items: center;
+    margin-left: 6rem;
 }
 
 .buttons button {
-    padding: 0.35rem 0.7rem;
-    background-color: #4BA95A;
-    color: #fff;
-    border: none;
+    padding: 0.3rem 0.8rem;
     cursor: pointer;
-    border-radius: 0.2rem;
+    border-radius: 0.25rem;
     margin-left: 0.5rem;
+}
+
+.btn-entrar {
+    background-color: #ECECEC;
+    border: 0.1rem solid #55AD63;
+    color: #55AD63;
+    transition: background-color .5s;
+}
+.btn-entrar:hover {
+    background-color: #55AD63;
+    border: 0.1rem solid #ECECEC;
+    color: #ECECEC;
+}
+
+.btn-cadastrar-se {
+    background-color: #4684FB;
+    border: 0.1rem solid #4684FB;
+    color: #ECECEC;
+    transition: background-color .5s;
+}
+.btn-cadastrar-se:hover {
+    background-color: #4684FB;
+    border: 0.1rem solid #ECECEC;
+    color: #ECECEC;
 }
