@@ -59,7 +59,7 @@ header {
 }
 
 .search-form input[type="text"] {
-    padding: 0.2rem 0.6rem;
+    padding: 0.25rem 0.6rem;
     border: none;
     border-radius: 0.1rem;
 }
@@ -69,7 +69,7 @@ header {
 }
 
 .search-form input[type="submit"] {
-    padding: 0.2rem 0.55rem;
+    padding: 0.25rem 0.55rem;
     background-color: #fff;
     color: #797979;
     cursor: pointer;
@@ -93,7 +93,7 @@ header {
 }
 
 .buttons button {
-    padding: 0.15rem 0.6rem;
+    padding: 0.25rem 0.6rem;
     cursor: pointer;
     border-radius: 0.2rem;
     margin-left: 0.5rem;
@@ -140,7 +140,7 @@ body {
     position: relative;
     margin: 0 auto;
     overflow: hidden;
-    margin-top: 2.5rem;
+    margin-top: 1.7rem;
 }
 
 .banner img {
@@ -174,4 +174,77 @@ body {
     border: none;
     color: #3F3F3F;
     cursor: pointer;
+}
+
+/*Div de cadastro*/
+.register-div {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 70%;
+    height: 22rem;
+    margin: 0 auto;
+    margin-top: 2.5rem;
+    border-radius: 0.5rem;
+}
+  
+.register-image {
+    width: 37%;
+    height: 100%;
+    object-fit: cover;
+    float: left;
+    border-radius: 0.5rem 0rem 0rem 0.5rem;
+}
+
+.register-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+}
+
+/*Textos e botões da div de cadastro*/
+.p-cadastro-areas {
+    font-size: 1.35rem;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+}
+
+.p-register-text {
+    text-align: left;
+    padding: 3.5rem 5rem;
+}
+  
+.register-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    padding: 1.5rem;
+}
+  
+.register-buttons button {
+    padding: 0.35rem 0.8rem;
+    border-radius: 0.2rem;
+    margin-left: 1rem;
+}
+
+.btn-cadastrar-area {
+    background-color: #4684FB;
+    color: #ECECEC;
+    border: none;
+    transition: all .5s;
+}
+
+.btn-cadastrar-area:hover {
+    background-color: #5c95ff;
+}
+
+.btn-solicitar-servico {
+    background-color: #4684FB;
+    border: none;
+    color: #ECECEC;
+    transition: all .5s;
+}
+
+.btn-solicitar-servico:hover {
+    background-color: #5c95ff;
 }
