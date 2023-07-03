@@ -676,17 +676,20 @@ footer {
     height: 35rem;
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
     justify-content: space-between;
     position: relative;
 }
 
 .contatos {
     position: absolute;
-    margin-top: 5.7rem;
+    margin-top: 6rem;
     margin-left: 3.7rem;
     color: #fff;
     font-size: 1.2rem;
+}
+
+.coluns {
+    display: flex;
 }
 
 .column {
@@ -709,20 +712,22 @@ footer {
     footer {
         margin-top: 2rem;
         width: 100%;
-        height: 100rem;
+        height: 120rem;
         flex-direction: column;
+        padding: 10rem;
     }
     
     .contatos {
         display: none;
     }
 
-    .columns {
-        margin-top: 17rem;
+    .coluns {
+        margin-top: 10rem !important;
+        display: block;
     }
     
     .column {
-        margin-top: 7rem;
+        margin-top: 17rem;
     }
       
     .column p {
