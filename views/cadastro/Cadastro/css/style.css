@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+main {
+    display: flex;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+}
+
+form input {
+    background-color: #e8e8e8;
+    border: none;
+    padding: 10px;
+}
+
+button {
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+
+button:active {
+    transform: scale(1);
+}
+
+#banner {
+    background-image: url("../media/imagem-fundo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 34%;
+}
+
+#form {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+}
+
+#form_buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#form_buttons div {
+    display: flex;
+    gap: 10px;
+}
+
+#external button {
+    align-items: center;
+    background: #e8e8e8;
+    border: none;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    width: 36px;
+}
+
+#external button img {
+    width: 70%;
+}
+
+button#login {
+    background: none;
+    border: 0.1rem solid #55AD63;
+    border-radius: 4px;
+    color: #62b46d;
+    font-size: 16px;
+    padding: 8px;
+    transition: all .5s;
+}
+
+button#login:hover{
+    background-color: #55AD63;
+    color: white;
+}
+
+button#submit {
+    background: none;
+    border: 0.1rem solid #4684FB;
+    border-radius: 4px;
+    color: #4684FB;
+    font-size: 16px;
+    padding: 8px;
+    transition: all .5s;
+}
+
+
+button#submit:hover{
+    background-color: #4684FB;
+    color: white;
+}
