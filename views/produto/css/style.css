@@ -146,18 +146,13 @@ header {
       margin-left: 2rem;
       margin-right: 0.6rem;
     }
-  
-    span {
-       display: none;
+
+    .carbortech {
+        font-size: 5rem;
     }
   
     .nav-items {
-      margin-left: 4rem;
-      font-size: 2.5rem;
-    }
-
-    .nav-item {
-        margin-right: 4rem;
+      display: none;
     }
   
     .search-form {
@@ -186,7 +181,7 @@ header {
     }
   
     .buttons {
-      margin-right: 2rem;
+      display: none;
     }
   
     .buttons button {
@@ -307,6 +302,7 @@ header {
     background-color: #4684FB;
     margin-top: 2.5rem;
     z-index: 0;
+    animation: slideLine 0.3s ease-in-out;
 }
 
 .second-title {
@@ -316,7 +312,7 @@ header {
     font-size: 1.35rem;
 }
 
-.small-image {
+.informations-logo {
     width: 3rem;
     height: 2.6rem;
     margin-top: 1.9rem;
@@ -325,8 +321,13 @@ header {
     margin-right: 85rem;
 }
 
-.small-image:last-child {
-    margin-right: 0rem;
+.informations-logo-two {
+    width: 3rem;
+    height: 2.6rem;
+    margin-top: 1.9rem;
+    position: absolute;
+    display: flex;
+    margin-left: 85rem;
 }
 
 .text-container {
@@ -361,10 +362,38 @@ footer {
     position: relative;
 }
 
+.container-videos {
+    margin-top: 3rem;
+    padding: 7rem;
+}
+
+.video-and-text {
+    margin-top: 10rem;
+    display: flex;
+}
+
 .video-text {
+    color: #BAD4BB;
     width: 40rem;
     flex-grow: 1;
     text-align: justify;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    padding-top: 2rem;
+}
+
+.div-video {
+    background-color: #BAD4BB;
+    width: 22rem;
+    height: 15rem;
+    border-radius: 0.8rem;
+}
+
+.footer-continuation {
+    width: 100%;
+    height: 35rem;
+    background-color: #234823;
+    margin-top: -33rem;
 }
 
 /*RODAPÉ RESPONSIVO*/
