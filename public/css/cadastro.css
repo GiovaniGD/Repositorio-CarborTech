@@ -17,24 +17,25 @@ main {
 form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    width: 50%;
+    gap: 1.5rem;
+    width: 32rem;
 }
 
 form input {
     background-color: #e8e8e8;
     border: none;
-    padding: 10px;
+    padding: 0.9rem;
+    border-radius: 0.2rem;
+    align-items: center;
+}
+
+form input:focus {
+    outline: 0.01em solid #797979;
 }
 
 button {
     cursor: pointer;
     transition: all 0.1s ease-in-out;
-}
-
-
-button:active {
-    transform: scale(1);
 }
 
 #banner {
@@ -51,19 +52,19 @@ button:active {
     display: flex;
     flex: 1;
     flex-direction: column;
-    gap: 50px;
+    gap: 4rem;
     justify-content: center;
 }
 
 #form_buttons {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 1.3rem;
 }
 
 #form_buttons div {
     display: flex;
-    gap: 10px;
+    gap: 0.6rem;
 }
 
 #external button {
@@ -73,7 +74,7 @@ button:active {
     border-radius: 100%;
     display: flex;
     justify-content: center;
-    width: 36px;
+    width: 2.7rem;
 }
 
 #external button img {
@@ -83,10 +84,10 @@ button:active {
 button#login {
     background: none;
     border: 0.1rem solid #55AD63;
-    border-radius: 4px;
-    color: #62b46d;
-    font-size: 16px;
-    padding: 8px;
+    border-radius: 0.2rem;
+    color: #55AD63;
+    padding: 0.0rem 1rem;
+    font-size: 1rem;
     transition: all .5s;
 }
 
@@ -96,17 +97,17 @@ button#login:hover{
 }
 
 button#submit {
-    background: none;
+    align-items: center;
+    background: #4684FB;
     border: 0.1rem solid #4684FB;
-    border-radius: 4px;
-    color: #4684FB;
-    font-size: 16px;
-    padding: 8px;
+    border-radius: 0.2rem;
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
     transition: all .5s;
 }
 
-
 button#submit:hover{
-    background-color: #4684FB;
-    color: white;
+    background-color: white;
+    color: #4684FB;
 }
