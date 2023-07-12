@@ -141,14 +141,15 @@ header {
     }
   
     .logo img {
-      width: 7rem;
-      height: 6rem;
-      margin-left: 2rem;
+      width: 9rem;
+      height: 7.8rem;
+      margin-left: 4rem;
       margin-right: 0.6rem;
     }
 
     .carbortech {
-        font-size: 5rem;
+        font-size: 5.5rem;
+        margin-left: 17rem;
     }
   
     .nav-items {
@@ -258,6 +259,56 @@ header {
       background-color: #5c95ff;
   }
 
+  /*Div do produto responsiva*/
+  @media (max-width: 50rem) {
+    .product {
+        margin-left: 6rem;
+        margin-top: 9rem;
+        width: 100%;
+    }
+    
+    .image img {
+        width: 37rem;
+        height: 37rem;
+        border-radius: 2.3rem;
+    }
+    
+    .content {
+        margin-left: 8rem;
+    }
+    
+    .content-title {
+        font-size: 4.7rem;
+        margin-top: 2rem;
+    }
+    
+    .content-quantidade {
+        margin-top: 2.5rem;
+        font-size: 3rem;
+    }
+    
+    .content-value {
+        font-size: 4.7rem;
+        font-weight: 600;
+        margin-top: 2rem;
+    }
+  
+    .btn-comprar {
+        background-color: #4684FB;
+        color: white;
+        border: none;
+        transition: all .5s;
+        padding: 1rem 4rem;
+        border-radius: 1rem;
+        margin-top: 1.5rem;
+        font-size: 4.3rem;
+    }
+  
+    .btn-comprar:hover {
+        background-color: #5c95ff;
+    }
+  }
+
   /*Div verde*/
   .green-div {
       background-color: #BAD4BB;
@@ -347,6 +398,92 @@ header {
     width: 22rem;
     height: 37rem;
     margin-left: 7rem;
+}
+
+@media (max-width: 50rem) {
+    .green-div {
+        width: 100%;
+        height: 200rem;
+        margin-top: 8rem;
+        border-radius: 10rem 10rem 0 0;
+  }
+  
+  .titles-container {
+      display: flex;
+      align-items: center;
+      margin-top: 2rem;
+      color: #323232;
+      font-weight: 500;
+  }
+  
+  .first-title {
+      position: relative;
+      font-size: 1.35rem;
+  }
+  
+  .title-text {
+      display: inline-block;
+      position: relative;
+      padding-inline: 0.4rem;
+      cursor: pointer;
+      z-index: 1;
+      transition:.3s ease all;
+  }
+  
+  .line {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 0.1rem;
+      background-color: #4684FB;
+      margin-top: 2.5rem;
+      z-index: 0;
+      animation: slideLine 0.3s ease-in-out;
+  }
+  
+  .second-title {
+      margin-left: 4rem;
+      position: relative;
+      cursor: pointer;
+      font-size: 1.35rem;
+  }
+  
+  .informations-logo {
+      width: 3rem;
+      height: 2.6rem;
+      margin-top: 1.9rem;
+      position: absolute;
+      display: flex;
+      margin-right: 85rem;
+  }
+  
+  .informations-logo-two {
+      width: 3rem;
+      height: 2.6rem;
+      margin-top: 1.9rem;
+      position: absolute;
+      display: flex;
+      margin-left: 85rem;
+  }
+  
+  .text-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-top: 5rem;
+  }
+  
+  .general-informations-text {
+      width: 55rem;
+      flex-grow: 1;
+      text-align: justify;
+  }
+  
+  .general-informations-img {
+      width: 22rem;
+      height: 37rem;
+      margin-left: 7rem;
+  }
 }
 
 /*RODAPÉ*/
