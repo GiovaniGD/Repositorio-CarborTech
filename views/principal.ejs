@@ -5,72 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/principal.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <title>CarborTech</title>
 </head>
+
 <body>
     <div class="principal-container">
-    <header>
-        <h1 class="logo">
-            <img src="./midia/zyro-image2.png" class="img-logo" alt="Logo">
-            <span>CarborTech</span>
-        </h1>
-        <ul class="nav-items">
-            <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Categorias</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Contatos</a></li>
-        </ul>
-        <div class="search-bar">
+        <header>
+            <h1 class="logo">
+                <img src="./midia/zyro-image2.png" class="img-logo" alt="Logo">
+                <span>CarborTech</span>
+            </h1>
+            <ul class="nav-items">
+                <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Categorias</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contatos</a></li>
+            </ul>
+            <div class="search-bar">
+                <form class="search-form" action="#" method="GET">
+                    <input type="text" name="search" placeholder="Pesquise aqui">
+                    <input type="submit" value="Buscar">
+                </form>
+            </div>
+            <div class="buttons">
+                <button class="btn-entrar">Entrar</button>
+                <a href="/"><button class="btn-cadastrar-se">Cadastrar-se</button></a>
+            </div>
+        </header>
+        <div class="search-bar-responsive">
             <form class="search-form" action="#" method="GET">
                 <input type="text" name="search" placeholder="Pesquise aqui">
                 <input type="submit" value="Buscar">
             </form>
         </div>
-        <div class="buttons">
-            <button class="btn-entrar">Entrar</button>
-            <a href="/"><button class="btn-cadastrar-se">Cadastrar-se</button></a>
-        </div>
-    </header>
-    <div class="search-bar-responsive">
-        <form class="search-form" action="#" method="GET">
-            <input type="text" name="search" placeholder="Pesquise aqui">
-            <input type="submit" value="Buscar">
-        </form>
-    </div>
 
-    <div class="banner">
-        <img src="./midia/Imagem alerta de semeaduras.png" alt="Imagem 1" class="active">
-        <img src="./midia/scaled_IMG-20230621-WA0268-photo-processed (1).jpg" alt="Imagem 2">
-        <div class="banner-buttons">
-            <button onclick="changeImage(-1)">&#8249;</button>
-            <button onclick="changeImage(1)">&#8250;</button>
-        </div>
-    </div>
-
-    <div class="register-div">
-        <img src="./midia/Imagem de cadastro.png" alt="Imagem" class="register-image">
-        <div class="register-content">
-            <p class="p-cadastro-areas">
-                <img src="./midia/Ícone mapa.png" alt="">
-                Cadastro de áreas</p>
-            <p class="p-register-text">Cadastre sua propriedade para registrá-la como reservada para a restauração e/ou preservação florestal.</p>
-            <div class="register-buttons">
-              <button class="btn-solicitar-servico">Solicitar serviço</button>
-              <button class="btn-cadastrar-area">Cadastrar área</button>
+        <div class="banner">
+            <img src="./midia/Imagem alerta de semeaduras.png" alt="Imagem 1" class="active">
+            <img src="./midia/scaled_IMG-20230621-WA0268-photo-processed (1).jpg" alt="Imagem 2">
+            <div class="banner-buttons">
+                <button onclick="changeImage(-1)">&#8249;</button>
+                <button onclick="changeImage(1)">&#8250;</button>
             </div>
         </div>
-    </div>
 
-    <div class="card-container">
-        <div class="cards-wrapper" id="cardsWrapper">
-            
+        <div class="register-div">
+            <img src="./midia/Imagem de cadastro.png" alt="Imagem" class="register-image">
+            <div class="register-content">
+                <p class="p-cadastro-areas">
+                    <img src="./midia/Ícone mapa.png" alt="">
+                    Cadastro de áreas
+                </p>
+                <p class="p-register-text">Cadastre sua propriedade para registrá-la como reservada para a restauração
+                    e/ou preservação florestal.</p>
+                <div class="register-buttons">
+                    <button class="btn-solicitar-servico">Solicitar serviço</button>
+                    <button class="btn-cadastrar-area">Cadastrar área</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-container">
+            <div class="cards-wrapper" id="cardsWrapper">
+
                 <div class="card">
                     <img src="./midia/card-image.png" alt="Imagem 1">
                     <p class="title-card">Jabuticabeira</p>
                     <p class="frutifera-card">
-                        Frutífera: 
-                        <img src="./midia/correct-frutifera.png" alt=""></p>
+                        Frutífera:
+                        <img src="./midia/correct-frutifera.png" alt="">
+                    </p>
                     <div class="container-assessment-button">
                         <p class="assessment-card">
                             <img src="./midia/icone-estrela.png" alt="">
@@ -81,123 +86,130 @@
                         </a>
                     </div>
                 </div>
-            
 
-            <div class="card">
-                <img src="./midia/card-image.png" alt="Imagem 1">
-                <p class="title-card">Jabuticabeira</p>
-                <p class="frutifera-card">
-                    Frutífera: 
-                    <img src="./midia/correct-frutifera.png" alt=""></p>
-                <div class="container-assessment-button">
-                    <p class="assessment-card">
-                        <img src="./midia/icone-estrela.png" alt="">
-                        5
+
+                <div class="card">
+                    <img src="./midia/card-image.png" alt="Imagem 1">
+                    <p class="title-card">Jabuticabeira</p>
+                    <p class="frutifera-card">
+                        Frutífera:
+                        <img src="./midia/correct-frutifera.png" alt="">
                     </p>
-                    <a href="./produto">
+                    <div class="container-assessment-button">
+                        <p class="assessment-card">
+                            <img src="./midia/icone-estrela.png" alt="">
+                            5
+                        </p>
+                        <a href="./produto">
+                            <button>Abrir</button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="./midia/card-image.png" alt="Imagem 1">
+                    <p class="title-card">Jabuticabeira</p>
+                    <p class="frutifera-card">
+                        Frutífera:
+                        <img src="./midia/correct-frutifera.png" alt="">
+                    </p>
+                    <div class="container-assessment-button">
+                        <p class="assessment-card">
+                            <img src="./midia/icone-estrela.png" alt="">
+                            5
+                        </p>
                         <button>Abrir</button>
-                    </a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="./midia/card-image.png" alt="Imagem 1">
+                    <p class="title-card">Jabuticabeira</p>
+                    <p class="frutifera-card">
+                        Frutífera:
+                        <img src="./midia/correct-frutifera.png" alt="">
+                    </p>
+                    <div class="container-assessment-button">
+                        <p class="assessment-card">
+                            <img src="./midia/icone-estrela.png" alt="">
+                            5
+                        </p>
+                        <button>Abrir</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="./midia/card-image.png" alt="Imagem 1">
+                    <p class="title-card">Jabuticabeira</p>
+                    <p class="frutifera-card">
+                        Frutífera:
+                        <img src="./midia/correct-frutifera.png" alt="">
+                    </p>
+                    <div class="container-assessment-button">
+                        <p class="assessment-card">
+                            <img src="./midia/icone-estrela.png" alt="">
+                            5
+                        </p>
+                        <button>Abrir</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="./midia/card-image.png" alt="Imagem 1">
+                    <p class="title-card">Jabuticabeira</p>
+                    <p class="frutifera-card">
+                        Frutífera:
+                        <img src="./midia/correct-frutifera.png" alt="">
+                    </p>
+                    <div class="container-assessment-button">
+                        <p class="assessment-card">
+                            <img src="./midia/icone-estrela.png" alt="">
+                            5
+                        </p>
+                        <button>Abrir</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="./midia/card-image.png" alt="Imagem 1">
+                    <p class="title-card">Jabuticabeira</p>
+                    <p class="frutifera-card">
+                        Frutífera:
+                        <img src="./midia/correct-frutifera.png" alt="">
+                    </p>
+                    <div class="container-assessment-button">
+                        <p class="assessment-card">
+                            <img src="./midia/icone-estrela.png" alt="">
+                            5
+                        </p>
+                        <button>Abrir</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="card">
-                <img src="./midia/card-image.png" alt="Imagem 1">
-                <p class="title-card">Jabuticabeira</p>
-                <p class="frutifera-card">
-                    Frutífera: 
-                    <img src="./midia/correct-frutifera.png" alt=""></p>
-                <div class="container-assessment-button">
-                    <p class="assessment-card">
-                        <img src="./midia/icone-estrela.png" alt="">
-                        5
-                    </p>
-                    <button>Abrir</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="./midia/card-image.png" alt="Imagem 1">
-                <p class="title-card">Jabuticabeira</p>
-                <p class="frutifera-card">
-                    Frutífera: 
-                    <img src="./midia/correct-frutifera.png" alt=""></p>
-                <div class="container-assessment-button">
-                    <p class="assessment-card">
-                        <img src="./midia/icone-estrela.png" alt="">
-                        5
-                    </p>
-                    <button>Abrir</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="./midia/card-image.png" alt="Imagem 1">
-                <p class="title-card">Jabuticabeira</p>
-                <p class="frutifera-card">
-                    Frutífera: 
-                    <img src="./midia/correct-frutifera.png" alt=""></p>
-                <div class="container-assessment-button">
-                    <p class="assessment-card">
-                        <img src="./midia/icone-estrela.png" alt="">
-                        5
-                    </p>
-                    <button>Abrir</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="./midia/card-image.png" alt="Imagem 1">
-                <p class="title-card">Jabuticabeira</p>
-                <p class="frutifera-card">
-                    Frutífera: 
-                    <img src="./midia/correct-frutifera.png" alt=""></p>
-                <div class="container-assessment-button">
-                    <p class="assessment-card">
-                        <img src="./midia/icone-estrela.png" alt="">
-                        5
-                    </p>
-                    <button>Abrir</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="./midia/card-image.png" alt="Imagem 1">
-                <p class="title-card">Jabuticabeira</p>
-                <p class="frutifera-card">
-                    Frutífera: 
-                    <img src="./midia/correct-frutifera.png" alt=""></p>
-                <div class="container-assessment-button">
-                    <p class="assessment-card">
-                        <img src="./midia/icone-estrela.png" alt="">
-                        5
-                    </p>
-                    <button>Abrir</button>
-                </div>
-            </div>
+            <button class="scroll-button-left" onclick="scrollCardsLeft()"></button>
+            <button class="scroll-button-right" onclick="scrollCardsRight()"></button>
         </div>
 
-        <button class="scroll-button-left" onclick="scrollCardsLeft()"></button>
-        <button class="scroll-button-right" onclick="scrollCardsRight()"></button>
-    </div>
-
-    <footer>
-        <p class="contatos">•  Contatos</p>
-        <div class="coluns">
-            <div class="column">
-                <p>CarborTech</p>
-                <p>carbortech@gmail.com</p>
+        <footer>
+            <p class="contatos">• Contatos</p>
+            <div class="coluns">
+                <div class="column">
+                    <p>CarborTech</p>
+                    <p>carbortech@gmail.com</p>
+                </div>
+                <div class="column">
+                    <p>Giovani Dalmas</p>
+                    <p>giovanidalmas053@gmail.com</p>
+                </div>
+                <div class="column">
+                    <p>João Vitor A. Medeiros</p>
+                    <p>joaovitoramedeiros@gmail.com</p>
+                </div>
             </div>
-            <div class="column">
-                <p>Giovani Dalmas</p>
-                <p>giovanidalmas053@gmail.com</p>
-            </div>
-            <div class="column">
-                <p>João Vitor A. Medeiros</p>
-                <p>joaovitoramedeiros@gmail.com</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
     </div>
 </body>
+
 <script src="./js/principal.js"></script>
 </html>

@@ -21,11 +21,11 @@ function autoChangeImage() {
 var intervalId = setInterval(autoChangeImage, 5000);
 
 var banner = document.querySelector('.banner');
-banner.addEventListener('mouseover', function() {
+banner.addEventListener('mouseover', function () {
     clearInterval(intervalId);
 });
 
-banner.addEventListener('mouseout', function() {
+banner.addEventListener('mouseout', function () {
     intervalId = setInterval(autoChangeImage, 5000);
 });
 
