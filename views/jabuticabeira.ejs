@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/jabuticabeira.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <title>CarborTech</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="logo">
+            <img src="./img/zyro-image2.png" class="img-logo" alt="Logo">
+            <span class="carbortech">CarborTech</span>
+        </h1>
+        <ul class="nav-items">
+            <li class="nav-item"><a class="nav-link" href="/principal">Início</a></li>
+            <label for="toggle-categorias" class="nav-link">Categorias</label>
+                    <input type="checkbox" id="toggle-categorias" class="toggle">
+                    <ul class="category-list">
+                        <a href="/principal"><li>Produtos</li></a>
+                        <li>Cadastrar área</li>
+                        <li>Solicitar serviço</li>
+                        <a href="/"><li>Cadastrar-se</li></a>
+                        <li>Entrar</li>
+                    </ul>
+        </ul>
+        <div class="search-bar">
+            <form class="search-form" action="#" method="GET">
+                <input type="text" name="search" placeholder="Pesquise aqui">
+                <input type="submit" value="Buscar">
+            </form>
+        </div>
+        <div class="buttons">
+            <button class="btn-entrar">Entrar</button>
+            <button class="btn-cadastrar-se">Cadastrar-se</button>
+        </div>
+    </header>
+
+    <div class="product">
+        <div class="informations">
+            <div class="image">
+                <img src="./img/20230727_114256.jpg" alt="Imagem">
+            </div>
+            <div class="content">
+                <h2 class="content-title">Jabuticabeira</h2>
+                <p class="content-quantidade">Quantidade disponível: 10</p>
+                <p class="content-value">R$10,99</p>
+                <button class="btn-comprar">Comprar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="green-div">
+        <div class="titles-container">
+            <h3 class="first-title" onclick="moveLine1()">
+                <span class="title-text" onclick="restaurarInformacoesGerais()">Informações gerais</span>
+                <span class="line"></span>
+            </h3>
+            <h3 class="second-title" onclick="moveLine2()">
+                <span class="title-text-two" onclick="trocarInformacoesPlantio()">Informações de plantio</span>
+            </h3>
+        </div>
+        <img class="informations-logo" src="./img/zyro-image2.png" alt="">
+        <img class="informations-logo-two" src="./img/zyro-image2.png" alt="">
+        <div class="text-container">
+            <p class="general-informations-text" id="general-informations-text">
+                A jabuticabeira é uma árvore nativa do Brasil, conhecida por sua peculiaridade e saboroso fruto, a jabuticaba. Pertencente à família Myrtaceae, a jabuticabeira possui o nome científico Plinia cauliflora e é comumente encontrada em diversas regiões do país, especialmente na Mata Atlântica.
+                <br><br><br>Essa árvore pode alcançar de 6 a 15 metros de altura e possui uma copa densa e arredondada, que proporciona sombra agradável em dias quentes. Suas folhas são simples, de cor verde-escura e aspecto brilhante, características que tornam a jabuticabeira uma opção popular para o paisagismo em jardins e parques.
+                <br><br><br>O fruto da jabuticabeira é uma pequena baga redonda, de casca fina e escura, que varia do roxo ao preto, dependendo da variedade. Seu sabor doce e levemente ácido é muito apreciado, sendo consumido in natura, utilizado em sucos, licores, geleias e outras deliciosas preparações culinárias.
+                <br><br><br>Uma característica marcante da jabuticabeira é o seu processo de frutificação. Ao contrário da maioria das árvores frutíferas, as jabuticabas surgem diretamente no tronco e nos galhos mais baixos, em um fenômeno conhecido como caulifloria. Essa particularidade encanta e surpreende a todos que têm o privilégio de presenciar o espetáculo das jabuticabas maduras cobrindo a árvore.
+                <br><br><br>A jabuticabeira possui importância cultural e histórica para as comunidades brasileiras. Além de ser apreciada pela culinária local e pela produção de alimentos, a árvore também inspira lendas e tradições populares. Seu cultivo é valorizado, e muitas pessoas se dedicam ao plantio e à preservação dessa espécie tão especial, que simboliza parte da rica biodiversidade brasileira.
+            </p>
+            <img class="general-informations-img" src="./img/Jabuticaba.png" alt="">
+        </div>
+
+        <footer>
+            <div class="container-videos">
+                <div class="video-and-text">
+                    <div class="div-video"></div>
+                    <p class="video-text">No viveiro do Instituto Brasileiro de Florestas é possível encontrar mudas de
+                        árvores nativas produzidas em tubetes plásticos de diversos tamanhos. Todas com a certificação
+                        no Registro Nacional de Mudas e Sementes – RENASEM. No viveiro do Instituto Brasileiro de
+                        Florestas é possível encontrar mudas de árvores nativas produzidas em tubetes plásticos de
+                        diversos tamanhos. Todas com a certificação no Registro Nacional de Mudas e Sementes – RENASEM.
+                    </p>
+                </div>
+                <div class="video-and-text">
+                    <p class="video-text">No viveiro do Instituto Brasileiro de Florestas é possível encontrar mudas de
+                        árvores nativas produzidas em tubetes plásticos de diversos tamanhos. Todas com a certificação
+                        no Registro Nacional de Mudas e Sementes – RENASEM. No viveiro do Instituto Brasileiro de
+                        Florestas é possível encontrar mudas de árvores nativas produzidas em tubetes plásticos de
+                        diversos tamanhos. Todas com a certificação no Registro Nacional de Mudas e Sementes – RENASEM.
+                    </p>
+                    <div class="div-video"></div>
+                </div>
+            </div>
+            <div class="footer-continuation"></div>
+        </footer>
+    </div>
+</body>
+
+<script src="./js/jabuticabeira.js"></script>
+</html>

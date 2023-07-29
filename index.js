@@ -9,7 +9,8 @@ const port = 3300;
 
     app.get('/', (req, res) => {res.render('usuarios/cadastro.ejs')});
     app.get('/principal', (req, res) => {res.render('principal.ejs')});
-    app.get('/produto', (req, res) => {res.render('produto.ejs')});
+    app.get('/jabuticabeira', (req, res) => {res.render('jabuticabeira.ejs')});
+    app.get('/araucaria', (req, res) => {res.render('araucaria.ejs')});
 
     app.listen(port, () => { 
         console.log(`Servidor rodando em http://localhost:${port}`);

@@ -37,17 +37,63 @@ header {
   font-size: 1rem;
 }
 
-.nav-item {
-  margin-right: 1.4rem;
-}
-
 .nav-item:hover {
   color: #8a8a8a;
 }
 
 .nav-link {
+  margin-right: 1.4rem;
   color: #3f3f3f;
   text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: #8a8a8a;
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+  display: none;
+  background-color: #fff;
+  position: absolute;
+  z-index: 1;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  text-decoration: none;
+}
+
+.toggle {
+  display: none;
+}
+
+.toggle:checked + .category-list {
+  display: block;
+}
+
+.category-list li {
+  padding: 0.8rem 1.5rem;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.category-list li:hover {
+  background-color: #d6d6d6;
+}
+
+.category-list li a {
+  text-decoration: none;
+  color: #333;
+  border-radius: 0.5rem;
+}
+
+.category-list a li {
+  text-decoration: none;
+  color: #333;
+  text-decoration: underline;
+  text-decoration-color: #d6d6d6;
 }
 
 /* Barra de navegação */
@@ -153,12 +199,24 @@ header {
   }
 
   .nav-item {
+    margin-right: 0rem;
+  }
+
+  .nav-link {
     margin-right: 4rem;
   }
 
+  .category-list {
+    margin-top: 4rem;
+  }
+
+  .category-list li {
+    font-size: 4rem;
+    padding: 1.5rem 7rem;
+  }
+
   .search-form {
-    margin: 0 auto;
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 
   .search-form input[type="text"] {
@@ -214,7 +272,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-image: url("../midia/scaled_IMG-20230621-WA0268-photo-processed\ \(1\).jpg");
+  background-image: url("../img/scaled_IMG-20230621-WA0268-photo-processed\ \(1\).jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -524,7 +582,7 @@ body {
   font-weight: 400;
   color: #323232;
   margin: 0 auto;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
 .frutifera-card img {
@@ -536,6 +594,8 @@ body {
 .container-assessment-button {
   display: flex;
   align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1.7rem;
 }
 
 .assessment-card {
@@ -559,10 +619,9 @@ body {
   color: #ececec;
   border: none;
   transition: all 0.5s;
-  padding: 0.3rem 1.25rem;
+  padding: 0.4rem 1.5rem;
   border-radius: 0.2rem;
-  margin-left: 6rem;
-  margin-top: 0;
+  margin-left: 5.65rem;
 }
 
 .container-assessment-button button:hover {
@@ -632,7 +691,7 @@ body {
   }
 
   .frutifera-card {
-    font-size: 2rem;
+    font-size: 2.6rem;
     font-weight: 400;
     margin-top: 1rem;
   }
@@ -658,17 +717,17 @@ body {
 
   .container-assessment-button button {
     font-size: 3rem;
-    padding: 0.7rem 3.8rem;
+    padding: 1rem 3.8rem;
     border-radius: 0.7rem;
-    margin-left: 9rem;
-    margin-top: 2rem;
+    margin-left: 12rem;
+    margin-top: 1rem;
   }
 }
 
 /*RODAPÉ*/
 
 footer {
-  background-image: url("../midia/Rodapé.png");
+  background-image: url("../img/Rodapé.png");
   margin-top: 2rem;
   width: 100%;
   height: 35rem;

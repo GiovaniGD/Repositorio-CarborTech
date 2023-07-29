@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/x-icon" href="public/img/zyro-image2.png" />
     <link rel="stylesheet" href="./css/principal.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -13,19 +14,27 @@
 
 <body>
     <div class="principal-container">
-        <header>
+        <header id="header">
             <h1 class="logo">
-                <img src="./midia/zyro-image2.png" class="img-logo" alt="Logo">
+                <img src="./img/zyro-image2.png" class="img-logo" alt="Logo">
                 <span>CarborTech</span>
             </h1>
             <ul class="nav-items">
-                <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Categorias</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contatos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#header">Início</a></li>
+                <label for="toggle-categorias" class="nav-link">Categorias</label>
+                    <input type="checkbox" id="toggle-categorias" class="toggle">
+                    <ul class="category-list">
+                        <a href="#card-container"><li>Produtos</li></a>
+                        <li>Cadastrar área</li>
+                        <li>Solicitar serviço</li>
+                        <a href="/"><li>Cadastrar-se</li></a>
+                        <li>Entrar</li>
+                    </ul>
+                <li class="nav-item"><a class="nav-link" href="#footer">Contatos</a></li>
             </ul>
             <div class="search-bar">
                 <form class="search-form" action="#" method="GET">
-                    <input type="text" name="search" placeholder="Pesquise aqui">
+                    <input type="text" id="searchInput" name="search" placeholder="Pesquise aqui">
                     <input type="submit" value="Buscar">
                 </form>
             </div>
@@ -41,9 +50,10 @@
             </form>
         </div>
 
+        <div id="contentContainer">
         <div class="banner">
-            <img src="./midia/Imagem alerta de semeaduras.png" alt="Imagem 1" class="active">
-            <img src="./midia/scaled_IMG-20230621-WA0268-photo-processed (1).jpg" alt="Imagem 2">
+            <img src="./img/Imagem alerta de semeaduras.png" alt="Imagem 1" class="active">
+            <img src="./img/2-banner-img.png" alt="Imagem 2">
             <div class="banner-buttons">
                 <button onclick="changeImage(-1)">&#8249;</button>
                 <button onclick="changeImage(1)">&#8250;</button>
@@ -51,10 +61,10 @@
         </div>
 
         <div class="register-div">
-            <img src="./midia/Imagem de cadastro.png" alt="Imagem" class="register-image">
+            <img src="./img/Imagem de cadastro.png" alt="Imagem" class="register-image">
             <div class="register-content">
                 <p class="p-cadastro-areas">
-                    <img src="./midia/Ícone mapa.png" alt="">
+                    <img src="./img/Ícone mapa.png" alt="">
                     Cadastro de áreas
                 </p>
                 <p class="p-register-text">Cadastre sua propriedade para registrá-la como reservada para a restauração
@@ -65,124 +75,37 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="card-container">
+        <div class="card-container" id="card-container">
             <div class="cards-wrapper" id="cardsWrapper">
 
-                <div class="card">
-                    <img src="./midia/card-image.png" alt="Imagem 1">
-                    <p class="title-card">Jabuticabeira</p>
+                <div class="card" id="card-1">
+                    <img src="./img/card-image.png" alt="Imagem 1">
+                    <p class="title-card">Araucária</p>
                     <p class="frutifera-card">
                         Frutífera:
-                        <img src="./midia/correct-frutifera.png" alt="">
+                        <img src="./img/incorrect-frutifera.png" alt="">
                     </p>
                     <div class="container-assessment-button">
-                        <p class="assessment-card">
-                            <img src="./midia/icone-estrela.png" alt="">
-                            5
-                        </p>
-                        <a href="./produto">
+                        <a href="./araucaria">
                             <button>Abrir</button>
                         </a>
                     </div>
                 </div>
 
 
-                <div class="card">
-                    <img src="./midia/card-image.png" alt="Imagem 1">
+                <div class="card" id="card-2">
+                    <img src="./img/20230727_114256.jpg" alt="Imagem 1">
                     <p class="title-card">Jabuticabeira</p>
                     <p class="frutifera-card">
                         Frutífera:
-                        <img src="./midia/correct-frutifera.png" alt="">
+                        <img src="./img/correct-frutifera.png" alt="">
                     </p>
                     <div class="container-assessment-button">
-                        <p class="assessment-card">
-                            <img src="./midia/icone-estrela.png" alt="">
-                            5
-                        </p>
-                        <a href="./produto">
+                        <a href="./jabuticabeira">
                             <button>Abrir</button>
                         </a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./midia/card-image.png" alt="Imagem 1">
-                    <p class="title-card">Jabuticabeira</p>
-                    <p class="frutifera-card">
-                        Frutífera:
-                        <img src="./midia/correct-frutifera.png" alt="">
-                    </p>
-                    <div class="container-assessment-button">
-                        <p class="assessment-card">
-                            <img src="./midia/icone-estrela.png" alt="">
-                            5
-                        </p>
-                        <button>Abrir</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./midia/card-image.png" alt="Imagem 1">
-                    <p class="title-card">Jabuticabeira</p>
-                    <p class="frutifera-card">
-                        Frutífera:
-                        <img src="./midia/correct-frutifera.png" alt="">
-                    </p>
-                    <div class="container-assessment-button">
-                        <p class="assessment-card">
-                            <img src="./midia/icone-estrela.png" alt="">
-                            5
-                        </p>
-                        <button>Abrir</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./midia/card-image.png" alt="Imagem 1">
-                    <p class="title-card">Jabuticabeira</p>
-                    <p class="frutifera-card">
-                        Frutífera:
-                        <img src="./midia/correct-frutifera.png" alt="">
-                    </p>
-                    <div class="container-assessment-button">
-                        <p class="assessment-card">
-                            <img src="./midia/icone-estrela.png" alt="">
-                            5
-                        </p>
-                        <button>Abrir</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./midia/card-image.png" alt="Imagem 1">
-                    <p class="title-card">Jabuticabeira</p>
-                    <p class="frutifera-card">
-                        Frutífera:
-                        <img src="./midia/correct-frutifera.png" alt="">
-                    </p>
-                    <div class="container-assessment-button">
-                        <p class="assessment-card">
-                            <img src="./midia/icone-estrela.png" alt="">
-                            5
-                        </p>
-                        <button>Abrir</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./midia/card-image.png" alt="Imagem 1">
-                    <p class="title-card">Jabuticabeira</p>
-                    <p class="frutifera-card">
-                        Frutífera:
-                        <img src="./midia/correct-frutifera.png" alt="">
-                    </p>
-                    <div class="container-assessment-button">
-                        <p class="assessment-card">
-                            <img src="./midia/icone-estrela.png" alt="">
-                            5
-                        </p>
-                        <button>Abrir</button>
                     </div>
                 </div>
             </div>
@@ -191,7 +114,7 @@
             <button class="scroll-button-right" onclick="scrollCardsRight()"></button>
         </div>
 
-        <footer>
+        <footer id="footer">
             <p class="contatos">• Contatos</p>
             <div class="coluns">
                 <div class="column">
