@@ -272,7 +272,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-image: url("../img/scaled_IMG-20230621-WA0268-photo-processed\ \(1\).jpg");
+  background-image: url("../assets/img/scaled_IMG-20230621-WA0268-photo-processed\ \(1\).jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -727,7 +727,7 @@ body {
 /*RODAPÉ*/
 
 footer {
-  background-image: url("../img/Rodapé.png");
+  background-image: url("../assets/img/Rodapé.png");
   margin-top: 2rem;
   width: 100%;
   height: 35rem;
