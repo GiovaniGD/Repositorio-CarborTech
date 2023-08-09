@@ -13,33 +13,7 @@
 
 <body>
     <header>
-        <h1 class="logo">
-            <img src="assets/img/zyro-image2.png" class="img-logo" alt="Logo">
-            <span class="carbortech">CarborTech</span>
-        </h1>
-        <ul class="nav-items">
-            <li class="nav-item"><a class="nav-link" href="/principal">Início</a></li>
-            <label for="toggle-categorias" class="nav-link">Categorias</label>
-                    <input type="checkbox" id="toggle-categorias" class="toggle">
-                    <ul class="category-list">
-                        <a href="/principal"><li>Produtos</li></a>
-                        <li>Cadastrar área</li>
-                        <li>Solicitar serviço</li>
-                        <a href="/inicial"><li>CarborBlog</li></a>
-                        <a href="/"><li>Cadastrar-se</li></a>
-                        <li>Entrar</li>
-                    </ul>
-        </ul>
-        <div class="search-bar">
-            <form class="search-form" action="#" method="GET">
-                <input type="text" name="search" placeholder="Pesquise aqui">
-                <input type="submit" value="Buscar">
-            </form>
-        </div>
-        <div class="buttons">
-            <button class="btn-entrar">Entrar</button>
-            <button class="btn-cadastrar-se">Cadastrar-se</button>
-        </div>
+        <%- include('../layouts/header') %>
     </header>
 
     <div class="product">

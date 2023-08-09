@@ -26,6 +26,13 @@ header {
   font-weight: bold;
   margin-top: 0.3rem;
   color: #4ba95a;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  text-decoration-color: #a56363;
+}
+
+.logo:hover {
+  color: #64bf71;
 }
 
 /* Categorias de navegação */
@@ -94,6 +101,10 @@ header {
   color: #333;
   text-decoration: underline;
   text-decoration-color: #d6d6d6;
+}
+
+.bi {
+  padding-right: 1rem;
 }
 
 /* Barra de navegação */
@@ -212,7 +223,7 @@ header {
 
   .category-list li {
     font-size: 4rem;
-    padding: 1.5rem 7rem;
+    padding: 1.5rem 10rem;
   }
 
   .search-form {
@@ -272,7 +283,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-image: url("../assets/img/scaled_IMG-20230621-WA0268-photo-processed\ \(1\).jpg");
+  background-image: url("../assets/img/background-img.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
