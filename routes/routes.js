@@ -7,12 +7,12 @@ routes.get('/jabuticabeira', (req, res) => {res.render('produtos/jabuticabeira.e
 routes.get('/araucaria', (req, res) => {res.render('produtos/araucaria.ejs')});
 
 //blog
-routes.get('/inicial', (req, res) => {res.render('carborblog/inicial.ejs')});
-routes.get('/contact', (req, res) => {res.render('carborblog/contact.ejs')});
-routes.get('/about', (req, res) => {res.render('carborblog/about.ejs')});
-routes.get('/o-desmatamento-das-araucarias-ao-longo-da-historia', (req, res) => {res.render('carborblog/posts/post1.ejs')});
-routes.get('/conheca-algumas-especies-nativas-do-rs', (req, res) => {res.render('carborblog/posts/post2.ejs')});
-routes.get('/a-vegetacao-dos-pampas', (req, res) => {res.render('carborblog/posts/post3.ejs')});
-routes.get('/a-vegetacao-da-mata-atlantica', (req, res) => {res.render('carborblog/posts/post4.ejs')});
+routes.get('/inicial', (req, res) => {res.render('blog/inicial.ejs')});
+routes.get('/contact', (req, res) => {res.render('blog/contact.ejs')});
+routes.get('/about', (req, res) => {res.render('blog/about.ejs')});
+routes.get('/o-desmatamento-das-araucarias-ao-longo-da-historia', (req, res) => {res.render('blog/posts/post1.ejs')});
+routes.get('/conheca-algumas-especies-nativas-do-rs', (req, res) => {res.render('blog/posts/post2.ejs')});
+routes.get('/a-vegetacao-dos-pampas', (req, res) => {res.render('blog/posts/post3.ejs')});
+routes.get('/a-vegetacao-da-mata-atlantica', (req, res) => {res.render('blog/posts/post4.ejs')});
 
 module.exports = routes;
