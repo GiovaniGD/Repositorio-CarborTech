@@ -276,7 +276,6 @@ header {
 /*CORPO DO SITE*/
 
 html {
-  width: 95rem;
   overflow-x: hidden;
 }
 
@@ -345,8 +344,12 @@ body {
 
 /*Banner rotativo responsivo*/
 @media (max-width: 50rem) {
+  html {
+    width: 100rem;
+  }
+
   .banner {
-    width: 92rem;
+    width: 92%;
     height: 13rem;
     margin-top: 4rem;
   }
@@ -445,7 +448,7 @@ body {
 /*Div de cadastro responsiva*/
 @media (max-width: 50rem) {
   .register-div {
-    width: 87.5rem;
+    width: 90%;
     height: 60rem;
     margin-top: 6rem;
     border-radius: 1.2rem;

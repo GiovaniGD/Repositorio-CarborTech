@@ -2,6 +2,9 @@ const express = require("express");
 const path = require("path");
 const routes = require("./routes/routes");
 const connection = require("./models/database");
+const session = require("express-session");
+
+require('dotenv').config();
 
 const app = express();
 const port = 3300;

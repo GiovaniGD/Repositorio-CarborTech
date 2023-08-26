@@ -185,6 +185,10 @@ body {
   /*CABEÇALHO RESPONSIVO*/
   
   @media (max-width: 50rem) {
+    html {
+      width: 100rem;
+    }
+
     header {
       padding: 0.4rem;
       height: 12.5rem;
