@@ -1,9 +1,6 @@
 const routes = require("express").Router();
 
 //rotas
-routes.get('/cadastro', (req, res) => {res.render('usuarios/cadastro.ejs')});
-routes.get('/login', (req, res) => {res.render('usuarios/login.ejs')});
-routes.get('/', (req, res) => {res.render('principal.ejs')});
 routes.get('/jabuticabeira', (req, res) => {res.render('produtos/jabuticabeira.ejs')});
 routes.get('/araucaria', (req, res) => {res.render('produtos/araucaria.ejs')});
 

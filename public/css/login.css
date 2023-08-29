@@ -40,6 +40,7 @@
   a {
     cursor: pointer;
     transition: all 0.1s ease-in-out;
+    float: left;
   }
   
   #banner {
@@ -85,25 +86,25 @@
     width: 70%;
   }
   
-  a#login {
+  button#login {
     display: flex;
     align-items: center;
     background: none;
     border: 0.1rem solid #55ad63;
     border-radius: 0.2rem;
     color: #55ad63;
-    padding: 0rem 1rem;
+    padding: 0.4rem 1rem;
     font-size: 1rem;
     transition: all 0.5s;
     text-decoration: none;
   }
   
-  a#login:hover {
+  button#login:hover {
     background-color: #55ad63;
     color: white;
   }
   
-  a#submit {
+  button#submit {
     align-items: center;
     background: #4684fb;
     border: 0.1rem solid #4684fb;
@@ -115,7 +116,7 @@
     text-decoration: none;
   }
   
-  a#submit:hover {
+  button#submit:hover {
     background-color: white;
     color: #4684fb;
   }
