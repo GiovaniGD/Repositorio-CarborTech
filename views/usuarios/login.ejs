@@ -19,6 +19,13 @@
         <div id="form">
             <h1 style="color: #55AD63">Login</h1>
             <form action="/login" method="post">
+
+                <% if (erro) { %>
+                    <div class="alert alert-danger position-absolute top-0 start-50 translate-middle-x mt-5" role="alert">
+                      <%= erro %>
+                    </div>
+                <% } %>
+                
                 <input  type="text" name="nome" id="nome" placeholder="Nome" />
                 <input type="email" name="email" id="email" placeholder="Email" />
                 <input type="password" name="senha" id="senha" placeholder="Senha" />

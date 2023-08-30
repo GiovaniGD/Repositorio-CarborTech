@@ -3,11 +3,11 @@ const usuarioModel = require('../models/usuarioModel');
 function login(req, res) {
     erro = req.query.erro;
     if(erro == 1){
-        erro = 'Email ou senha incorretos';
+        erro = 'Dados não correspondentes';
     }else if(erro == 2){
-        erro = 'Você precisa estar logado para acessar essa página';
+        erro = 'Faça login antes de prosseguir';
     }else if(erro == 3){
-        erro = 'Usuário cadastrado com sucesso';
+        erro = 'Usuário cadastrado com sucesso!';
     }else{
         erro = '';
     }
@@ -21,9 +21,9 @@ function login(req, res) {
 function cadastro(req, res) {
     erro = req.query.erro;
     if(erro == 1){
-        erro = 'Já existe um usuário com esse email';
+        erro = 'Email já cadastrado';
     }else if(erro == 2){
-        erro = 'Senhas não conferem';
+        erro = 'Senhas não correspondentes';
     }else{
         erro = '';
     }
