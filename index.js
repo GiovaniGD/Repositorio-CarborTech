@@ -31,7 +31,7 @@ const port = 3300;
             next();
         }else{
             console.log('Não logado');
-            if(req.url == '/' || req.url == '/perfil' || req.url == '/logout'){
+            if(req.url == '/urgus' || req.url == '/perfil'){
                 res.redirect('/login?erro=2');
             }else{
                 next();
