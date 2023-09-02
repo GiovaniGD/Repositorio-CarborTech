@@ -13,7 +13,7 @@ function login(req, res) {
     }
     res.locals.layoutVariables = {
         url: process.env.URL,
-        title: "Login"
+        title: "CarborTech"
     };
     res.render('usuarios/login');
 }
@@ -29,7 +29,7 @@ function cadastro(req, res) {
     }
     res.locals.layoutVariables = {
         url: process.env.URL,
-        title: "Cadastro"
+        title: "CarborTech"
     };
     res.render('usuarios/cadastro');
 }

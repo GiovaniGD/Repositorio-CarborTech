@@ -3,10 +3,10 @@ const mysql = require('mysql2/promise');
 async function connect() {
   try {
     const connection = await mysql.createConnection({
-      host: 'localhost',
-      user: 'root',
-      password: '',
-      database: 'carbortech'
+      host: 'mysql.infocimol.com.br',
+      user: 'infocimol07',
+      password: 'carbortech123',
+      database: 'infocimol07'
     });
     console.log('Conexão estabelecida com sucesso');
     return connection;
