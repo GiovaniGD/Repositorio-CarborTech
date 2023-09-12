@@ -1,7 +1,6 @@
 const express = require("express"); 
 const path = require("path");
 const routes = require("./routes/routes");
-const cloudinary = require('cloudinary').v2;
 const session = require("express-session");
 const dotenv = require('dotenv').config();
 const connection = require("./models/db");
@@ -10,12 +9,6 @@ const usuarioController = require('./controllers/usuarioController');
 
 const app = express();
 const port = 3300;
-
-    cloudinary.config({ 
-        cloud_name: 'dimt4ezzx', 
-        api_key: '313823824762314', 
-        api_secret: 'JpCkXOn3GDQiqjr99dck7vVaZHw' 
-    });
 
     app.set("view engine", "ejs");
     app.set('layout', './usuarios/login');

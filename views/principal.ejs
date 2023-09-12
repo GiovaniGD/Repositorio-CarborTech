@@ -55,13 +55,17 @@
         </div>
     </div>
 
-        <div class="card-container" id="card-container">
+        <div class="text-center p-3 mt-5 bg-white shadow bg-opacity-75" style="margin-bottom: -2rem;">
+            <h4 id="title-card" class="fw-medium" style="color: #323232;"><i class="bi bi-tree-fill"></i>Mudas nativas para venda<i class="bi bi-tree-fill m-lg-3"></i></h4>
+        </div>
+        <div class="card-container bg-white shadow-sm rounded bg-opacity-75" id="card-container">
             <div class="cards-wrapper" id="cardsWrapper">
+
   
             <%- include('./layouts/cards') %>
 
-            <button class="scroll-button-left" onclick="scrollCardsLeft()"></button>
-            <button class="scroll-button-right" onclick="scrollCardsRight()"></button>
+            <button class="scroll-button-left visually-hidden" onclick="scrollCardsLeft()"></button>
+            <button class="scroll-button-right visually-hidden" onclick="scrollCardsRight()"></button>
         </div>
 
         <footer id="footer">

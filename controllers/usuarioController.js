@@ -3,17 +3,14 @@ const usuarioModel = require('../models/usuarioModel');
 function login(req, res) {
     erro = req.query.erro;
     if(erro == 1){
-        erro = 'Dados não correspondentes';
+        erro = 'Dados não correspondentes, verifique-os';
     }else if(erro == 2){
-        erro = 'Faça login antes de prosseguir';
-    }else if(erro == 3){
-        erro = 'Usuário cadastrado com sucesso!';
+        erro = 'Faça login antes de prosseguir para essa tela';
     }else{
         erro = '';
     }
     res.locals.layoutVariables = {
-        url: process.env.URL,
-        title: "CarborTech"
+        url: process.env.URL, title: "CarborTech"
     };
     res.render('usuarios/login');
 }
@@ -21,15 +18,14 @@ function login(req, res) {
 function cadastro(req, res) {
     erro = req.query.erro;
     if(erro == 1){
-        erro = 'Email já cadastrado';
+        erro = 'Este email já está cadastrado';
     }else if(erro == 2){
-        erro = 'Senhas não correspondentes';
+        erro = 'Senha incorreta';
     }else{
         erro = '';
     }
     res.locals.layoutVariables = {
-        url: process.env.URL,
-        title: "CarborTech"
+        url: process.env.URL, title: "CarborTech"
     };
     res.render('usuarios/cadastro');
 }
@@ -53,18 +49,15 @@ async function autenticar(req, res) {
 }
 
 async function cadastrar(req, res) {
-    const { nome, email, senha , senha2} = req.body;
-    if(senha !== senha2){
+    const { nome, email, senha , criptSenha} = req.body;
+    if(senha !== criptSenha){
         console.log('Senhas não conferem');
         res.redirect('/cadastro?erro=2');
     }else{
         let resp = await usuarioModel.cadastrarUsuario(nome, email, senha);
     if(resp === false){
-        console.log('Usuário já existe');
+        console.log('Este usuário já cadastrado');
         res.redirect('/cadastro?erro=1');
-        }else if(resp.affectedRows > 0){
-            console.log('Usuário cadastrado');
-            res.redirect('/login?erro=3');
         }else{
             console.log('Erro ao cadastrar usuário');
             res.redirect('/cadastro');
@@ -72,9 +65,9 @@ async function cadastrar(req, res) {
     }
 }
 
-function logout(req, res){
+function deslogar(req, res){
     delete req.session.usuario;
     res.redirect('/login');
 }
 
-module.exports = { login, cadastro, autenticar, cadastrar, logout };
+module.exports = { login, cadastro, autenticar, cadastrar, deslogar };
