@@ -287,6 +287,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-position: 60% 30%;
+  scrollbar-width: none; 
 }
 
 .container {
