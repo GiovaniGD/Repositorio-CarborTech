@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/x-icon" href="/img/zyro-image2.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="/css/mapa.css">
+    <title>CarborTech</title>
+</head>
+<body>
+    <header>
+        <h1 class="logo">
+            <img src="assets/img/zyro-image2.png" class="img-logo" alt="Logo">
+            <span>CarborTech</span>
+        </h1>
+
+        <ul class="nav-items">
+            <li class="nav-item"><a class="nav-link" href="/">Início</a></li>
+            <label for="toggle-categorias" class="nav-link">Categorias</label>
+                <input type="checkbox" id="toggle-categorias" class="toggle">
+                <ul class="category-list">
+                    <a href="#card-container"><li><i class="bi bi-cart2"></i>Produtos</li></a>
+                    <li><i class="bi bi-geo-alt"></i>Cadastrar área</li>
+                    <li><i class="bi bi-tree"></i>Solicitar serviço</li>
+                    <a href="/inicial"><li><i class="bi bi-laptop"></i>CarborBlog</li></a>
+                    <a href="/cadastro"><li><i class="bi bi-door-open"></i></i>Cadastrar-se</li></a>
+                    <a href="/login"><li><i class="bi bi-box-arrow-in-right"></i>Login</li></a>
+                </ul>
+        </ul>
+
+        <div class="search-bar">
+            <form class="search-form" action="#" method="GET">
+                <input type="text" id="searchInput" name="search" placeholder="Pesquise aqui">
+                <input type="submit" value="Buscar">
+            </form>
+        </div>
+
+        <div class="buttons">
+            <a href="/login"><button class="btn-entrar">Login</button></a>
+            <a href="/cadastro"><button class="btn-cadastrar-se">Cadastrar-se</button></a>
+        </div>
+    </header>
+
+<div id="googleMap"></div>
+
+
+<script src="/js/mapa.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1IQrOgjTbVBhj6-cVC-LD6updevCRk34&callback=myMap"></script>
+
+</body>
+</html>

@@ -422,6 +422,9 @@ body {
   padding: 0.45rem 1rem;
   border-radius: 0.2rem;
   margin-left: 1.5rem;
+  cursor: pointer;
+  text-decoration: none;
+
 }
 
 .btn-cadastrar-area {

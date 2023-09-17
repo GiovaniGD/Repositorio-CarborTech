@@ -24,7 +24,7 @@ const port = 3300;
             next();
         }else{
             console.log('Não logado');
-            if(req.url == '/urgus' || req.url == '/perfil'){
+            if(req.url == '/mapa' || req.url == '/perfil'){
                 res.redirect('/login?erro=2');
             }else{
                 next();
