@@ -1,12 +1,6 @@
-html {
-    overflow-x: hidden;
-  }
+body {
 
-  body {
-    margin: 0;
-    padding: 0;
-    scrollbar-width: none; 
-  }
+}
 
 header {
     background-color: #ececec;
@@ -112,40 +106,6 @@ header {
   
   .bi {
     padding-right: 1rem;
-  }
-  
-  /* Barra de navegação */
-  .search-form {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-left: 23rem;
-    border-radius: 0.1rem;
-  }
-  
-  .search-form input[type="text"] {
-    padding: 0.25rem 0.6rem;
-    border: none;
-    border-radius: 0.1rem;
-  }
-  
-  .search-form input[type="text"]:focus {
-    outline: 0.01em solid #797979;
-  }
-  
-  .search-form input[type="submit"] {
-    padding: 0.25rem 0.55rem;
-    background-color: #fff;
-    color: #797979;
-    cursor: pointer;
-    border: none;
-    border-radius: 0.1rem;
-    margin-left: 0.3rem;
-  }
-  
-  .search-form input[type="submit"]:hover {
-    background-color: #fbfbfb;
-    outline: 0.01em solid #797979;
   }
   
   /* Botões de login e cadastro */
@@ -280,34 +240,79 @@ header {
     }
   }
 
-#googleMap {
-    width: 100%;
-    height: 87vh;
-}
+  #pac-card {
+    border-radius: 0.5rem;
+  }
 
-#map {
-    height: 100%;
-}
+       #map {
+        height: 91vh;
+      }
 
-html.body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
 
-.custom-map-control-button {
-    background-color: white;
-    border: 0;
-    border-radius: 1rem;
-    box-shadow: 0 1px 4px -1px #000000;
-    margin: 10px;
-    padding: 0 0.5em;
-    font: 400 18px Roboto, Arial, sans-serif;
-    overflow: hidden;
-    height: 40px;
-    cursor: pointer;
-}
+      #description {
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+      }
 
-.custom-map-control-button {
-    background: rgb(171, 162, 162);
-}
+      #infowindow-content .title {
+        font-weight: bold;
+      }
+
+      #infowindow-content {
+        display: none;
+      }
+
+      #map #infowindow-content {
+        display: inline;
+      }
+
+      .pac-card {
+        background-color: #fff;
+        border: 0;
+        border-radius: 2px;
+        box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+        margin: 10px;
+        padding: 0 0.5em;
+        font: 400 18px Roboto, Arial, sans-serif;
+        overflow: hidden;
+        font-family: Roboto;
+        padding: 0;
+      }
+
+      #pac-container {
+        padding-bottom: 12px;
+        margin-right: 12px;
+      }
+
+      .pac-controls {
+        display: inline-block;
+        padding: 5px 11px;
+      }
+
+      .pac-controls label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+        border-radius: 0.2rem;
+      }
+
+      #type-selector {
+        margin-bottom: 1rem;
+      }
