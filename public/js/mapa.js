@@ -6,12 +6,19 @@ function myMap() {
   var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
 
+const initDrawing = (map) => {
+  new google.maps.drawing.DrawingManager({
+    map: map
+  });
+}
+
       function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
           center: { lat: -29.584006, lng: -50.6736699 },
           zoom: 12,
           mapTypeControl: false,
         });
+
         const card = document.getElementById("pac-card");
         const input = document.getElementById("pac-input");
         const biasInputElement = document.getElementById("use-location-bias");
@@ -41,13 +48,14 @@ function myMap() {
           map,
           anchorPoint: new google.maps.Point(0, -29),
         });
+        initDrawing(map)
 
         autocomplete.addListener("place_changed", () => {
           infowindow.close();
           marker.setVisible(false);
 
           const place = autocomplete.getPlace();
-
+          
           if (!place.geometry || !place.geometry.location) {
             window.alert(
               "No details available for input: '" + place.name + "'"
