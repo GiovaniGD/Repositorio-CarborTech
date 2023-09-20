@@ -1,5 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Roboto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url("../assets/img/back-quiz.png");
+    background-repeat: no-repeat;
+    background-size: 150vh;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    scrollbar-width: none; 
+}
+
 header {
-    background-color: #ffff;
+    background-color: #ececec;
     padding: 0.6rem;
     color: #3f3f3f;
     display: flex;
@@ -60,7 +79,7 @@ header {
     list-style: none;
     padding: 0;
     display: none;
-    background-color: #fff;
+    background-color: #ececec;
     position: absolute;
     z-index: 1;
     border-radius: 0.5rem;
@@ -78,13 +97,13 @@ header {
   
   .category-list li {
     padding: 0.8rem 1.5rem;
-    background-color: #ffff;
+    background-color: #ececec;
     cursor: pointer;
     text-decoration: none;
   }
   
   .category-list li:hover {
-    background-color: #ffff;
+    background-color: #ececec;
   }
   
   .category-list li a {
@@ -97,7 +116,7 @@ header {
     text-decoration: none;
     color: #333;
     text-decoration: underline;
-    text-decoration-color: #ffff;
+    text-decoration-color: #ececec;
   }
   
   .bi {
@@ -122,25 +141,25 @@ header {
   }
   
   .btn-entrar {
-    background-color: #ffff;
+    background-color: #ececec;
     border: 0.1rem solid #55ad63;
     color: #55ad63;
   }
   
   .btn-entrar:hover {
     background-color: #55ad63;
-    color: #ffff;
+    color: #ececec;
   }
   
   .btn-cadastrar-se {
     background-color: #4684fb;
     border: 0.1rem solid #4684fb;
-    color: #ffff;
+    color: #ececec;
     transition: all 0.5s;
   }
   
   .btn-cadastrar-se:hover {
-    background-color: #ffff;
+    background-color: #ececec;
     color: #4684fb;
   }
   
@@ -236,85 +255,89 @@ header {
     }
   }
 
-  #pac-card {
-    border-radius: 0.5rem;
-    margin: 0.5rem 0 0 61.7%;
-  }
+  /*Questões*/
+main {
+    background-color: #ececec;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 33rem;
+    min-height: 16rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    margin-left: 33vw;
+    margin-top: 16vh;
+    box-shadow: 0rem 0.01rem 1rem rgb(85, 85, 85);
+}
 
-       #map {
-        height: 91vh;
-      }
+body h2 {
+    font-weight: 700;
+    color: #509d5d;
+}
 
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2rem;
+}
 
-      #description {
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-      }
+.spnQtd {
+    text-align: end;
+}
 
-      #infowindow-content .title {
-        font-weight: bold;
-      }
+.answers {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
 
-      #infowindow-content {
-        display: none;
-      }
+.answers button {
+    width: 100%;
+    text-align: start;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    background-color: #55ad63;
+    color: white;
+    box-shadow: 0.2rem 0.2rem #33693c;
+    transition: all 150ms;
+}
 
-      #map #infowindow-content {
-        display: inline;
-      }
+.answers button:hover {
+    background-color: #449151;
+}
 
-      .pac-card {
-        background-color: #fff;
-        border: 0;
-        border-radius: 2px;
-        box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
-        margin: 10px;
-        padding: 0 0.5em;
-        font: 400 18px Roboto, Arial, sans-serif;
-        overflow: hidden;
-        font-family: Roboto;
-        padding: 0;
-      }
+.reiniciar {
+    width: 100%;
+    text-align: start;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    background-color: #55ad63;
+    color: white;
+    box-shadow: 0.2rem 0.2rem #33693c;
+    transition: all 150ms;
+}
 
-      #pac-container {
-        padding-bottom: 12px;
-        margin-right: 12px;
-      }
+.reiniciar:hover {
+    background-color: #449151;
+}
 
-      .pac-controls {
-        display: inline-block;
-        padding: 5px 11px;
-      }
+.finish {
+    display: none;
+    flex-direction: column;
+    gap: 0.8rem;
+}
 
-      .pac-controls label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-      }
+.finish button {
+    text-align: center;
+}
 
-      #pac-input {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 22rem;
-        border-color: #ababab;
-        border-radius: 0.2rem;
-      }
-
-      #type-selector {
-        margin-bottom: 1rem;
-      }
-
-      #type-selector input {
-        cursor: pointer;
-      }
+.question {
+    font-size: 1.2rem ;
+    font-weight: 600;
+}

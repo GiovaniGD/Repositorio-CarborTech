@@ -4,6 +4,7 @@ const routes = require("express").Router();
 routes.get('/jabuticabeira', (req, res) => {res.render('produtos/jabuticabeira.ejs')});
 routes.get('/araucaria', (req, res) => {res.render('produtos/araucaria.ejs')});
 routes.get('/mapa', (req, res) => {res.render('servicos/mapa.ejs')});
+routes.get('/quiz', (req, res) => {res.render('servicos/quiz.ejs')});
 
 //blog
 routes.get('/inicial', (req, res) => {res.render('blog/inicial.ejs')});

@@ -1,8 +1,5 @@
 {
   "dependencies": {
-    "bcrypt": "^5.1.1",
-    "bcryptjs": "^2.4.3",
-    "cloudinary": "^1.40.0",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
@@ -27,5 +24,9 @@
   },
   "author": "Giovani Dalmas & João Vitor A. Medeiros",
   "license": "ISC",
-  "description": "Trabalho de Conclusão de Curso CarborTech desenvolvido para a disciplina de Projeto de Pesquisa da Escola Técnica Estadual Monteiro Lobato"
+  "description": "Trabalho de Conclusão de Curso CarborTech desenvolvido para a disciplina de Projeto de Pesquisa da Escola Técnica Estadual Monteiro Lobato",
+  "devDependencies": {
+    "@babel/core": "^7.22.20",
+    "@babel/preset-env": "^7.22.20"
+  }
 }

@@ -396,6 +396,7 @@ body {
 /*Textos e botões da div de cadastro*/
 .p-cadastro-areas {
   font-size: 1.35rem;
+  font-weight: 500;
   margin: 0 auto;
   margin-top: 1.5rem;
 }

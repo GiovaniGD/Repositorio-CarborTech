@@ -103,6 +103,10 @@ body {
     text-decoration: underline;
     text-decoration-color: #d6d6d6;
   }
+
+  li i {
+    padding-right: 1rem;
+  }
   
   /* Barra de navegação */
   .search-form {
