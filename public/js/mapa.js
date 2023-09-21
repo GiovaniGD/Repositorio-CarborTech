@@ -7,10 +7,44 @@ function myMap() {
 }
 
 const initDrawing = (map) => {
-  new google.maps.drawing.DrawingManager({
-    map: map
+  const drawingManager = new google.maps.drawing.DrawingManager({
+    map: map,
+    drawingMode: google.maps.drawing.OverlayType.POLYGON,
+    drawingControl: true,
+      drawingControlOptions: {
+        position: google.maps.ControlPosition.TOP_CENTER,
+        drawingModes: [ 'polygon', 'rectangle']
+      },
+      polygonOptions: {
+        fillColor: "#55ad63",
+        strokeColor: "#55ad63",
+        strokeWeight: 2,
+        clickable: true,
+        editable: true,
+        zIndex: 1,
+      },
+      rectangleOptions: {
+        fillColor: "#55ad63",
+        strokeColor: "#55ad63",
+        strokeWeight: 2,
+        clickable: true,
+        editable: true,
+        zIndex: 1,
+      },
   });
-}
+  google.maps.event.addListener(drawingManager, 'overlaycomplete', (event) => {
+    if (event.type === google.maps.drawing.OverlayType.POLYGON) {
+      const polygon = event.overlay;
+
+      // Calcula a área do polígono
+      const areaMetrosQuadrados = google.maps.geometry.spherical.computeArea(polygon.getPath());
+
+      // Exiba a área calculada (você pode exibir a área como quiser)
+      console.log(`Área do Polígono (metros quadrados): ${areaMetrosQuadrados}`);
+    }
+  });
+
+};
 
       function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
@@ -22,8 +56,7 @@ const initDrawing = (map) => {
         const card = document.getElementById("pac-card");
         const input = document.getElementById("pac-input");
         const biasInputElement = document.getElementById("use-location-bias");
-        const strictBoundsInputElement =
-          document.getElementById("use-strict-bounds");
+        const strictBoundsInputElement = document.getElementById("use-strict-bounds");
         const options = {
           fields: ["formatted_address", "geometry", "name"],
           strictBounds: false,
@@ -32,10 +65,7 @@ const initDrawing = (map) => {
 
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(card);
 
-        const autocomplete = new google.maps.places.Autocomplete(
-          input,
-          options
-        );
+        const autocomplete = new google.maps.places.Autocomplete(input, options);
 
         autocomplete.bindTo("bounds", map);
 
@@ -44,10 +74,7 @@ const initDrawing = (map) => {
 
         infowindow.setContent(infowindowContent);
 
-        const marker = new google.maps.Marker({
-          map,
-          anchorPoint: new google.maps.Point(0, -29),
-        });
+        const marker = new google.maps.Marker({map, anchorPoint: new google.maps.Point(0, -29)});
         initDrawing(map)
 
         autocomplete.addListener("place_changed", () => {
@@ -57,9 +84,7 @@ const initDrawing = (map) => {
           const place = autocomplete.getPlace();
           
           if (!place.geometry || !place.geometry.location) {
-            window.alert(
-              "No details available for input: '" + place.name + "'"
-            );
+            window.alert("No details available for input: '" + place.name + "'");
             return;
           }
           if (place.geometry.viewport) {
@@ -72,8 +97,7 @@ const initDrawing = (map) => {
           marker.setPosition(place.geometry.location);
           marker.setVisible(true);
           infowindowContent.children["place-name"].textContent = place.name;
-          infowindowContent.children["place-address"].textContent =
-            place.formatted_address;
+          infowindowContent.children["place-address"].textContent = place.formatted_address;
           infowindow.open(map, marker);
         });
 
@@ -92,6 +116,7 @@ const initDrawing = (map) => {
         setupClickListener("changetype-geocode", ["geocode"]);
         setupClickListener("changetype-cities", ["(cities)"]);
         setupClickListener("changetype-regions", ["(regions)"]);
+
         biasInputElement.addEventListener("change", () => {
           if (biasInputElement.checked) {
             autocomplete.bindTo("bounds", map);
@@ -109,9 +134,7 @@ const initDrawing = (map) => {
           input.value = "";
         });
         strictBoundsInputElement.addEventListener("change", () => {
-          autocomplete.setOptions({
-            strictBounds: strictBoundsInputElement.checked,
-          });
+          autocomplete.setOptions({strictBounds: strictBoundsInputElement.checked});
           if (strictBoundsInputElement.checked) {
             biasInputElement.checked = strictBoundsInputElement.checked;
             autocomplete.bindTo("bounds", map);
@@ -119,6 +142,6 @@ const initDrawing = (map) => {
 
           input.value = "";
         });
-      }
+      };
 
       window.initMap = initMap;

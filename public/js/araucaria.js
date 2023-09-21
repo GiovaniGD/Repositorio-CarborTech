@@ -52,7 +52,7 @@ function restaurarInformacoesGerais() {
 }
 
 const toggleButton = document.getElementById('toggleButton');
-        const listaItens = document.getElementById('listaItens');
+        const listaItens = document.getElementsById('category-list');
 
         // Função para mostrar ou esconder a lista
         function toggleLista() {
