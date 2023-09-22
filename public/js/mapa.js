@@ -51,7 +51,7 @@ const initDrawing = (map) => {
         const areaMetrosQuadrados = google.maps.geometry.spherical.computeArea(polygon.getPath());
   
         const areaInfo = document.getElementById("area-info");
-        areaInfo.textContent = `Área do Polígono: ${areaMetrosQuadrados}`;
+        areaInfo.textContent = `Área: ${areaMetrosQuadrados}m²`;
   
         const areaCard = document.getElementById("area-card");
         areaCard.style.display = "block";
@@ -59,10 +59,14 @@ const initDrawing = (map) => {
         areaCard.addEventListener('click', () => {
           areaCard.style.display = "none";
         });
+
+        document.getElementById("fechar-card").addEventListener("click", () => {
+          const areaCard = document.getElementById("area-card");
+          areaCard.style.display = "none";
+        });        
       });
     }
   });
-
 };
 
       function initMap() {
