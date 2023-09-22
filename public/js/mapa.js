@@ -49,9 +49,13 @@ const initDrawing = (map) => {
           });
         });
         const areaMetrosQuadrados = google.maps.geometry.spherical.computeArea(polygon.getPath());
+        const perimetroMetros = google.maps.geometry.spherical.computeLength(polygon.getPath());
   
         const areaInfo = document.getElementById("area-info");
         areaInfo.textContent = `Área: ${areaMetrosQuadrados}m²`;
+
+        const perimetroInfo = document.getElementById("perimetro-info");
+        perimetroInfo.textContent = `Perímetro: ${perimetroMetros}m`;
   
         const areaCard = document.getElementById("area-card");
         areaCard.style.display = "block";
