@@ -7,13 +7,18 @@ function myMap() {
 };
 
 const initDrawing = (map) => {
+  const allowedBounds = new google.maps.LatLngBounds(
+    new google.maps.LatLng(-29.713401053864278, -50.97854050546876),
+    new google.maps.LatLng(-29.447669707081545, -50.370859231054695),
+  );
+
   const drawingManager = new google.maps.drawing.DrawingManager({
     map: map,
     drawingMode: google.maps.drawing.OverlayType.POLYGON,
     drawingControl: true,
     drawingControlOptions: {
       position: google.maps.ControlPosition.TOP_CENTER,
-      drawingModes: ['polygon']
+      drawingModes: ['polygon'],
     },
     polygonOptions: {
       fillColor: "#55ad63",
@@ -29,7 +34,25 @@ const initDrawing = (map) => {
   google.maps.event.addListener(drawingManager, 'overlaycomplete', (event) => {
     if (event.type === google.maps.drawing.OverlayType.POLYGON) {
       const polygon = event.overlay;
-      polygons.push(polygon);
+
+      // Verifique se todos os vértices do polígono estão dentro dos limites geográficos
+      const path = polygon.getPath();
+      let isPolygonInsideBounds = true;
+
+      path.forEach((vertex) => {
+        if (!allowedBounds.contains(vertex)) {
+          isPolygonInsideBounds = false;
+        }
+      });
+
+      // Se algum vértice estiver fora dos limites, exclua o polígono inteiro
+      if (!isPolygonInsideBounds) {
+        polygon.setMap(null);
+        alert("O polígono está fora da área permitida e foi removido.");
+      } else {
+        polygons.push(polygon);
+      }
+    
 
       google.maps.event.addListener(polygon, 'click', () => {
         const paths = polygon.getPaths();
@@ -69,7 +92,6 @@ const initDrawing = (map) => {
     }
   });
 };
-
 
       function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
