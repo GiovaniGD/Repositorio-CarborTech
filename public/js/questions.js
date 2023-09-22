@@ -1,6 +1,6 @@
 export default [
     {
-        question: "Qual dessas espécies é mais ameaçada?",
+        question: "Qual destas árvores é mais ameaçada?",
         answers: [
             { option: "Jabuticabeira", correct: false },
             { option: "Timbaúva", correct: false },
@@ -9,7 +9,7 @@ export default [
         ],
     },
     {
-        question: "Qual a única espécie de pinheiro nativa?",
+        question: "Qual o único pinheiro nativa?",
         answers: [
             { option: "Pinus", correct: false },
             { option: "Araucária", correct: true },
@@ -18,7 +18,7 @@ export default [
         ],
     },
     {
-        question: "Qual dessas espécies possui mais ocorrência na mata atlântica do Vale do Paranhana?",
+        question: "Qual destas árvores possui mais ocorrência na mata atlântica do Vale do Paranhana?",
         answers: [
             { option: "Chorão", correct: false },
             { option: "Ipês", correct: false },

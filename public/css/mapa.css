@@ -82,20 +82,23 @@
       }
 
       #area-card {
+        position: fixed;
+        width: 35rem;
+        max-height: 55%;
         display: none;
-        position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: white;
         padding: 1.5rem;
         box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
-        border-radius: 0.35rem;
+        border-radius: 0.45rem;
+        overflow-y: auto;
         z-index: 9999;
       }
 
       #title-card-area {
-        justify-content: center;
+        margin-left: 10rem;
         font-size: 1.4rem;
         margin-bottom: 2rem;
       }

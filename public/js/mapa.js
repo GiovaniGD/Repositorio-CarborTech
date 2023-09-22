@@ -11,26 +11,18 @@ const initDrawing = (map) => {
     map: map,
     drawingMode: google.maps.drawing.OverlayType.POLYGON,
     drawingControl: true,
-      drawingControlOptions: {
-        position: google.maps.ControlPosition.TOP_CENTER,
-        drawingModes: [ 'polygon', 'rectangle']
-      },
-      polygonOptions: {
-        fillColor: "#55ad63",
-        strokeColor: "#55ad63",
-        strokeWeight: 2,
-        clickable: true,
-        editable: true,
-        zIndex: 1,
-      },
-      rectangleOptions: {
-        fillColor: "#55ad63",
-        strokeColor: "#55ad63",
-        strokeWeight: 2,
-        clickable: true,
-        editable: true,
-        zIndex: 1,
-      },
+    drawingControlOptions: {
+      position: google.maps.ControlPosition.TOP_CENTER,
+      drawingModes: ['polygon']
+    },
+    polygonOptions: {
+      fillColor: "#55ad63",
+      strokeColor: "#55ad63",
+      strokeWeight: 2,
+      clickable: true,
+      editable: true,
+      zIndex: 1,
+    },
   });
   const polygons = [];
 
@@ -38,40 +30,46 @@ const initDrawing = (map) => {
     if (event.type === google.maps.drawing.OverlayType.POLYGON) {
       const polygon = event.overlay;
       polygons.push(polygon);
-  
+
       google.maps.event.addListener(polygon, 'click', () => {
         const paths = polygon.getPaths();
         let bounds = new google.maps.LatLngBounds();
-  
+        let coordinates = []; // Array para armazenar as coordenadas
+
         paths.forEach((path) => {
           path.forEach((vertex) => {
             bounds.extend(vertex);
+            coordinates.push({
+              lat: vertex.lat(),
+              lng: vertex.lng(),
+            });
           });
         });
+
         const areaMetrosQuadrados = google.maps.geometry.spherical.computeArea(polygon.getPath());
         const perimetroMetros = google.maps.geometry.spherical.computeLength(polygon.getPath());
-  
+
         const areaInfo = document.getElementById("area-info");
         areaInfo.textContent = `Área: ${areaMetrosQuadrados}m²`;
 
         const perimetroInfo = document.getElementById("perimetro-info");
         perimetroInfo.textContent = `Perímetro: ${perimetroMetros}m`;
-  
+
+        const coordinatesInfo = document.getElementById("coordinates-info");
+        coordinatesInfo.textContent = `${JSON.stringify(coordinates)}`;
+
         const areaCard = document.getElementById("area-card");
         areaCard.style.display = "block";
-  
-        areaCard.addEventListener('click', () => {
-          areaCard.style.display = "none";
-        });
 
         document.getElementById("fechar-card").addEventListener("click", () => {
           const areaCard = document.getElementById("area-card");
           areaCard.style.display = "none";
-        });        
+        });
       });
     }
   });
 };
+
 
       function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
