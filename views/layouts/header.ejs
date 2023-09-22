@@ -1,25 +1,41 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="/css/header.css">
 
 <h1 class="logo">
     <img src="assets/img/zyro-image2.png" class="img-logo" alt="Logo">
     <span>CarborTech</span>
 </h1>
 
-<ul class="nav-items">
-    <li class="nav-item"><a class="nav-link" href="/">Início</a></li>
-    <label for="toggle-categorias" class="nav-link">Sessões</label>
-        <input type="checkbox" id="toggle-categorias" class="toggle">
-        <ul id="category-list" class="category-list">
-            <a href="#card-container"><li><i class="bi bi-cart2"></i>Produtos</li></a>
-            <a href="/mapa"><li><i class="bi bi-geo-alt"></i>Cadastrar área</li></a>
-            <li><i class="bi bi-tree"></i>Solicitar serviço</li>
-            <a href="/inicial"><li><i class="bi bi-laptop"></i>CarborBlog</li></a>
-            <a href="/quiz"><li><i class="bi bi-question-octagon"></i>Quiz</li></a>
-            <a href="/cadastro"><li><i class="bi bi-door-open"></i></i>Cadastrar-se</li></a>
-            <a href="/login"><li><i class="bi bi-box-arrow-in-right"></i>Login</li></a>
+<nav class="navbar navbar-expand-lg bg-body-transparent">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/">Início</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sessões</a>
+            <ul class="dropdown-menu">
+                <a href="#card-container" class="dropdown-item"><li><i class="bi bi-cart2"></i>Produtos</li></a>
+                <a href="/mapa" class="dropdown-item"><li><i class="bi bi-geo-alt"></i>Cadastrar área</li></a>
+                <a href="" class="dropdown-item"><li><i class="bi bi-tree"></i>Solicitar serviço</li></a>
+                <a href="/inicial" class="dropdown-item"><li><i class="bi bi-laptop"></i>CarborBlog</li></a>
+                <a href="/quiz" class="dropdown-item"><li><i class="bi bi-question-octagon"></i>Quiz</li></a>
+                <a href="/cadastro" class="dropdown-item"><li><i class="bi bi-door-open"></i></i>Cadastrar-se</li></a>
+                <a href="/login" class="dropdown-item"><li><i class="bi bi-box-arrow-in-right"></i>Login</li></a>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a id="contatos" class="nav-link" aria-current="page" href="#footer">Contatos</a>
+          </li>
         </ul>
-    <li class="nav-item"><a class="nav-link" href="#footer">Contatos</a></li>
-</ul>
+      </div>
+    </div>
+  </nav>
+  
 
 <div class="buttons">
     <a href="/login"><button class="btn-entrar">Login</button></a>

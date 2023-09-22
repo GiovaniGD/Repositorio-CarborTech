@@ -10,30 +10,9 @@
   </head>
   <body>
     <header>
-        <h1 class="logo">
-            <img src="assets/img/zyro-image2.png" class="img-logo" alt="Logo">
-            <span>CarborTech</span>
-        </h1>
-    
-        <ul class="nav-items">
-            <li class="nav-item"><a class="nav-link" href="/">Início</a></li>
-            <label for="toggle-categorias" class="nav-link">Sessões</label>
-                <input type="checkbox" id="toggle-categorias" class="toggle">
-                <ul class="category-list">
-                    <a href="#card-container"><li><i class="bi bi-cart2"></i>Produtos</li></a>
-                    <a href="/mapa"><li><i class="bi bi-geo-alt"></i>Cadastrar área</li></a>
-                    <li><i class="bi bi-tree"></i>Solicitar serviço</li>
-                    <a href="/inicial"><li><i class="bi bi-laptop"></i>CarborBlog</li></a>
-                    <a href="/quiz"><li><i class="bi bi-question-octagon"></i>Quiz</li></a>
-                    <a href="/cadastro"><li><i class="bi bi-door-open"></i></i>Cadastrar-se</li></a>
-                    <a href="/login"><li><i class="bi bi-box-arrow-in-right"></i>Login</li></a>
-                </ul>
-        </ul>
-    
-        <div class="buttons">
-            <a href="/login"><button class="btn-entrar">Login</button></a>
-            <a href="/cadastro"><button class="btn-cadastrar-se">Cadastrar-se</button></a>
-        </div>
+        
+      <%- include('../layouts/header') %>
+
     </header>
 
     <div class="pac-card" id="pac-card">
@@ -69,7 +48,13 @@
       <span id="place-address"></span>
     </div>
 
+    <div id="area-card" style="display: none;">
+      <h3 id="title-card-area">Informações da área</h3>
+      <p id="area-info"></p>
+    </div>
+
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1IQrOgjTbVBhj6-cVC-LD6updevCRk34&callback=initMap&libraries=places,drawing,geometry&v=weekly" defer></script>
     <script src="/js/mapa.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>

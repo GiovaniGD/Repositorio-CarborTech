@@ -4,7 +4,7 @@ function myMap() {
     zoom: 11.5,
   };
   var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-}
+};
 
 const initDrawing = (map) => {
   const drawingManager = new google.maps.drawing.DrawingManager({
@@ -32,15 +32,34 @@ const initDrawing = (map) => {
         zIndex: 1,
       },
   });
+  const polygons = [];
+
   google.maps.event.addListener(drawingManager, 'overlaycomplete', (event) => {
     if (event.type === google.maps.drawing.OverlayType.POLYGON) {
       const polygon = event.overlay;
-
-      // Calcula a área do polígono
-      const areaMetrosQuadrados = google.maps.geometry.spherical.computeArea(polygon.getPath());
-
-      // Exiba a área calculada (você pode exibir a área como quiser)
-      console.log(`Área do Polígono (metros quadrados): ${areaMetrosQuadrados}`);
+      polygons.push(polygon);
+  
+      google.maps.event.addListener(polygon, 'click', () => {
+        const paths = polygon.getPaths();
+        let bounds = new google.maps.LatLngBounds();
+  
+        paths.forEach((path) => {
+          path.forEach((vertex) => {
+            bounds.extend(vertex);
+          });
+        });
+        const areaMetrosQuadrados = google.maps.geometry.spherical.computeArea(polygon.getPath());
+  
+        const areaInfo = document.getElementById("area-info");
+        areaInfo.textContent = `Área do Polígono: ${areaMetrosQuadrados}`;
+  
+        const areaCard = document.getElementById("area-card");
+        areaCard.style.display = "block";
+  
+        areaCard.addEventListener('click', () => {
+          areaCard.style.display = "none";
+        });
+      });
     }
   });
 
@@ -91,7 +110,7 @@ const initDrawing = (map) => {
             map.fitBounds(place.geometry.viewport);
           } else {
             map.setCenter(place.geometry.location);
-            map.setZoom(17);
+            map.setZoom(13);
           }
 
           marker.setPosition(place.geometry.location);

@@ -50,26 +50,3 @@ function restaurarInformacoesGerais() {
     
     divInformacoes.innerHTML = informacoesAntigas;
 }
-
-const toggleButton = document.getElementById('toggleButton');
-        const listaItens = document.getElementsById('category-list');
-
-        // Função para mostrar ou esconder a lista
-        function toggleLista() {
-            if (listaItens.style.display === 'block') {
-                listaItens.style.display = 'none';
-            } else {
-                listaItens.style.display = 'block';
-            }
-        }
-
-        // Adicionar um ouvinte de evento ao botão para mostrar/ocultar a lista
-        toggleButton.addEventListener('click', toggleLista);
-
-        // Adicionar um ouvinte de evento ao documento para fechar a lista quando se clica em qualquer outro lugar
-        document.addEventListener('click', function(event) {
-            const targetElement = event.target;
-            if (targetElement !== toggleButton && !listaItens.contains(targetElement)) {
-                listaItens.style.display = 'none';
-            }
-        });
