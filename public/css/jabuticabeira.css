@@ -293,9 +293,11 @@ footer {
 
 .div-video {
   background-color: #bad4bb;
-  width: 22rem;
+  width: 26.1rem;
   height: 15rem;
   border-radius: 0.8rem;
+  box-shadow: 1rem 1rem 2rem #182b18;
+  border: 0.3rem solid #336833;
 }
 
 .footer-continuation {

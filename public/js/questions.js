@@ -40,7 +40,7 @@ export default [
         answers: [
             { option: "Bergamoteira", correct: false },
             { option: "Eucalipto", correct: false },
-            { option: "Cedro", correct: true },
+            { option: "Cedro-rosa", correct: true },
             { option: "Laranjeira", correct: false },
         ],
     },
