@@ -4,7 +4,7 @@
   }
 
        #map {
-        height: 91vh;
+        height: 91.3vh;
       }
 
       html, body {
@@ -15,7 +15,7 @@
 
       #description {
         font-family: Roboto;
-        font-size: 15px;
+        font-size: 1rem;
         font-weight: 300;
       }
 
@@ -51,7 +51,7 @@
 
       .pac-controls {
         display: inline-block;
-        padding: 5px 11px;
+        padding: 0.8rem 11px;
       }
 
       .pac-controls label {
@@ -92,7 +92,7 @@
         background-color: white;
         padding: 1.5rem;
         box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
-        border-radius: 0.45rem;
+        border-radius: 0.6rem;
         overflow-y: auto;
         z-index: 9999;
       }
@@ -106,7 +106,6 @@
       .fechar-card {
         position: absolute;
         top: -0.6rem;
-        right: 0rem;
         font-size: 1.8rem;
         background: transparent;
         border: none;
