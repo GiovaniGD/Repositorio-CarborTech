@@ -28,8 +28,8 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center; 
-    margin-left: 33vw;
-    margin-top: 16vh;
+    margin-left: 32.7vw;
+    margin-top: 12vh;
     box-shadow: 0rem 0.01rem 1rem rgb(85, 85, 85);
 }
 
@@ -101,5 +101,13 @@ body h2 {
 
 .question {
     font-size: 1.2rem ;
+    font-weight: 600;
+}
+
+.message {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-weight: 600;
 }

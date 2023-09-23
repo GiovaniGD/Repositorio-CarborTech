@@ -21,8 +21,15 @@
         };
         
         function nextQuestion(e) {
+            const messageElement = document.querySelector(".message");
+        
             if (e.target.getAttribute("data-correct") === "true") {
                 questionsCorrect++;
+                messageElement.textContent = "Resposta correta!";
+                messageElement.style.color = "green"; // Estilo para resposta correta (opcional)
+            } else {
+                messageElement.textContent = "Resposta incorreta.";
+                messageElement.style.color = "red"; // Estilo para resposta incorreta (opcional)
             }
         
             if (currentIndex < questions.length - 1) {
@@ -32,6 +39,7 @@
                 finish();
             }
         }
+        
         
         function finish() {
             textFinish.innerHTML = `Você acertou ${questionsCorrect} de ${questions.length}`;

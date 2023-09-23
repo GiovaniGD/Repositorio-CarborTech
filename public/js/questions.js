@@ -9,7 +9,7 @@ export default [
         ],
     },
     {
-        question: "Qual o único pinheiro nativa?",
+        question: "Qual o único pinheiro nativo do Brasil?",
         answers: [
             { option: "Pinus", correct: false },
             { option: "Araucária", correct: true },
