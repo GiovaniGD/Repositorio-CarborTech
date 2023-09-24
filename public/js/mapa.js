@@ -22,7 +22,7 @@ const initDrawing = (map) => {
     },
   });
 
-  const polygons = [];
+  const polygons = new Map();
 
   google.maps.event.addListener(drawingManager, "overlaycomplete", (event) => {
     if (event.type === google.maps.drawing.OverlayType.POLYGON) {
@@ -41,27 +41,30 @@ const initDrawing = (map) => {
         polygon.setMap(null);
         alert("O polígono está fora da área permitida e foi removido.");
       } else {
-        const ownerInputDiv = document.getElementById("dados-polygon");
-        const ownerNameInput = document.getElementById("owner-name");
-        const submitButton = document.getElementById("submit-owner");
+            const ownerInputDiv = document.getElementById("dados-polygon");
+            const ownerNameInput = document.getElementById("owner-name");
+            const submitButton = document.getElementById("submit-owner");
 
-        ownerInputDiv.style.display = "block";
+            ownerInputDiv.style.display = "block";
 
-        submitButton.addEventListener("click", () => {
-          const ownerName = ownerNameInput.value; // Obtenha o nome do proprietário quando o botão é clicado
+            submitButton.addEventListener("click", () => {
+            const ownerName = ownerNameInput.value; // Obtenha o nome do proprietário quando o botão é clicado
 
-          if (ownerName) {
-            console.log(`Nome do proprietário: ${ownerName}`);
-            ownerInputDiv.style.display = "none"; // Esconde a div de entrada
-          } else {
-            console.log("Nome do proprietário não fornecido.");
-          }
-        });
+            if (ownerName) {
+                console.log(`Nome do proprietário: ${ownerName}`);
+                ownerInputDiv.style.display = "none"; // Esconde a div de entrada
 
-        polygons.push(polygon);
-      }
+                // Armazena o polígono e o nome do proprietário no mapa
+                polygons.set(polygon, ownerName);
+            } else {
+                console.log("Nome do proprietário não fornecido.");
+            }
+            });
+        }
 
       google.maps.event.addListener(polygon, "click", () => {
+        const ownerName = polygons.get(polygon); // Obtém o nome do proprietário do mapa
+        console.log(`Nome do proprietário: ${ownerName}`);
         const paths = polygon.getPaths();
         let bounds = new google.maps.LatLngBounds();
         let coordinates = [];
