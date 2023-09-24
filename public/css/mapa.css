@@ -1,114 +1,159 @@
-  #pac-card {
-    border-radius: 0.5rem;
-    margin: 0.5rem 0 0 0.5rem;
-  }
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-       #map {
-        height: 91.3vh;
-      }
+/*MAPA*/
+#map {
+  height: 91.3vh;
+}
 
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+#description {
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: 300;
+}
 
-      #description {
-        font-family: Roboto;
-        font-size: 1rem;
-        font-weight: 300;
-      }
+#infowindow-content .title {
+  font-weight: bold;
+}
 
-      #infowindow-content .title {
-        font-weight: bold;
-      }
+#infowindow-content {
+  display: none;
+}
 
-      #infowindow-content {
-        display: none;
-      }
+#map #infowindow-content {
+  display: inline;
+}
 
-      #map #infowindow-content {
-        display: inline;
-      }
+/*Buscar por endereço*/
+#pac-card {
+  border-radius: 0.5rem;
+  margin: 0.5rem 0 0 0.5rem;
+}
 
-      .pac-card {
-        background-color: #fff;
-        border: 0;
-        border-radius: 2px;
-        box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
-        margin: 10px;
-        padding: 0 0.5em;
-        font: 400 18px Roboto, Arial, sans-serif;
-        overflow: hidden;
-        font-family: Roboto;
-        padding: 0;
-      }
+.pac-card {
+  background-color: #fff;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+  padding: 0 0.5em;
+  font: 400 18px Roboto, Arial, sans-serif;
+  overflow: hidden;
+  font-family: Roboto;
+  padding: 0;
+}
 
-      #pac-container {
-        padding-bottom: 12px;
-        margin-right: 12px;
-      }
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
 
-      .pac-controls {
-        display: inline-block;
-        padding: 0.8rem 11px;
-      }
+.pac-controls {
+  display: inline-block;
+  padding: 0.8rem 11px;
+}
 
-      .pac-controls label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-      }
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
 
-      #pac-input {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 22rem;
-        border-color: #ababab;
-        border-radius: 0.2rem;
-      }
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 22rem;
+  border-color: #ababab;
+  border-radius: 0.2rem;
+}
 
-      #type-selector {
-        margin-bottom: 1rem;
-      }
+#type-selector {
+  margin-bottom: 1rem;
+}
 
-      #type-selector input {
-        cursor: pointer;
-      }
+#type-selector input {
+  cursor: pointer;
+}
 
-      #area-card {
-        position: fixed;
-        width: 35rem;
-        max-height: 55%;
-        display: none;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        padding: 1.5rem;
-        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
-        border-radius: 0.6rem;
-        overflow-y: auto;
-        z-index: 9999;
-      }
+/*Inserir informações da área*/
+#dados-polygon {
+  position: fixed;
+  width: 35rem;
+  max-height: 55%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1.5rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+  border-radius: 0.6rem;
+  overflow-y: auto;
+  z-index: 9999;
+}
 
-      #title-card-area {
-        margin-left: 10rem;
-        font-size: 1.4rem;
-        margin-bottom: 2rem;
-      }
+#owner-name {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  border: 0.05rem solid #a5a5a5;
+  border-radius: 0.3rem;
+}
 
-      .fechar-card {
-        position: absolute;
-        top: -0.6rem;
-        right: 0rem;
-        font-size: 1.8rem;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-      }
+#submit-owner {
+  background-color: #4684fb;
+  color: #fff;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin-left: 11.5rem;
+  margin-top: 1.7rem;
+  outline: none !important;
+  transition: all 200ms;
+}
+
+#submit-owner:hover {
+  background-color: #3570de;
+}
+
+/*Informações da área*/
+#area-card {
+  position: fixed;
+  width: 35rem;
+  max-height: 55%;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1.5rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+  border-radius: 0.6rem;
+  overflow-y: auto;
+  z-index: 9999;
+}
+
+#title-card-area {
+  margin-left: 10rem;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.fechar-card {
+  position: absolute;
+  top: -0.6rem;
+  right: 0rem;
+  font-size: 1.8rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

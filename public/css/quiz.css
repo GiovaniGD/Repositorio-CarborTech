@@ -1,113 +1,113 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Roboto;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-image: url("../assets/img/back-quiz.png");
-    background-repeat: no-repeat;
-    background-size: 150vh;
-    background-attachment: fixed;
-    background-position: 50% 50%;
-    scrollbar-width: none; 
+  font-family: Roboto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url("../assets/img/back-quiz.png");
+  background-repeat: no-repeat;
+  background-size: 150vh;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  scrollbar-width: none;
 }
 
-  /*Questões*/
+/*Questões*/
 main {
-    background-color: #ececec;
-    padding: 2rem;
-    border-radius: 1rem;
-    max-width: 33rem;
-    min-height: 16rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-    margin-left: 32.7vw;
-    margin-top: 12vh;
-    box-shadow: 0rem 0.01rem 1rem rgb(85, 85, 85);
+  background-color: #ececec;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 33rem;
+  min-height: 16rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 32.7vw;
+  margin-top: 12vh;
+  box-shadow: 0rem 0.01rem 1rem rgb(85, 85, 85);
 }
 
 body h2 {
-    font-weight: 700;
-    color: #509d5d;
+  font-weight: 700;
+  color: #509d5d;
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2rem;
 }
 
 .spnQtd {
-    text-align: end;
+  text-align: end;
 }
 
 .answers {
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
 }
 
 .answers button {
-    width: 100%;
-    text-align: start;
-    padding: 0.6rem;
-    border: none;
-    border-radius: 0.3rem;
-    cursor: pointer;
-    background-color: #55ad63;
-    color: white;
-    box-shadow: 0.2rem 0.2rem #33693c;
-    transition: all 150ms;
+  width: 100%;
+  text-align: start;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  background-color: #55ad63;
+  color: white;
+  box-shadow: 0.2rem 0.2rem #33693c;
+  transition: all 150ms;
 }
 
 .answers button:hover {
-    background-color: #449151;
+  background-color: #449151;
 }
 
 .reiniciar {
-    width: 100%;
-    text-align: start;
-    padding: 0.5rem;
-    border: none;
-    border-radius: 0.3rem;
-    cursor: pointer;
-    background-color: #55ad63;
-    color: white;
-    box-shadow: 0.2rem 0.2rem #33693c;
-    transition: all 150ms;
+  width: 100%;
+  text-align: start;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  background-color: #55ad63;
+  color: white;
+  box-shadow: 0.2rem 0.2rem #33693c;
+  transition: all 150ms;
 }
 
 .reiniciar:hover {
-    background-color: #449151;
+  background-color: #449151;
 }
 
 .finish {
-    display: none;
-    flex-direction: column;
-    gap: 0.8rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .finish button {
-    text-align: center;
+  text-align: center;
 }
 
 .question {
-    font-size: 1.2rem ;
-    font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .message {
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: 600;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
 }
