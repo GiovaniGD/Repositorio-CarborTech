@@ -47,7 +47,7 @@ const port = 3300;
     });
     
     app.get('/cadastro', (req, res) => {
-        app.set('layout', './uusarios/cadastro');
+        app.set('layout', './usuarios/cadastro');
         usuarioController.cadastro(req, res);
     });
     

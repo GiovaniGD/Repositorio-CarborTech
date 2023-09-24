@@ -106,6 +106,7 @@
       .fechar-card {
         position: absolute;
         top: -0.6rem;
+        right: 0rem;
         font-size: 1.8rem;
         background: transparent;
         border: none;
