@@ -10,6 +10,22 @@ body {
   height: 91.3vh;
 }
 
+#toggleSatellite {
+  background-color: #ffffff;
+  padding: 0.5rem 1rem;
+  border: 0.1rem solid #cccccc;
+  border-radius: 0.3rem;
+  position: absolute; 
+  top: 11.3rem;
+  left: 0.5rem;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+#toggleSatellite:hover {
+  background-color: #cdcdcd;
+}
+
 #description {
   font-family: Roboto;
   font-size: 1rem;

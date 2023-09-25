@@ -54,6 +54,14 @@ const port = 3300;
     app.post('/cadastro', (req, res) => {
         usuarioController.cadastrar(req, res);
     });
+    
+    app.get('/mapa', (req, res) => {
+        mapaController.cadastroArea(req, res);
+    });
+
+    app.post('/mapa', (req, res) => {
+        mapaController.efetivarCadastro(req, res);
+    });
 
     app.listen(port, () =>
         console.log(`Servidor rodando em http://localhost:${port}`)

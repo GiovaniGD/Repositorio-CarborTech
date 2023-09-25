@@ -79,18 +79,18 @@ const initDrawing = (map) => {
           });
         });
 
-        const areaMetrosQuadrados = google.maps.geometry.spherical.computeArea(
+        const area = google.maps.geometry.spherical.computeArea(
           polygon.getPath()
         );
-        const perimetroMetros = google.maps.geometry.spherical.computeLength(
+        const perimetro = google.maps.geometry.spherical.computeLength(
           polygon.getPath()
         );
         const areaInfo = document.getElementById("area-info");
 
-        areaInfo.textContent = `Área: ${areaMetrosQuadrados}m²`;
+        areaInfo.textContent = `Área: ${area}m²`;
         const perimetroInfo = document.getElementById("perimetro-info");
 
-        perimetroInfo.textContent = `Perímetro: ${perimetroMetros}m`;
+        perimetroInfo.textContent = `Perímetro: ${perimetro}m`;
         const coordinatesInfo = document.getElementById("coordinates-info");
 
         coordinatesInfo.textContent = `${JSON.stringify(coordinates)}`;
@@ -102,6 +102,8 @@ const initDrawing = (map) => {
           const areaCard = document.getElementById("area-card");
           areaCard.style.display = "none";
         });
+
+        
       });
     }
   });
@@ -112,7 +114,20 @@ function initMap() {
     center: { lat: -29.584006, lng: -50.6736699 },
     zoom: 12,
     mapTypeControl: false,
+    mapTypeId: google.maps.MapTypeId.SATELLITE,
   });
+
+  const toggleSatelliteButton = document.getElementById("toggleSatellite");
+toggleSatelliteButton.addEventListener("click", function () {
+  // Verifique o tipo de mapa atual
+  if (map.getMapTypeId() === google.maps.MapTypeId.ROADMAP) {
+    // Mude para a visualização por satélite
+    map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+  } else {
+    // Volte para o modo normal (mapa de estradas)
+    map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+  }
+});
 
   const card = document.getElementById("pac-card");
   const input = document.getElementById("pac-input");
@@ -205,3 +220,5 @@ function initMap() {
 }
 
 window.initMap = initMap;
+
+//export { area, perimetro };

@@ -37,7 +37,7 @@ export default [
     ],
   },
   {
-    question: "Qual dessas plantas é nativa do Rio Grande do Sul?",
+    question: "Qual destas plantas é nativa do Rio Grande do Sul?",
     answers: [
       { option: "Bergamoteira", correct: false },
       { option: "Eucalipto", correct: false },
@@ -63,6 +63,36 @@ export default [
       { option: "Cerca de 3%", correct: true },
       { option: "Cerca de 1%", correct: false },
       { option: "Cerca de 7%", correct: false },
+    ],
+  },
+  {
+    question:
+      "O que é uma APP?",
+    answers: [
+      { option: "Área de Progressão Perimétrica", correct: false },
+      { option: "Área de Preservação Permanente", correct: true },
+      { option: "Área de Proteção de Plantas", correct: false },
+      { option: "Área de Preservação Periódica", correct: false },
+    ],
+  },
+  {
+    question:
+      "Quais são os biomas presentes no Rio Grande do Sul?",
+    answers: [
+      { option: "Mata Atlântica e Pantanal", correct: false },
+      { option: "Cerrado e Caatinga", correct: false },
+      { option: "Mata Atlântica e Pampas", correct: true },
+      { option: "Cerrado e Pampas", correct: false },
+    ],
+  },
+  {
+    question:
+      "Quais os principais órgãos responsáveis pela fiscalização e aplicação das leis ambientais no Estado?",
+    answers: [
+      { option: "Ibama, OMS, Cosesp", correct: false },
+      { option: "Sema, Fepam, IEF", correct: true },
+      { option: "PRS, CPP, Corsan", correct: false },
+      { option: "APP, Fecam, Mars", correct: false },
     ],
   },
 ];
