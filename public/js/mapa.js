@@ -1,4 +1,4 @@
-const initDrawing = (map) => {
+export const initDrawing = (map) => {
   const allowedBounds = new google.maps.LatLngBounds(
     new google.maps.LatLng(-29.713401053864278, -50.97854050546876),
     new google.maps.LatLng(-29.447669707081545, -50.370859231054695)
@@ -31,7 +31,6 @@ const initDrawing = (map) => {
       const path = polygon.getPath();
       let isPolygonInsideBounds = true;
 
-      // Verifica se o poligono está fora das delimitações e, caso não, puxa para o array
       path.forEach((vertex) => {
         if (!allowedBounds.contains(vertex)) {
           isPolygonInsideBounds = false;
@@ -39,7 +38,7 @@ const initDrawing = (map) => {
       });
       if (!isPolygonInsideBounds) {
         polygon.setMap(null);
-        alert("O polígono está fora da área permitida e foi removido.");
+        alert("Sua demarcação está fora da área permitida. Cadastre-a somente no Vale do Paranhana.");
       } else {
             const ownerInputDiv = document.getElementById("dados-polygon");
             const ownerNameInput = document.getElementById("owner-name");
@@ -52,9 +51,7 @@ const initDrawing = (map) => {
 
             if (ownerName) {
                 console.log(`Nome do proprietário: ${ownerName}`);
-                ownerInputDiv.style.display = "none"; // Esconde a div de entrada
-
-                // Armazena o polígono e o nome do proprietário no mapa
+                ownerInputDiv.style.display = "none";
                 polygons.set(polygon, ownerName);
             } else {
                 console.log("Nome do proprietário não fornecido.");
@@ -118,16 +115,13 @@ function initMap() {
   });
 
   const toggleSatelliteButton = document.getElementById("toggleSatellite");
-toggleSatelliteButton.addEventListener("click", function () {
-  // Verifique o tipo de mapa atual
-  if (map.getMapTypeId() === google.maps.MapTypeId.ROADMAP) {
-    // Mude para a visualização por satélite
-    map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
-  } else {
-    // Volte para o modo normal (mapa de estradas)
-    map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
-  }
-});
+  toggleSatelliteButton.addEventListener("click", function () {
+    if (map.getMapTypeId() === google.maps.MapTypeId.ROADMAP) {
+      map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+    } else {
+      map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+    }
+  });
 
   const card = document.getElementById("pac-card");
   const input = document.getElementById("pac-input");
@@ -172,8 +166,7 @@ toggleSatelliteButton.addEventListener("click", function () {
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
     infowindowContent.children["place-name"].textContent = place.name;
-    infowindowContent.children["place-address"].textContent =
-      place.formatted_address;
+    infowindowContent.children["place-address"].textContent = place.formatted_address;
     infowindow.open(map, marker);
   });
 
@@ -220,5 +213,3 @@ toggleSatelliteButton.addEventListener("click", function () {
 }
 
 window.initMap = initMap;
-
-//export { area, perimetro };

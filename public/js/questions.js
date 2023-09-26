@@ -95,4 +95,14 @@ export default [
       { option: "APP, Fecam, Mars", correct: false },
     ],
   },
+  {
+    question:
+      "Qual o clima presente no Vale do Paranhana",
+    answers: [
+      { option: "Equatorial", correct: false },
+      { option: "Tropical", correct: false },
+      { option: "Subtropical", correct: true },
+      { option: "Temperado", correct: false },
+    ],
+  },
 ];
