@@ -24,7 +24,7 @@ const port = 3300;
             next();
         }else{
             console.log('Não logado');
-            if(req.url == '/mapa' || req.url == '/perfil'){
+            if(req.url == '/mapat' || req.url == '/perfil'){
                 res.redirect('/login?erro=2');
             }else{
                 next();
@@ -45,7 +45,41 @@ const port = 3300;
         app.set('layout', './principal');
         res.render('principal');
     });
+
+
+    // Produtos
+    app.get('/araucaria', (req, res) => {
+        app.set('layout', './produtos/araucaria');
+        res.render('produtos/araucaria');
+    });
+
+    app.get('/jabuticabeira', (req, res) => {
+        app.set('layout', './produtos/jabuticabeira');
+        res.render('produtos/jabuticabeira');
+    });
+
+
+    // Serviços
+    app.get('/mapa', (req, res) => {
+        app.set('layout', './servicos/mapa');
+        res.render('servicos/mapa');
+    });
+
+    app.get('/mapa', (req, res) => {
+        mapaController.cadastroArea(req, res);
+    });
+
+    app.post('/mapa', (req, res) => {
+        mapaController.efetivarCadastro(req, res);
+    });
+
+    app.get('/quiz', (req, res) => {
+        app.set('layout', './servicos/quiz');
+        res.render('servicos/quiz');
+    });
     
+
+    // Usuários
     app.get('/login', (req, res) => {
         app.set('layout', './usuarios/login');
         usuarioController.login(req, res);
@@ -62,14 +96,6 @@ const port = 3300;
     
     app.post('/cadastro', (req, res) => {
         usuarioController.cadastrar(req, res);
-    });
-    
-    app.get('/mapa', (req, res) => {
-        mapaController.cadastroArea(req, res);
-    });
-
-    app.post('/mapa', (req, res) => {
-        mapaController.efetivarCadastro(req, res);
     });
 
     app.listen(port, () =>

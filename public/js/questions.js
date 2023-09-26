@@ -47,7 +47,7 @@ export default [
   },
   {
     question:
-      "Além do Rio Paranhana, qual outro rio importantíssimo para a ecologia do Vale?",
+      "Além do Rio Paranhana, qual outro rio importantíssimo para a ecologia do Vale do Paranhana?",
     answers: [
       { option: "Rio Taquari", correct: false },
       { option: "Rio Jacuí", correct: false },
@@ -69,7 +69,7 @@ export default [
     question:
       "O que é uma APP?",
     answers: [
-      { option: "Área de Progressão Perimétrica", correct: false },
+      { option: "Área de Proteção Perimétrica", correct: false },
       { option: "Área de Preservação Permanente", correct: true },
       { option: "Área de Proteção de Plantas", correct: false },
       { option: "Área de Preservação Periódica", correct: false },
@@ -87,7 +87,7 @@ export default [
   },
   {
     question:
-      "Quais os principais órgãos responsáveis pela fiscalização e aplicação das leis ambientais no Estado?",
+      "Quais os principais órgãos responsáveis pela fiscalização e aplicação das leis ambientais no estado gaúcho?",
     answers: [
       { option: "Ibama, OMS, Cosesp", correct: false },
       { option: "Sema, Fepam, IEF", correct: true },
@@ -97,7 +97,7 @@ export default [
   },
   {
     question:
-      "Qual o clima presente no Vale do Paranhana",
+      "Qual o clima presente no Vale do Paranhana?",
     answers: [
       { option: "Equatorial", correct: false },
       { option: "Tropical", correct: false },

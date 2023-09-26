@@ -79,6 +79,7 @@ async function pegarUsuario(req, res) {
     res.locals.usuario = usuario;
   }
   res.render('layouts/header', { usuario });
+  res.render('servicos/mapa', { usuario });
 }
 
 function logout(req, res) {
