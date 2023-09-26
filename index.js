@@ -31,6 +31,15 @@ const port = 3300;
             }
         }
     });
+
+    app.use((req, res, next) => {
+        if (req.session.usuario) {
+          res.locals.usuario = req.session.usuario;
+        } else {
+          res.locals.usuario = null;
+        }
+        next();
+      });
     
     app.get('/', (req, res) => {
         app.set('layout', './principal');

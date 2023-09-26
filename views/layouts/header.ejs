@@ -35,9 +35,14 @@
       </div>
     </div>
   </nav>
-  
 
-<div class="buttons">
-    <a href="/login"><button class="btn-entrar">Login</button></a>
-    <a href="/cadastro"><button class="btn-cadastrar-se">Cadastrar-se</button></a>
-</div>
+  <% if (usuario) { %>
+    <div id="divNomeUsuario">
+      <p id="nomeUsuario" class="text-dark fw-medium"><i class="bi bi-person-circle"></i><span><%= usuario.nome %></span></p>
+    </div>
+  <% } else { %>
+    <div class="buttons">
+      <a href="/login"><button class="btn-entrar">Login</button></a>
+      <a href="/cadastro"><button class="btn-cadastrar-se">Cadastrar-se</button></a>
+    </div>
+  <% } %>

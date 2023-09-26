@@ -52,40 +52,6 @@ header {
     padding-right: 1rem;
   }
   
-  /* Barra de navegação */
-  .search-form {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-left: 23rem;
-    border-radius: 0.1rem;
-  }
-  
-  .search-form input[type="text"] {
-    padding: 0.25rem 0.6rem;
-    border: none;
-    border-radius: 0.1rem;
-  }
-  
-  .search-form input[type="text"]:focus {
-    outline: 0.01em solid #797979;
-  }
-  
-  .search-form input[type="submit"] {
-    padding: 0.25rem 0.55rem;
-    background-color: #fff;
-    color: #797979;
-    cursor: pointer;
-    border: none;
-    border-radius: 0.1rem;
-    margin-left: 0.3rem;
-  }
-  
-  .search-form input[type="submit"]:hover {
-    background-color: #fbfbfb;
-    outline: 0.01em solid #797979;
-  }
-  
   /* Botões de login e cadastro */
   .buttons {
     display: flex;
@@ -125,11 +91,29 @@ header {
     background-color: #ececec;
     color: #4684fb;
   }
+
+  #divNomeUsuario {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-right: 5rem;
+  }
+
+  #nomeUsuario {
+    color: #474747 !important;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  #nomeUsuario span {
+    margin-top: 1rem !important;
+  }
   
   .search-bar-responsive {
     display: none;
   }
-  
+
   /*CABEÇALHO RESPONSIVO*/
   
   @media (max-width: 50rem) {

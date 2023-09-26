@@ -72,9 +72,18 @@ async function cadastrar(req, res) {
   }
 }
 
+async function pegarUsuario(req, res) {
+  console.log(req.session.usuario)
+  if (req.session.usuario) {
+    const usuario = req.session.usuario;
+    res.locals.usuario = usuario;
+  }
+  res.render('layouts/header', { usuario });
+}
+
 function logout(req, res) {
   delete req.session.usuario;
   res.redirect("/login");
 }
 
-module.exports = { login, cadastro, autenticar, cadastrar, logout };
+module.exports = { login, cadastro, autenticar, cadastrar, pegarUsuario, logout };
