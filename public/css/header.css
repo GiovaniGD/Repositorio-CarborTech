@@ -102,12 +102,12 @@ header {
 
   #nomeUsuario {
     color: #474747 !important;
-    font-size: 1.5rem;
     margin-top: 1rem;
+    font-size: 1.5rem;
   }
 
   #nomeUsuario span {
-    margin-top: 1rem !important;
+    margin-top: 0rem;
   }
   
   .search-bar-responsive {
