@@ -1,5 +1,6 @@
-/*import mapaModel from '../js/mapa';
-import { area, perimetro } from '../js/mapa';
+const mapaModel = require("../models/mapaModel");
+
+import { initMap } from "../js/mapa";
 
 let polygons = [];
 
@@ -8,11 +9,13 @@ function cadastroArea(req, res) {
 }
 
 async function efetivarCadastro(req, res) {
+    const area = initMap.area;
+    console.log(`Àrea no controllers: ${area}`);
   
     let id_usuario = req.session.usuario.id_usuario;
     console.log(req.body);
     
-    let resp = await mapaModel.cadastroProduto(id_area, id_usuario, area, perimetro);
+    let resp = await mapaModel.cadastroArea(id_area, id_usuario, area, perimetro);
     if (resp.affectedRows > 0) {
         console.log('Você cadastrou uma nova área');
     } else {
@@ -21,4 +24,4 @@ async function efetivarCadastro(req, res) {
     }
 }
 
-module.exports = { cadastroArea, efetivarCadastro };*/
+module.exports = { cadastroArea, efetivarCadastro };

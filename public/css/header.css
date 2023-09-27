@@ -118,24 +118,44 @@ header {
   
   @media (max-width: 50rem) {
     header {
+      width: 100%;
       padding: 0.4rem;
-      height: 12.5rem;
+      height: 6vh;
     }
   
     .logo img {
-      width: 7rem;
-      height: 6rem;
-      margin-left: 2rem;
-      margin-right: 0.6rem;
+      width: 2.3rem;
+      height: 2rem;
+      margin-left: 1rem;
+      margin-right: 5rem;
     }
   
     span {
       display: none;
     }
+
+    nav {
+      margin-left: 1rem;
+    }
+
+    #navbarSupportedContent {
+      margin-top: 13vh;
+      background-color: #ececec;
+      border-radius: 0.3rem;
+      z-index: 9999;
+    }
+
+      .navbar-collapse {
+        margin-top: 20rem;
+      }
+
+    .dropdown-menu show {
+      margin-top: 20vh;
+    }
   
     .nav-items {
-      margin-left: 4rem;
-      font-size: 2.5rem;
+      margin-left: 1rem;
+      font-size: 1rem;
     }
   
     .nav-item {
@@ -143,62 +163,26 @@ header {
     }
   
     .nav-link {
-      margin-right: 4rem;
-    }
-  
-    .category-list {
-      margin-top: 4rem;
-    }
-  
-    .category-list li {
-      font-size: 4rem;
-      padding: 1.5rem 10rem;
-    }
-  
-    .search-form {
-      font-size: 3rem;
-    }
-  
-    .search-form input[type="text"] {
-      padding: 0.9rem 2.2rem;
-      border-radius: 0.3rem;
-    }
-  
-    .search-form input[type="text"]:focus {
-      outline: 0.01em solid #797979;
-    }
-  
-    .search-form input[type="submit"] {
-      padding: 0.9rem 2.2rem;
-      margin-left: 1.3rem;
-      border-radius: 0.3rem;
-    }
-  
-    .search-form input[type="submit"]:hover {
-      background-color: #fbfbfb;
-      outline: 0.05em solid #797979;
+      margin-right: 1rem;
     }
   
     .buttons {
-      margin-right: 2rem;
+      margin-right: 1rem;
     }
   
     .buttons button {
-      padding: 1rem 2rem;
-      margin-left: 1.5rem;
-      font-size: 2.5rem;
-      border-radius: 0.5rem;
+      padding: 0.3rem 0.5rem;
+      margin-left: 1rem;
+      font-size: 1rem;
+      border-radius: 0.2rem;
     }
-  
-    .search-bar {
+
+    .btn-entrar {
       display: none;
     }
-  
-    .search-bar-responsive {
-      height: 9rem;
-      align-items: center;
-      display: flex;
-      background-color: #dcdcdc;
+
+    .btn-cadastrar-se {
+      display: none;
     }
   }
   

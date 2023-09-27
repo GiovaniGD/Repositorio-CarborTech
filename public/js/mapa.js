@@ -1,4 +1,4 @@
-const initDrawing = (map) => {
+export const initDrawing = (map) => {
   const allowedBounds = new google.maps.LatLngBounds(
     new google.maps.LatLng(-29.713401053864278, -50.97854050546876),
     new google.maps.LatLng(-29.447669707081545, -50.370859231054695)
@@ -34,7 +34,7 @@ const initDrawing = (map) => {
       path.forEach((vertex) => {
         if (!allowedBounds.contains(vertex)) {
           isPolygonInsideBounds = false;
-        }
+        };
       });
       if (!isPolygonInsideBounds) {
         polygon.setMap(null);
@@ -57,7 +57,7 @@ const initDrawing = (map) => {
                 console.log("Nome do proprietário não fornecido.");
             }
             });
-        }
+        };
 
       google.maps.event.addListener(polygon, "click", () => {
         const ownerName = polygons.get(polygon); // Obtém o nome do proprietário do mapa
@@ -76,12 +76,8 @@ const initDrawing = (map) => {
           });
         });
 
-        const area = google.maps.geometry.spherical.computeArea(
-          polygon.getPath()
-        );
-        const perimetro = google.maps.geometry.spherical.computeLength(
-          polygon.getPath()
-        );
+        const area = google.maps.geometry.spherical.computeArea(polygon.getPath());
+        const perimetro = google.maps.geometry.spherical.computeLength(polygon.getPath());
         const areaInfo = document.getElementById("area-info");
 
         areaInfo.textContent = `Área: ${area}m²`;
@@ -99,10 +95,8 @@ const initDrawing = (map) => {
           const areaCard = document.getElementById("area-card");
           areaCard.style.display = "none";
         });
-
-        
       });
-    }
+    };
   });
 };
 
