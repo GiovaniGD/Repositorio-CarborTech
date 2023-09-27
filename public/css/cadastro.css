@@ -11,8 +11,8 @@ h1 {
 }
 
 body {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 }
 
 main {
@@ -86,24 +86,6 @@ a {
   width: 70%;
 }
 
-button#login {
-  display: flex;
-  align-items: center;
-  background: none;
-  border: 0.1rem solid #55ad63;
-  border-radius: 0.2rem;
-  color: #55ad63;
-  padding: 0rem 1rem;
-  font-size: 1rem;
-  transition: all 0.5s;
-  text-decoration: none;
-}
-
-button#login:hover {
-  background-color: #55ad63;
-  color: white;
-}
-
 button#submit {
   align-items: center;
   background: #4684fb;
@@ -119,4 +101,79 @@ button#submit {
 button#submit:hover {
   background-color: white;
   color: #4684fb;
+}
+
+
+@media (max-width: 50rem) {
+  main {
+    margin-top: 20vh;
+  }
+
+  form {
+    gap: 1rem;
+    width: 20rem;
+  }
+  
+  form input {
+    padding: 0.6rem;
+    border-radius: 0.2rem;
+  }
+  
+  #banner {
+    display: none
+  }
+  
+  #form {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 2.5rem;
+    justify-content: center;
+  }
+  
+  #form_buttons {
+    display: grid;
+    margin-top: 1.3rem;
+  }
+  
+  #form_buttons div {
+    display: flex;
+    gap: 0.6rem;
+  }
+  
+  #external button {
+    align-items: center;
+    background: #e8e8e8;
+    border: none;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    width: 2.45rem;
+  }
+  
+  #external button img {
+    width: 70%;
+  }
+  
+  button#login {
+    margin-top: 2vh;
+  }
+  
+  button#submit {
+    align-items: center;
+    background: #4684fb;
+    border: 0.1rem solid #4684fb;
+    border-radius: 0.2rem;
+    color: white;
+    font-size: 1rem;
+    padding: 0.4rem 0.9rem;
+    transition: all 0.5s;
+    margin-top: 2vh;
+  }
+  
+  button#submit:hover {
+    background-color: white;
+    color: #4684fb;
+  }
 }

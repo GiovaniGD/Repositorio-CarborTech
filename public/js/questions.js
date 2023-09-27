@@ -1,6 +1,6 @@
 export default [
   {
-    question: "Qual destas árvores é mais ameaçada?",
+    question: "Qual destas árvores é mais ameaçada de extinção?",
     answers: [
       { option: "Jabuticabeira", correct: false },
       { option: "Timbaúva", correct: false },
@@ -90,7 +90,7 @@ export default [
       "Quais os principais órgãos responsáveis pela fiscalização e aplicação das leis ambientais no estado gaúcho?",
     answers: [
       { option: "Ibama, OMS, Cosesp", correct: false },
-      { option: "Sema, Fepam, IEF", correct: true },
+      { option: "Consema, Fepam, IEF", correct: true },
       { option: "PRS, CPP, Corsan", correct: false },
       { option: "APP, Fecam, Mars", correct: false },
     ],
