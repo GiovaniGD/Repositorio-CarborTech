@@ -1,3 +1,52 @@
+@media (max-width: 62rem) {
+  header {
+    width: 100%;
+    height: 6vh !important;
+  }
+
+  #carbortech {
+    display: none;
+  }
+
+  nav {
+    margin-left: 21rem !important;
+  }
+
+  #navbarSupportedContent {
+    margin-top: 13vh;
+    background-color: #ececec;
+    border-radius: 1rem;
+    z-index: 9999;
+  }
+
+  .navbar-collapse {
+    margin-top: 20rem;
+  }
+
+  .dropdown-menu show {
+    margin-top: 30vh !important;
+    font-size: 3vh !important;
+  }
+
+  li {
+    font-size: 2vh !important;
+  }
+
+  .nav-items {
+    margin-left: 1rem;
+    font-size: 3rem;
+  }
+
+  .nav-item {
+    margin-right: 0rem;
+  }
+
+  .nav-link {
+    margin-right: 1rem;
+    font-size: 2vh !important;
+  }
+}
+
 html,
 body {
   height: 100%;
@@ -172,4 +221,28 @@ body {
   background: transparent;
   border: none;
   cursor: pointer;
+}
+
+@media (max-width: 62rem) {
+  #pac-card {
+    display: none;
+  }
+
+  #toggleSatellite {
+    width: 18rem !important;
+    height: 6rem;
+    font-size: 1.6rem !important;
+    top: 6.4%;
+  }
+
+  button {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 0.5rem !important;
+  }
+
+  #map {
+    height: 94vh;
+  }
+  
 }
