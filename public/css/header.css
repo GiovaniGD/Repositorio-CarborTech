@@ -150,7 +150,7 @@ header {
       }
 
     .dropdown-menu show {
-      margin-top: 20vh;
+      margin-top: 30vh !important;
     }
   
     .nav-items {
@@ -167,22 +167,37 @@ header {
     }
   
     .buttons {
-      margin-right: 1rem;
+      display: none !important;
     }
   
     .buttons button {
-      padding: 0.3rem 0.5rem;
-      margin-left: 1rem;
-      font-size: 1rem;
-      border-radius: 0.2rem;
+      display: none !important;
     }
 
     .btn-entrar {
-      display: none;
+      display: none !important;
     }
 
     .btn-cadastrar-se {
-      display: none;
+      display: none !important;
+    }
+
+    #divNomeUsuario {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-left: 2rem !important;
+      margin: 0;
+    }
+  
+    #nomeUsuario {
+      color: #474747 !important;
+      margin-top: 1rem;
+      font-size: 1.5rem;
+    }
+  
+    #nomeUsuario span {
+      margin-right: 1rem;
     }
   }
   

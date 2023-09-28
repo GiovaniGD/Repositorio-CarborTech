@@ -67,35 +67,35 @@ body {
 /*Div do produto responsiva*/
 @media (max-width: 50rem) {
   .product {
-    margin-left: 6rem;
-    margin-top: 9rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
     width: 100%;
   }
 
-  .image img {
-    width: 37rem;
-    height: 37rem;
-    border-radius: 2.3rem;
+  .image {
+    width: 10rem;
+    height: 20vh;
+    border-radius: 0.8rem;
   }
 
   .content {
-    margin-left: 8rem;
+    margin-left: 1.7rem;
   }
 
   .content-title {
-    font-size: 4.7rem;
-    margin-top: 2rem;
+    font-size: 1.3rem;
+    margin-top: 0.7rem;
   }
 
   .content-quantidade {
-    margin-top: 2.5rem;
-    font-size: 3rem;
+    margin-top: 0.7rem;
+    font-size: 0.8rem;
   }
 
   .content-value {
-    font-size: 4.7rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   .btn-comprar {
@@ -103,10 +103,10 @@ body {
     color: white;
     border: none;
     transition: all 0.5s;
-    padding: 1rem 4rem;
-    border-radius: 1rem;
-    margin-top: 1.5rem;
-    font-size: 4.3rem;
+    padding: 0.5rem 2rem;
+    border-radius: 0.2rem;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
   }
 
   .btn-comprar:hover {
@@ -208,19 +208,19 @@ body {
 /*Div verde responsiva*/
 @media (max-width: 50rem) {
   .green-div {
-    min-width: 100rem;
+    min-width: 100%;
     height: 100%;
-    margin-top: 8rem;
-    border-radius: 10rem 10rem 0 0;
+    margin-top: 10vh;
+    border-radius: 3rem 3rem 0 0;
   }
 
   .titles-container {
-    margin-top: 4.5rem;
+    margin-top: 1rem;
     color: #323232;
   }
 
   .first-title {
-    font-size: 4rem;
+    font-size: 1rem;
   }
 
   .title-text {
@@ -229,43 +229,44 @@ body {
 
   .line {
     height: 0.3rem;
-    margin-top: 6.1rem;
+    margin-top: 2rem;
   }
 
   .second-title {
     margin-left: 4rem;
-    font-size: 4rem;
+    font-size: 1rem;
   }
 
   .informations-logo {
-    width: 4.5rem;
-    height: 4rem;
-    margin-top: 12rem;
+    width: 1rem;
+    height: 1rem;
+    margin-top: 4rem;
     margin-right: 85rem;
   }
 
   .informations-logo-two {
-    width: 4.5rem;
-    height: 4rem;
+    width: 1rem;
+    height: 1rem;
     margin-top: 12rem;
     margin-left: 85rem;
   }
 
   .text-container {
     display: block;
-    margin-top: 12rem;
+    margin-top: 4rem;
   }
 
   .general-informations-text {
-    width: 85rem;
-    font-size: 3rem;
+    width: 20rem;
+    margin-left: 0rem;
+    font-size: 1rem;
   }
 
   .general-informations-img {
-    padding-top: 7rem;
-    width: 50rem;
-    height: 95rem;
-    margin-left: 18rem;
+    padding-top: 2rem;
+    width: 20rem;
+    height: 35rem;
+    margin-left: 0rem;
   }
 }
 
@@ -324,40 +325,50 @@ footer {
   footer {
     margin-top: 2rem;
     width: 100%;
-    height: 120rem;
+    height: 80vh;
     flex-direction: column;
-    padding: 10rem;
   }
 
   .container-videos {
-    margin-top: -40rem;
+    margin-top: 0rem;
     padding: 0rem;
   }
 
   .video-and-text {
-    margin-top: 70rem;
+    margin-top: 25rem;
+    padding: 0;
   }
 
   .video-text {
     position: absolute;
     display: block;
-    width: 80rem;
-    padding-top: 12rem;
-    font-size: 3rem;
-    margin-top: 40rem;
+    padding-left: 0rem;
+    width: 24rem;
+    padding-top: 15vh;
+    font-size: 1rem;
+    margin-top: 10rem;
+    padding-right: 0 !important;
   }
 
   .div-video {
-    width: 75rem;
-    height: 45rem;
+    width: 30rem;
+    height: 27vh;
     border-radius: 0.8rem;
     margin: 0 auto;
   }
 
   .footer-continuation {
-    width: 110rem;
-    height: 160rem;
-    margin-left: -20rem;
-    margin-top: -85rem;
+    width: 100%;
+    height: 80rem;
+    margin-left: 0rem;
+    margin-top: -45rem;
+  }
+
+  .informations-logo-two {
+    display: none;
+  }
+
+  .informations-logo {
+    display: none;
   }
 }
