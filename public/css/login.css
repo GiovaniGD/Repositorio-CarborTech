@@ -28,6 +28,7 @@
   
   form input {
     background-color: #e8e8e8;
+    box-shadow: 0.2rem 0.2rem #767676;
     border: none;
     padding: 0.8rem;
     border-radius: 0.2rem;
@@ -90,19 +91,19 @@
   button#login {
     display: flex;
     align-items: center;
-    background: none;
-    border: 0.1rem solid #55ad63;
+    background-color: #55ad63;
+    border: none;
+    box-shadow: 0.2rem 0.2rem #3d8249;
     border-radius: 0.2rem;
-    color: #55ad63;
-    padding: 0.4rem 1rem;
+    color: white;
+    padding: 0.5rem 1rem;
     font-size: 1rem;
     transition: all 0.5s;
     text-decoration: none;
   }
   
   button#login:hover {
-    background-color: #55ad63;
-    color: white;
+    background-color: #449151;
   }
   
   button#submit {

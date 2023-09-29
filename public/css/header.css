@@ -62,7 +62,7 @@ header {
   }
   
   .buttons button {
-    padding: 0.25rem 0.6rem;
+    padding: 0.4rem 0.8rem;
     cursor: pointer;
     border-radius: 0.2rem;
     margin-left: 0.5rem;
@@ -70,26 +70,26 @@ header {
   }
   
   .btn-entrar {
-    background-color: #ececec;
-    border: 0.1rem solid #55ad63;
-    color: #55ad63;
+    background-color: #55ad63;
+    border: none;
+    box-shadow: 0.2rem 0.2rem #3d8249;
+    color: #ececec;
   }
   
   .btn-entrar:hover {
-    background-color: #55ad63;
-    color: #ececec;
+    background-color: #449151;
   }
   
   .btn-cadastrar-se {
     background-color: #4684fb;
-    border: 0.1rem solid #4684fb;
+    border: none;
+    box-shadow: 0.2rem 0.2rem #2a54a2;
     color: #ececec;
     transition: all 0.5s;
   }
   
   .btn-cadastrar-se:hover {
-    background-color: #ececec;
-    color: #4684fb;
+    background-color: #3570de;
   }
 
   #divNomeUsuario {

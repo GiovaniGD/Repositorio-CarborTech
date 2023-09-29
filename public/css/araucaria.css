@@ -1,6 +1,10 @@
 /* CABEÇALHO DO SITE */
 
 /* Logo e título */
+html {
+  overflow-x: hidden;
+}
+
 body {
   scrollbar-width: none;
 }

@@ -1,4 +1,4 @@
-export const initDrawing = (map) => {
+const initDrawing = (map) => {
   const allowedBounds = new google.maps.LatLngBounds(
     new google.maps.LatLng(-29.713401053864278, -50.97854050546876),
     new google.maps.LatLng(-29.447669707081545, -50.370859231054695)

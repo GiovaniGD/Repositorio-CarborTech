@@ -28,6 +28,7 @@ form {
 
 form input {
   background-color: #e8e8e8;
+  box-shadow: 0.2rem 0.2rem #767676;
   border: none;
   padding: 0.8rem;
   border-radius: 0.2rem;
@@ -89,18 +90,18 @@ a {
 button#submit {
   align-items: center;
   background: #4684fb;
-  border: 0.1rem solid #4684fb;
+  border: none;
+  box-shadow: 0.2rem 0.2rem #2a54a2;
   border-radius: 0.2rem;
   color: white;
   font-size: 1rem;
-  padding: 0.4rem 0.9rem;
+  padding: 0.5rem 0.9rem;
   transition: all 0.5s;
   text-decoration: none;
 }
 
 button#submit:hover {
-  background-color: white;
-  color: #4684fb;
+  background-color: #3570de;
 }
 
 

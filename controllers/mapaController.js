@@ -1,7 +1,5 @@
 const mapaModel = require("../models/mapaModel");
 
-import { initMap } from "../js/mapa";
-
 let polygons = [];
 
 function cadastroArea(req, res) {
@@ -9,8 +7,6 @@ function cadastroArea(req, res) {
 }
 
 async function efetivarCadastro(req, res) {
-    const area = initMap.area;
-    console.log(`Àrea no controllers: ${area}`);
   
     let id_usuario = req.session.usuario.id_usuario;
     console.log(req.body);
