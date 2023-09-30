@@ -69,25 +69,6 @@
     margin-top: 1.3rem;
   }
   
-  #form_buttons div {
-    display: flex;
-    gap: 0.6rem;
-  }
-  
-  #external button {
-    align-items: center;
-    background: #e8e8e8;
-    border: none;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    width: 2.45rem;
-  }
-  
-  #external button img {
-    width: 70%;
-  }
-  
   button#login {
     display: flex;
     align-items: center;
@@ -123,7 +104,7 @@
     color: #4684fb;
   }
   
-  
+/*Login responsivo*/ 
 @media (max-width: 50rem) {
   main {
     margin-top: 20vh;
@@ -157,25 +138,6 @@
     margin-top: 1.3rem;
   }
   
-  #form_buttons div {
-    display: flex;
-    gap: 0.6rem;
-  }
-  
-  #external button {
-    align-items: center;
-    background: #e8e8e8;
-    border: none;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    width: 2.45rem;
-  }
-  
-  #external button img {
-    width: 70%;
-  }
-  
   button#login {
     margin-top: 2vh;
   }
@@ -183,23 +145,5 @@
   button#login:hover {
     background-color: #55ad63;
     color: white;
-  }
-  
-  button#submit {
-    align-items: center;
-    background: #4684fb;
-    border: 0.1rem solid #4684fb;
-    border-radius: 0.2rem;
-    color: white;
-    font-size: 1rem;
-    padding: 0.4rem 0.9rem;
-    transition: all 0.5s;
-    text-decoration: none;
-    margin-top: 2vh;
-  }
-  
-  button#submit:hover {
-    background-color: white;
-    color: #4684fb;
   }
 }

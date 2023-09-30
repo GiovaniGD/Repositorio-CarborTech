@@ -1,5 +1,8 @@
 const mapaModel = require("../models/mapaModel");
 
+const areaRecuperada = localStorage.getItem(area);
+console.log(areaRecuperada);
+
 let polygons = [];
 
 function cadastroArea(req, res) {

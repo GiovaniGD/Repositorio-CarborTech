@@ -40,6 +40,8 @@ const port = 3300;
         }
         next();
       });
+
+      
     
     app.get('/', (req, res) => {
         app.set('layout', './principal');
@@ -52,10 +54,19 @@ const port = 3300;
         app.set('layout', './produtos/araucaria');
         res.render('produtos/araucaria');
     });
+    
+    app.get('/compraAraucaria', (req, res) => {
+        res.render('servicos/compraAraucaria.ejs');
+    });
+
 
     app.get('/jabuticabeira', (req, res) => {
         app.set('layout', './produtos/jabuticabeira');
         res.render('produtos/jabuticabeira');
+    });
+
+    app.get('/compraJabuticabeira', (req, res) => {
+        res.render('servicos/compraJabuticabeira.ejs');
     });
 
 

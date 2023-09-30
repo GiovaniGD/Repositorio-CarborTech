@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <link rel="stylesheet" href="/css/compraProduto.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <title>CarborTech</title>
+</head>
+<body>
+  <header>
+        
+    <%- include('../layouts/header') %>
+
+  </header>
+
+  <h3 id="comprar">Comprar araucária</h3>
+  <form action="https://formsubmit.co/carbortech@gmail.com" id="form-compra" method="POST">
+    <input type="text" name="Nome" placeholder="Digite seu nome" class="info-compra" required>
+    <input type="email" name="Email" placeholder="Digite seu email" class="info-compra" required>
+    <input type="number" name="Quantidade" max="48" placeholder="Quantas araucárias deseja comprar" class="info-compra" required>
+    <input type="endereco" name="Endereço" placeholder="Local que deseja recebê-la(s)" class="info-compra" required>
+    <textarea cols="32" rows="8" name="Quando e como receber" placeholder="Quando e como deseja receber seu(s) produto(s)" class="info-compra" required></textarea>
+    
+    <button id="realizarPedido" type="submit">Realizar pedido</button>
+    
+    <input type="hidden" name="_subject" value="CarborTech recebeu uma solicitação de araucária.">
+    <input type="text" name="_honey" style="display:none">
+    <input type="hidden" name="_captcha" value="false">
+  </form>
+</body>
+</html>
