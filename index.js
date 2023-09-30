@@ -6,6 +6,7 @@ const dotenv = require('dotenv').config();
 const connection = require("./models/db");
 
 const usuarioController = require('./controllers/usuarioController');
+const mapaController = require('./controllers/mapaController');
 
 const app = express();
 const port = 3300;
@@ -13,7 +14,7 @@ const port = 3300;
     app.set("view engine", "ejs");
     app.set('layout', './usuarios/login');
     app.use(express.static(path.join(__dirname, "public")));
-    app.use(express.urlencoded({ extended: true }));
+    app.use(express.urlencoded({ extended: true }));   
     app.use(routes);
 
     app.use(session({secret: 'r0dr1galus'}));
@@ -40,15 +41,14 @@ const port = 3300;
         }
         next();
       });
-
-      
     
+
     app.get('/', (req, res) => {
         app.set('layout', './principal');
         res.render('principal');
     });
 
-
+    
     // Produtos
     app.get('/araucaria', (req, res) => {
         app.set('layout', './produtos/araucaria');

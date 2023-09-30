@@ -80,8 +80,6 @@ const initDrawing = (map) => {
         const perimetro = google.maps.geometry.spherical.computeLength(polygon.getPath());
         const areaInfo = document.getElementById("area-info");
 
-        localStorage.setItem(area);
-
         areaInfo.textContent = `Área: ${area}m²`;
         const perimetroInfo = document.getElementById("perimetro-info");
 
