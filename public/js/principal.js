@@ -1,4 +1,3 @@
-
 /*Banner rotativo*/
 var images = document.querySelectorAll('.banner img');
 var currentImageIndex = 0;
