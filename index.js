@@ -33,6 +33,7 @@ const port = 3300;
         }
     });
 
+    // Nome do usuário logado
     app.use((req, res, next) => {
         if (req.session.usuario) {
           res.locals.usuario = req.session.usuario;
@@ -42,7 +43,7 @@ const port = 3300;
         next();
       });
     
-
+    // Tela principal
     app.get('/', (req, res) => {
         app.set('layout', './principal');
         res.render('principal');

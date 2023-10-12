@@ -1,5 +1,6 @@
 const usuarioModel = require("../models/usuarioModel");
 
+// Análise de erros para o login
 function login(req, res) {
   erro = req.query.erro;
   if (erro == 1) {
@@ -18,6 +19,7 @@ function login(req, res) {
   res.render("usuarios/login");
 }
 
+// Análise de erros para o cadastro
 function cadastro(req, res) {
   erro = req.query.erro;
   if (erro == 1) {
@@ -34,6 +36,7 @@ function cadastro(req, res) {
   res.render("usuarios/cadastro");
 }
 
+// Função que busca os dados do login na sessão para autenticar
 async function autenticar(req, res) {
   const { email, senha } = req.body;
   let resp = await usuarioModel.verificarUsuario(email, senha);
@@ -52,6 +55,7 @@ async function autenticar(req, res) {
   }
 }
 
+// Função que registra os dados de cadastro no banco de dados
 async function cadastrar(req, res) {
   const { nome, email, senha, senha2 } = req.body;
   if (senha !== senha2) {
@@ -72,6 +76,7 @@ async function cadastrar(req, res) {
   }
 }
 
+// Pega o id do usuário
 async function pegarUsuario(req, res) {
   console.log(req.session.usuario)
   if (req.session.usuario) {
@@ -82,6 +87,7 @@ async function pegarUsuario(req, res) {
   res.render('servicos/mapa', { usuario });
 }
 
+// Desloga o usuário
 function logout(req, res) {
   delete req.session.usuario;
   res.redirect("/login");

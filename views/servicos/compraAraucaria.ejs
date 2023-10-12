@@ -12,19 +12,22 @@
   <title>CarborTech</title>
 </head>
 <body>
+
+  <!-- Cabeçalho -->
   <header>
         
     <%- include('../layouts/header') %>
 
   </header>
 
+  <!-- Dados para compra -->
   <h3 id="comprar">Comprar araucária</h3>
   <form action="https://formsubmit.co/carbortech@gmail.com" id="form-compra" method="POST">
     <input type="text" name="Nome" placeholder="Digite seu nome" class="info-compra" required>
     <input type="email" name="Email" placeholder="Digite seu email" class="info-compra" required>
     <input type="number" name="Quantidade" max="48" placeholder="Quantas araucárias deseja comprar" class="info-compra" required>
     <input type="endereco" name="Endereço" placeholder="Local que deseja recebê-la(s)" class="info-compra" required>
-    <textarea cols="32" rows="8" name="Quando e como receber" placeholder="Quando e como deseja receber sua(s) jabuticabeira(s)" class="info-compra" required></textarea>
+    <textarea cols="32" rows="8" name="Quando e como receber" placeholder="Quando e como deseja receber sua(s) araucária(s)" class="info-compra" required></textarea>
     
     <button id="realizarPedido" type="submit">Realizar pedido</button>
     

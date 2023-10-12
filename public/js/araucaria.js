@@ -36,7 +36,7 @@ function moveLine2() {
   document.head.appendChild(styleSheet);
 }
 
-//mudar informações
+// Mudar informações
 function trocarInformacoesPlantio() {
   const divInformacoes = document.getElementById("general-informations-text");
   const novoTexto =

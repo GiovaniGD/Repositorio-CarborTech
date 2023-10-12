@@ -9,12 +9,15 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   </head>
   <body>
+
+    <!-- Cabeçalho -->
     <header>
         
       <%- include('../layouts/header') %>
 
     </header>
 
+    <!-- Busca por endereços -->
     <div class="pac-card" id="pac-card">
       <div>
         <div id="type-selector" class="pac-controls">
@@ -40,8 +43,10 @@
       </div>
     </div>
     
+    <!-- Mapa -->
     <div id="map"></div>
 
+    <!-- Alternar para modo satélite -->
     <button id="toggleSatellite">Alternar camada (satélite/padrão)</button>
     
     <div id="infowindow-content">
@@ -50,12 +55,14 @@
       <span id="place-address"></span>
     </div>
 
+    <!-- Nome do proprietário -->
     <div id="dados-polygon" style="display: none;">
       <p>Nome do(a) proprietário(a)</p>
       <input type="text" id="owner-name" placeholder="Insira aqui o nome do(a) proprietário(a) da área" required>
       <a id="submit-owner">Demarcar área</a>
     </div>
 
+    <!-- Informações da área -->
     <div id="area-card" style="display: none;">
       <button id="fechar-card" class="fechar-card">×</button>
       <h3 id="title-card-area">Informações da área</h3>

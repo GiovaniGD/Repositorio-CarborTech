@@ -1,9 +1,11 @@
+// Função para demarcação no mapa
 const initDrawing = (map) => {
   const allowedBounds = new google.maps.LatLngBounds(
     new google.maps.LatLng(-29.713401053864278, -50.97854050546876),
     new google.maps.LatLng(-29.447669707081545, -50.370859231054695)
   );
 
+  // Dados do mapa e do polígono
   const drawingManager = new google.maps.drawing.DrawingManager({
     map: map,
     drawingMode: google.maps.drawing.OverlayType.POLYGON,
@@ -24,6 +26,7 @@ const initDrawing = (map) => {
 
   const polygons = new Map();
 
+  // Verificação se a área está dentro dos limites permitidos
   google.maps.event.addListener(drawingManager, "overlaycomplete", (event) => {
     if (event.type === google.maps.drawing.OverlayType.POLYGON) {
       const polygon = event.overlay;
@@ -47,7 +50,7 @@ const initDrawing = (map) => {
             ownerInputDiv.style.display = "block";
 
             submitButton.addEventListener("click", () => {
-            const ownerName = ownerNameInput.value; // Obtenha o nome do proprietário quando o botão é clicado
+            const ownerName = ownerNameInput.value;
 
             if (ownerName) {
                 console.log(`Nome do proprietário: ${ownerName}`);
@@ -59,8 +62,9 @@ const initDrawing = (map) => {
             });
         };
 
+      // Nome do proprietário
       google.maps.event.addListener(polygon, "click", () => {
-        const ownerName = polygons.get(polygon); // Obtém o nome do proprietário do mapa
+        const ownerName = polygons.get(polygon);
         console.log(`Nome do proprietário: ${ownerName}`);
         const paths = polygon.getPaths();
         let bounds = new google.maps.LatLngBounds();
@@ -76,6 +80,7 @@ const initDrawing = (map) => {
           });
         });
 
+        // Informações da área
         const area = google.maps.geometry.spherical.computeArea(polygon.getPath());
         const perimetro = google.maps.geometry.spherical.computeLength(polygon.getPath());
         const areaInfo = document.getElementById("area-info");
@@ -100,6 +105,7 @@ const initDrawing = (map) => {
   });
 };
 
+// Inicialização do mapa na tela
 function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: -29.584006, lng: -50.6736699 },
@@ -108,6 +114,7 @@ function initMap() {
     mapTypeId: google.maps.MapTypeId.SATELLITE,
   });
 
+  // Mudança para modo satélite
   const toggleSatelliteButton = document.getElementById("toggleSatellite");
   toggleSatelliteButton.addEventListener("click", function () {
     if (map.getMapTypeId() === google.maps.MapTypeId.ROADMAP) {
@@ -142,13 +149,14 @@ function initMap() {
 
   initDrawing(map);
 
+  // Busca por endereços
   autocomplete.addListener("place_changed", () => {
     infowindow.close();
     marker.setVisible(false);
     const place = autocomplete.getPlace();
 
     if (!place.geometry || !place.geometry.location) {
-      window.alert("No details available for input: '" + place.name + "'");
+      window.alert("Falha: '" + place.name + "'");
       return;
     }
     if (place.geometry.viewport) {

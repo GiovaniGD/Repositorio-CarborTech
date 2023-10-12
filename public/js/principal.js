@@ -1,4 +1,4 @@
-/*Banner rotativo*/
+// Banner rotativo
 var images = document.querySelectorAll('.banner img');
 var currentImageIndex = 0;
 
@@ -29,7 +29,7 @@ banner.addEventListener('mouseout', function () {
 });
 
 
-/*Scrollagem dos cards*/
+//Scrollagem dos cards
 function scrollCardsRight() {
     const container = document.querySelector('.card-container');
     container.scrollBy({ left: 600, behavior: 'smooth' });

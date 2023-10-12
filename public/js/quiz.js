@@ -11,6 +11,7 @@ import questions from "/js/questions.js";
 let currentIndex = 0;
 let questionsCorrect = 0;
 
+// Reiniciar quiz
 btnRestart.onclick = () => {
   content.style.display = "flex";
   contentFinish.style.display = "none";
@@ -20,6 +21,7 @@ btnRestart.onclick = () => {
   loadQuestion();
 };
 
+// Ir para próxima questão
 function nextQuestion(e) {
   const messageElement = document.querySelector(".message");
 
@@ -40,6 +42,7 @@ function nextQuestion(e) {
   }
 }
 
+// Finalizar quiz
 function finish() {
   textFinish.innerHTML = `Você acertou ${questionsCorrect} de ${questions.length}`;
   content.style.display = "none";
