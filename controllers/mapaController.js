@@ -1,3 +1,4 @@
+
 const mapaModel = require("../models/mapaModel");
 
 let polygons = [];
@@ -5,7 +6,7 @@ let polygons = [];
 function cadastroArea(req, res) {
   res.render('mapa');
 }
-
+ 
 async function efetivarCadastro(req, res) {
   
     let id_usuario = req.session.usuario.id_usuario;

@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const routes = require("./routes/routes");
 const session = require("express-session");
+const bodyParser = require('body-parser');
 const dotenv = require('dotenv').config();
 const connection = require("./models/db");
 
@@ -14,7 +15,8 @@ const port = 3300;
     app.set("view engine", "ejs");
     app.set('layout', './usuarios/login');
     app.use(express.static(path.join(__dirname, "public")));
-    app.use(express.urlencoded({ extended: true }));   
+    app.use(express.urlencoded({ extended: true }));
+    app.use(bodyParser.json());
     app.use(routes);
 
     app.use(session({secret: 'r0dr1galus'}));
@@ -72,6 +74,14 @@ const port = 3300;
 
 
     // Serviços
+    app.post('/dadosArea', (req, res) => {
+        const area = req.body.area;
+        const perimetro = req.body.perimetro;
+
+        console.log('Área: ', area);
+        console.log('Perímetro: ', perimetro);
+    });
+
     app.get('/mapa', (req, res) => {
         app.set('layout', './servicos/mapa');
         res.render('servicos/mapa');

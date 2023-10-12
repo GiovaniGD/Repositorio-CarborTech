@@ -1,3 +1,5 @@
+const url = 'http://localhost:3300/dadosArea'; // Substitua pela URL correta
+
 // Função para demarcação no mapa
 const initDrawing = (map) => {
   const allowedBounds = new google.maps.LatLngBounds(
@@ -83,6 +85,22 @@ const initDrawing = (map) => {
         // Informações da área
         const area = google.maps.geometry.spherical.computeArea(polygon.getPath());
         const perimetro = google.maps.geometry.spherical.computeLength(polygon.getPath());
+
+        fetch(url, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ area, perimetro })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Resposta do servidor:', data);
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+
         const areaInfo = document.getElementById("area-info");
 
         areaInfo.textContent = `Área: ${area}m²`;
