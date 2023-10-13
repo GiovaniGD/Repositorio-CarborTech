@@ -77,11 +77,11 @@ const port = 3300;
     app.post('/dadosArea', (req, res) => {
         const area = req.body.area;
         const perimetro = req.body.perimetro;
-
+    
         console.log('Área: ', area);
         console.log('Perímetro: ', perimetro);
     });
-
+    
     app.get('/mapa', (req, res) => {
         app.set('layout', './servicos/mapa');
         res.render('servicos/mapa');
@@ -89,6 +89,7 @@ const port = 3300;
 
     app.get('/mapa', (req, res) => {
         mapaController.cadastroArea(req, res);
+        mapaController.efetivarCadastro(req, res);
     });
 
     app.post('/mapa', (req, res) => {

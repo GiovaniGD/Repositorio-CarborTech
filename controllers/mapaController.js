@@ -1,4 +1,3 @@
-
 const mapaModel = require("../models/mapaModel");
 
 let polygons = [];
@@ -8,7 +7,10 @@ function cadastroArea(req, res) {
 }
  
 async function efetivarCadastro(req, res) {
-  
+    const { area, perimetro } = require('../index');
+    console.log('Área em outro arquivo: ', area);
+    console.log('Perímetro em outro arquivo: ', perimetro);
+    
     let id_usuario = req.session.usuario.id_usuario;
     console.log(req.body);
     
