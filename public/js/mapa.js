@@ -52,23 +52,20 @@ const initDrawing = (map) => {
             ownerInputDiv.style.display = "block";
 
             submitButton.addEventListener("click", () => {
-              const ownerName = ownerNameInput.value;
+              const proprietario = ownerNameInput.value;
 
-              if (ownerName) {
-                  console.log(`Nome do proprietário: ${ownerName}`);
+              if (proprietario) {
+                  console.log(`Nome do proprietário: ${proprietario}`);
                   ownerInputDiv.style.display = "none";
-                  polygons.set(polygon, ownerName);
+                  polygons.set(polygon, proprietario);
               } else {
                   console.log("Nome do proprietário não fornecido.");
               }
             });
         };
 
-      // Nome do proprietário
+      // Coordenadas
       google.maps.event.addListener(polygon, "click", () => {
-        const ownerName = polygons.get(polygon);
-        console.log(`Nome do proprietário: ${ownerName}`);
-        
         const paths = polygon.getPaths();
         let bounds = new google.maps.LatLngBounds();
         let coordinates = [];
@@ -84,6 +81,9 @@ const initDrawing = (map) => {
         });
 
         // Informações da área
+        const proprietario = polygons.get(polygon);
+        console.log(`Nome do proprietário: ${proprietario}`);
+
         const area = google.maps.geometry.spherical.computeArea(polygon.getPath());
         const perimetro = google.maps.geometry.spherical.computeLength(polygon.getPath());
 
@@ -92,7 +92,7 @@ const initDrawing = (map) => {
           headers: {
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ area, perimetro })
+          body: JSON.stringify({ proprietario, area, perimetro })
         })
         .then(response => response.json())
         .then(data => {

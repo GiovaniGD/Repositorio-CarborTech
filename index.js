@@ -75,15 +75,17 @@ const port = 3300;
 
     // Serviços
     app.post('/dadosArea', (req, res) => {
+        const proprietario = req.body.proprietario;
         const area = req.body.area;
         const perimetro = req.body.perimetro;
     
+        console.log('Proprietario: ', proprietario);
         console.log('Área: ', area);
         console.log('Perímetro: ', perimetro);
 
-        module.exports = { area, perimetro };
+        module.exports = { proprietario, area, perimetro };
     });
-    
+
 
     app.get('/mapa', (req, res) => {
         app.set('layout', './servicos/mapa');
@@ -92,12 +94,9 @@ const port = 3300;
     
     app.get('/mapa/cadastro', (req, res) => { 
         mapaController.cadastroArea(req, res);
-        res.redirect('/mapa');
     });
 
-    app.post('/mapa/cadastro', (req, res) => { 
-        mapaController.cadastroArea(req, res);
-    });
+    app.post('/mapa/cadastro', mapaController.cadastroArea);
 
 
     app.get('/quiz', (req, res) => {
