@@ -3,18 +3,19 @@ const mapaModel = require("../models/mapaModel");
 let polygons = [];
 
 function cadastroArea(req, res) {
-  res.render('mapa');
+  res.render('servicos/mapa');
 }
  
 async function efetivarCadastro(req, res) {
-    const { area, perimetro } = require('../index');
-    console.log('Área em outro arquivo: ', area);
-    console.log('Perímetro em outro arquivo: ', perimetro);
+    const index = require('../index');
+    console.log('Área em outro arquivo: ', index.area);
+    console.log('Perímetro em outro arquivo: ', index.perimetro);
     
     let id_usuario = req.session.usuario.id_usuario;
-    console.log(req.body);
     
-    let resp = await mapaModel.cadastroArea(id_area, id_usuario, area, perimetro);
+    console.log(id_usuario);
+    
+    let resp = await mapaModel.cadastroArea(id_usuario, index.area, index.perimetro);
     if (resp.affectedRows > 0) {
         console.log('Você cadastrou uma nova área');
     } else {

@@ -42,7 +42,7 @@ async function autenticar(req, res) {
   let resp = await usuarioModel.verificarUsuario(email, senha);
   if (resp.length > 0) {
     req.session.usuario = {
-      id: resp[0].id,
+      id_usuario: resp[0].id_usuario,
       nome: resp[0].nome,
       email: resp[0].email,
     };

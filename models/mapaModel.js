@@ -8,8 +8,8 @@ class MapaModel {
         this.perimetro = perimetro;
     }
 
-    static async cadastroArea(id_area, id_usuario, area, perimetro){
-        let sql = `INSERT INTO area (id_area, id_usuario, area, perimetro) VALUES ('${id_area}', '${id_usuario}', '${area}', '${perimetro}')`;
+    static async cadastroArea(id_usuario, area, perimetro){
+        let sql = `INSERT INTO area (id_usuario, area, perimetro) VALUES ('${id_usuario}', '${area}', '${perimetro}')`;
         let resp = await db.query(sql);
         return resp;
     }

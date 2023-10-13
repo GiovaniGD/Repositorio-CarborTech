@@ -80,21 +80,19 @@ const port = 3300;
     
         console.log('Área: ', area);
         console.log('Perímetro: ', perimetro);
+
+        module.exports = { area, perimetro };
     });
-    
+
     app.get('/mapa', (req, res) => {
         app.set('layout', './servicos/mapa');
         res.render('servicos/mapa');
     });
 
-    app.get('/mapa', (req, res) => {
-        mapaController.cadastroArea(req, res);
-        mapaController.efetivarCadastro(req, res);
-    });
+    
+    app.get('/mapa/cadastro', mapaController.efetivarCadastro, mapaController.cadastroArea);
 
-    app.post('/mapa', (req, res) => {
-        mapaController.efetivarCadastro(req, res);
-    });
+    app.post('/mapa/cadastro', mapaController.efetivarCadastro);
 
     app.get('/quiz', (req, res) => {
         app.set('layout', './servicos/quiz');
