@@ -83,16 +83,22 @@ const port = 3300;
 
         module.exports = { area, perimetro };
     });
+    
 
     app.get('/mapa', (req, res) => {
         app.set('layout', './servicos/mapa');
         res.render('servicos/mapa');
     });
-
     
-    app.get('/mapa/cadastro', mapaController.efetivarCadastro, mapaController.cadastroArea);
+    app.get('/mapa/cadastro', (req, res) => { 
+        mapaController.cadastroArea(req, res);
+        res.redirect('/mapa');
+    });
 
-    app.post('/mapa/cadastro', mapaController.efetivarCadastro);
+    app.post('/mapa/cadastro', (req, res) => { 
+        mapaController.cadastroArea(req, res);
+    });
+
 
     app.get('/quiz', (req, res) => {
         app.set('layout', './servicos/quiz');

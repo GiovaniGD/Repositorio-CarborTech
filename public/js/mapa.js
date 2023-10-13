@@ -52,15 +52,15 @@ const initDrawing = (map) => {
             ownerInputDiv.style.display = "block";
 
             submitButton.addEventListener("click", () => {
-            const ownerName = ownerNameInput.value;
+              const ownerName = ownerNameInput.value;
 
-            if (ownerName) {
-                console.log(`Nome do proprietário: ${ownerName}`);
-                ownerInputDiv.style.display = "none";
-                polygons.set(polygon, ownerName);
-            } else {
-                console.log("Nome do proprietário não fornecido.");
-            }
+              if (ownerName) {
+                  console.log(`Nome do proprietário: ${ownerName}`);
+                  ownerInputDiv.style.display = "none";
+                  polygons.set(polygon, ownerName);
+              } else {
+                  console.log("Nome do proprietário não fornecido.");
+              }
             });
         };
 
@@ -68,6 +68,7 @@ const initDrawing = (map) => {
       google.maps.event.addListener(polygon, "click", () => {
         const ownerName = polygons.get(polygon);
         console.log(`Nome do proprietário: ${ownerName}`);
+        
         const paths = polygon.getPaths();
         let bounds = new google.maps.LatLngBounds();
         let coordinates = [];
@@ -117,6 +118,8 @@ const initDrawing = (map) => {
         document.getElementById("fechar-card").addEventListener("click", () => {
           const areaCard = document.getElementById("area-card");
           areaCard.style.display = "none";
+
+          window.location.href = '/mapa/cadastro';
         });
       });
     };

@@ -167,14 +167,16 @@ body {
 
 #owner-name {
   padding: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
   width: 100%;
   border: 0.05rem solid #a5a5a5;
   border-radius: 0.3rem;
+  outline: none;
 }
 
 #submit-owner {
   background-color: #4684fb;
+  box-shadow: 0.2rem 0.2rem #2a54a2;
   color: #fff;
   border: none;
   border-radius: 0.3rem;
