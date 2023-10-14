@@ -1,7 +1,7 @@
-const url = 'http://localhost:3300/dadosArea'; // Substitua pela URL correta
+const url = 'http://localhost:3300/dadosArea';
 
 // Função para demarcação no mapa
-const initDrawing = (map) => {
+const initDrawing = (map, req, res) => {
   const allowedBounds = new google.maps.LatLngBounds(
     new google.maps.LatLng(-29.713401053864278, -50.97854050546876),
     new google.maps.LatLng(-29.447669707081545, -50.370859231054695)
@@ -101,12 +101,16 @@ const initDrawing = (map) => {
         .catch(error => {
             console.error('Erro:', error);
         });
+        
+        /*let proprietarioArea = req.session.area.proprietario;
+        
+        const proprietarioInfo = document.getElementById("proprietario-info");
+        proprietarioInfo.textContent = `Proprietário: ${proprietarioArea}m²`;*/
 
         const areaInfo = document.getElementById("area-info");
-
         areaInfo.textContent = `Área: ${area}m²`;
-        const perimetroInfo = document.getElementById("perimetro-info");
 
+        const perimetroInfo = document.getElementById("perimetro-info");
         perimetroInfo.textContent = `Perímetro: ${perimetro}m`;
         const coordinatesInfo = document.getElementById("coordinates-info");
 

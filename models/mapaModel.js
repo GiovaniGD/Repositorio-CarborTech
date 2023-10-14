@@ -9,6 +9,12 @@ class MapaModel {
         this.perimetro = perimetro;
     }
 
+    static async verificarArea(id_usuario, proprietario, area, perimetro) {
+        let sql = `SELECT * FROM area WHERE id_usuario = '${id_usuario}' AND proprietario = '${proprietario}' AND area = '${area}' AND perimetro = '${perimetro}'`;
+        let resp = await db.query(sql);
+        return resp;
+    }
+
     static async cadastroArea(id_usuario, proprietario, area, perimetro){
         let sql = `INSERT INTO area (id_usuario, proprietario, area, perimetro) VALUES ('${id_usuario}', '${proprietario}', '${area}', '${perimetro}')`;
         let resp = await db.query(sql);
