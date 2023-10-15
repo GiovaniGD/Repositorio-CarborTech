@@ -15,16 +15,18 @@ async function cadastroArea(req, res) {
         let proprietario = index.proprietario;
         let area = index.area;
         let perimetro = index.perimetro;
+        let coordinates = index.coordinates;
 
-        let respCadastro = await mapaModel.cadastroArea(id_usuario, proprietario, area, perimetro);
-        let resp = await mapaModel.verificarArea(id_usuario, proprietario, area, perimetro);
+        let respCadastro = await mapaModel.cadastroArea(id_usuario, proprietario, area, perimetro, coordinates);
+        let resp = await mapaModel.verificarArea(id_usuario, proprietario, area, perimetro, coordinates);
 
         if (resp.length > 0 && respCadastro.affectedRows > 0) {
             req.session.area = {
                 id_area: resp[0].id_area,
                 proprietario: resp[0].proprietario,
                 area: resp[0].area,
-                perimetro: resp[0].perimetro
+                perimetro: resp[0].perimetro,
+                coordinates: resp[0].coordinates,
             };
             res.locals.layoutVariables = { area: req.session.area };
             console.log('Você cadastrou uma nova área');

@@ -78,12 +78,9 @@ const port = 3300;
         const proprietario = req.body.proprietario;
         const area = req.body.area;
         const perimetro = req.body.perimetro;
-    
-        console.log('Proprietario: ', proprietario);
-        console.log('Área: ', area);
-        console.log('Perímetro: ', perimetro);
-
-        module.exports = { proprietario, area, perimetro };
+        const coordinates = req.body.coordinatesJSON;
+        
+        module.exports = { proprietario, area, perimetro, coordinates };
     });
 
 

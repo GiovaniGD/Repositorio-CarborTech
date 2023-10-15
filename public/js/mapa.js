@@ -86,13 +86,16 @@ const initDrawing = (map, req, res) => {
 
         const area = google.maps.geometry.spherical.computeArea(polygon.getPath());
         const perimetro = google.maps.geometry.spherical.computeLength(polygon.getPath());
+        const coordinatesInfo = document.getElementById("coordinates-info");
+        coordinatesInfo.textContent = `${JSON.stringify(coordinates)}`;
+        let coordinatesJSON = JSON.stringify(coordinates);
 
         fetch(url, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ proprietario, area, perimetro })
+          body: JSON.stringify({ proprietario, area, perimetro, coordinatesJSON })
         })
         .then(response => response.json())
         .then(data => {
@@ -112,9 +115,6 @@ const initDrawing = (map, req, res) => {
 
         const perimetroInfo = document.getElementById("perimetro-info");
         perimetroInfo.textContent = `Perímetro: ${perimetro}m`;
-        const coordinatesInfo = document.getElementById("coordinates-info");
-
-        coordinatesInfo.textContent = `${JSON.stringify(coordinates)}`;
 
         const areaCard = document.getElementById("area-card");
         areaCard.style.display = "block";
