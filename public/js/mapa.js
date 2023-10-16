@@ -130,8 +130,10 @@ const initDrawing = (map, req, res) => {
   });
 };
 
+const coordinates = [];
+
 // Inicialização do mapa na tela
-function initMap() {
+function initMap(areas) {
   const map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: -29.584006, lng: -50.6736699 },
     zoom: 12,
@@ -139,7 +141,34 @@ function initMap() {
     mapTypeId: google.maps.MapTypeId.SATELLITE,
   });
 
-  // Mudança para modo satélite
+  // Exibir áreas salvas no mapa
+  fetch('http://localhost:3300/areas')
+  .then(response => response.json())
+  .then(data => {
+    console.log('Áreas do servidor:', data.areas);
+
+    data.areas.forEach(area => {
+      const parsedCoordinates = JSON.parse(area.coordinates);
+      const coordinates = parsedCoordinates.map(coord => ({
+        lat: coord.lat,
+        lng: coord.lng
+      }));
+
+      const polygon = new google.maps.Polygon({
+        paths: coordinates,
+        fillColor: "#55ad63",
+        strokeColor: "#55ad63",
+        strokeWeight: 2,
+        clickable: true,
+        zIndex: 1,
+      });
+      polygon.setMap(map);
+    });
+  })
+  .catch(error => {
+    console.error('Erro ao buscar áreas do servidor:', error);
+  });
+
   const toggleSatelliteButton = document.getElementById("toggleSatellite");
   toggleSatelliteButton.addEventListener("click", function () {
     if (map.getMapTypeId() === google.maps.MapTypeId.ROADMAP) {

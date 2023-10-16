@@ -8,6 +8,7 @@ const connection = require("./models/db");
 
 const usuarioController = require('./controllers/usuarioController');
 const mapaController = require('./controllers/mapaController');
+const { pegarAreas } = require("./models/mapaModel");
 
 const app = express();
 const port = 3300;
@@ -83,12 +84,33 @@ const port = 3300;
         module.exports = { proprietario, area, perimetro, coordinates };
     });
 
+    app.get('/coordenadas', async (req, res) => {
+        try {
+          const areas = await MapaModel.pegarAreas();
+          res.json({ areas });
+        } catch (error) {
+          console.error('Erro ao recuperar áreas:',   error);
+          res.status(500).json({ error: 'Erro ao recuperar áreas.' });
+        }
+      });
 
-    app.get('/mapa', (req, res) => {
+    app.get('/mapa', async (req, res) => {
         app.set('layout', './servicos/mapa');
-        res.render('servicos/mapa');
+        res.render("servicos/mapa");
     });
-    
+
+    app.get('/areas', async (req, res) => {
+        app.set('layout', './servicos/mapa');
+        
+        try {
+            const areas = await pegarAreas();
+            res.json({ areas });
+        } catch (error) {
+            console.error('Erro ao buscar áreas do servidor:', error);
+            res.status(500).json({ error: 'Erro ao recuperar áreas.' });
+        }
+    });
+
     app.get('/mapa/cadastro', (req, res) => { 
         mapaController.cadastroArea(req, res);
     });

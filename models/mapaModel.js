@@ -27,6 +27,12 @@ class MapaModel {
         let resp = await db.query(sql);
         return resp;
     }
+
+    static async pegarAreas(coordinates){
+        let sql = `SELECT coordinates FROM area`;
+        let resp = await db.query(sql);
+        return resp;
+    }
 }
 
 module.exports = MapaModel;

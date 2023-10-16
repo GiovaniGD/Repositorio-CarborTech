@@ -41,4 +41,14 @@ async function cadastroArea(req, res) {
     }
 }
 
-module.exports = { cadastroArea };
+async function pegarAreas(req, res) {
+    try {
+      const areas = await MapaModel.pegarAreas();
+      res.json({ areas });
+    } catch (error) {
+      console.error('Erro ao recuperar áreas:', error);
+      res.status(500).json({ error: 'Erro ao recuperar áreas.' });
+    }
+}
+
+module.exports = { cadastroArea, pegarAreas };
