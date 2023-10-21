@@ -1,7 +1,5 @@
 const mapaModel = require("../models/mapaModel");
 
-let polygons = [];
- 
 async function cadastroArea(req, res) {
     if (req.session.usuario && req.session.usuario.id_usuario !== undefined) {
         const index = require('../index');
@@ -28,9 +26,7 @@ async function cadastroArea(req, res) {
                 perimetro: resp[0].perimetro,
                 coordinates: resp[0].coordinates,
             };
-            res.locals.layoutVariables = { area: req.session.area };
             console.log('Você cadastrou uma nova área');
-            console.log(req.session.area);
             res.redirect('/mapa');
         } else {
             console.log('Falha em cadastrar nova área');

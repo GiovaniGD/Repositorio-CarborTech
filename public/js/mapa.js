@@ -23,7 +23,7 @@ const initDrawing = (map, req, res) => {
       clickable: true,
       editable: true,
       zIndex: 1,
-    },
+    }, 
   });
 
   const polygons = new Map();
@@ -55,38 +55,43 @@ const initDrawing = (map, req, res) => {
               const proprietario = ownerNameInput.value;
 
               if (proprietario) {
-                  console.log(`Nome do proprietário: ${proprietario}`);
-                  ownerInputDiv.style.display = "none";
-                  polygons.set(polygon, proprietario);
-              } else {
-                  console.log("Nome do proprietário não fornecido.");
-              }
-            });
-        };
+                console.log(`Nome do proprietário: ${proprietario}`);
+                ownerInputDiv.style.display = "none";
+                polygons.set(polygon, proprietario);
 
-      // Coordenadas
-      google.maps.event.addListener(polygon, "click", () => {
-        const paths = polygon.getPaths();
-        let bounds = new google.maps.LatLngBounds();
-        let coordinates = [];
+                const clickAlert = document.getElementById("click-alert");
+                clickAlert.style.display = "block";
+            } else {
+                console.log("Nome do proprietário não fornecido.");
+            }
+          });
+      };
+ 
+    // Coordenadas
+    google.maps.event.addListener(polygon, "click", () => {
+      const clickAlert = document.getElementById("click-alert");
+      clickAlert.style.display = "none";
 
-        paths.forEach((path) => {
-          path.forEach((vertex) => {
-            bounds.extend(vertex);
-            coordinates.push({
-              lat: vertex.lat(),
-              lng: vertex.lng(),
-            });
+      const paths = polygon.getPaths();
+      let bounds = new google.maps.LatLngBounds();
+      let coordinates = [];
+      paths.forEach((path) => {
+        path.forEach((vertex) => {
+          bounds.extend(vertex);
+          coordinates.push({
+            lat: vertex.lat(),
+            lng: vertex.lng(),
           });
         });
-
-        // Informações da área
-        const proprietario = polygons.get(polygon);
-        console.log(`Nome do proprietário: ${proprietario}`);
+      });
+      // Informações da área
+      const proprietario = polygons.get(polygon);
+      console.log(`Nome do proprietário: ${proprietario}`);
 
         const area = google.maps.geometry.spherical.computeArea(polygon.getPath());
         const perimetro = google.maps.geometry.spherical.computeLength(polygon.getPath());
-        const coordinatesInfo = document.getElementById("coordinates-info");
+
+        const coordinatesInfo = document.getElementById("coordinatesInit-info");
         coordinatesInfo.textContent = `${JSON.stringify(coordinates)}`;
         let coordinatesJSON = JSON.stringify(coordinates);
 
@@ -104,26 +109,47 @@ const initDrawing = (map, req, res) => {
         .catch(error => {
             console.error('Erro:', error);
         });
-        
-        /*let proprietarioArea = req.session.area.proprietario;
-        
-        const proprietarioInfo = document.getElementById("proprietario-info");
-        proprietarioInfo.textContent = `Proprietário: ${proprietarioArea}m²`;*/
 
-        const areaInfo = document.getElementById("area-info");
+        const areaInfo = document.getElementById("areaInit-info");
+
+        const proprietarioInfo = document.getElementById("proprietarioInit-info");
+        proprietarioInfo.textContent = `Proprietário ${proprietario}`;
+
         areaInfo.textContent = `Área: ${area}m²`;
+        const perimetroInfo = document.getElementById("perimetroInit-info");
 
-        const perimetroInfo = document.getElementById("perimetro-info");
         perimetroInfo.textContent = `Perímetro: ${perimetro}m`;
 
-        const areaCard = document.getElementById("area-card");
-        areaCard.style.display = "block";
+        coordinatesInfo.textContent = `${JSON.stringify(coordinates)}`;
+        
+        const ownerInputDiv = document.getElementById("dados-polygon");
+        const areaInitCard = document.getElementById("areaInit-card");
 
-        document.getElementById("fechar-card").addEventListener("click", () => {
-          const areaCard = document.getElementById("area-card");
-          areaCard.style.display = "none";
+        areaInitCard.style.display = "block";
+
+        if (ownerInputDiv.style.display !== "none") {
+          const areaInitCard = document.getElementById("areaInit-card");
+          areaInitCard.style.display = "none";
+        }
+
+        document.getElementById("submit-owner").addEventListener("click", () => {
+        const ownerInputDiv = document.getElementById("dados-polygon");
+          
+          ownerInputDiv.style.display = "none";
+          areaInitCard.style.display = "block";
+        });
+
+        document.getElementById("cadastrarInit-cardButton").addEventListener("click", () => {
+          
+          const areaInitCard = document.getElementById("areaInit-card");
+          areaInitCard.style.display = "none";
 
           window.location.href = '/mapa/cadastro';
+        });
+        document.getElementById("cancelarInit-cardButton").addEventListener("click", () => {
+          const areaInitCard = document.getElementById("areaInit-card");
+          areaInitCard.style.display = "none";
+          ownerInputDiv.style.display = "none";
         });
       });
     };
@@ -133,7 +159,7 @@ const initDrawing = (map, req, res) => {
 const coordinates = [];
 
 // Inicialização do mapa na tela
-function initMap(areas) {
+function initMap(req, res) {
   const map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: -29.584006, lng: -50.6736699 },
     zoom: 12,
@@ -163,6 +189,28 @@ function initMap(areas) {
         zIndex: 1,
       });
       polygon.setMap(map);
+
+      google.maps.event.addListener(polygon, "click", () => {
+          const coordinatesInfo = document.getElementById("coordinates-info");
+          coordinatesInfo.textContent = `${area.coordinates}m²`;
+
+          const proprietarioInfo = document.getElementById("proprietario-info");
+          proprietarioInfo.textContent = `Proprietário ${area.proprietario}`;
+
+          const areaInfo = document.getElementById("area-info");
+          areaInfo.textContent = `Área: ${area.area}`;
+
+          const perimetroInfo = document.getElementById("perimetro-info");
+          perimetroInfo.textContent = `Perímetro: ${area.perimetro}m`;
+    
+          const areaCard = document.getElementById("area-card");
+          areaCard.style.display = "block";
+
+          document.getElementById("fechar-card").addEventListener("click", () => {
+            const areaCard = document.getElementById("area-card");
+            areaCard.style.display = "none";
+          });
+        });
     });
   })
   .catch(error => {
@@ -180,8 +228,6 @@ function initMap(areas) {
 
   const card = document.getElementById("pac-card");
   const input = document.getElementById("pac-input");
-  const biasInputElement = document.getElementById("use-location-bias");
-  const strictBoundsInputElement = document.getElementById("use-strict-bounds");
   const options = {
     fields: ["formatted_address", "geometry", "name"],
     strictBounds: false,
@@ -224,47 +270,6 @@ function initMap(areas) {
     infowindowContent.children["place-name"].textContent = place.name;
     infowindowContent.children["place-address"].textContent = place.formatted_address;
     infowindow.open(map, marker);
-  });
-
-  function setupClickListener(id, types) {
-    const radioButton = document.getElementById(id);
-
-    radioButton.addEventListener("click", () => {
-      autocomplete.setTypes(types);
-      input.value = "";
-    });
-  }
-
-  setupClickListener("changetype-all", []);
-  setupClickListener("changetype-address", ["address"]);
-  setupClickListener("changetype-establishment", ["establishment"]);
-  setupClickListener("changetype-geocode", ["geocode"]);
-  setupClickListener("changetype-cities", ["(cities)"]);
-  setupClickListener("changetype-regions", ["(regions)"]);
-
-  biasInputElement.addEventListener("change", () => {
-    if (biasInputElement.checked) {
-      autocomplete.bindTo("bounds", map);
-    } else {
-      autocomplete.unbind("bounds");
-      autocomplete.setBounds({
-        east: 180,
-        west: -180,
-        north: 90,
-        south: -90,
-      });
-      strictBoundsInputElement.checked = biasInputElement.checked;
-    }
-    input.value = "";
-  });
-
-  strictBoundsInputElement.addEventListener("change", () => {
-    autocomplete.setOptions({ strictBounds: strictBoundsInputElement.checked });
-    if (strictBoundsInputElement.checked) {
-      biasInputElement.checked = strictBoundsInputElement.checked;
-      autocomplete.bindTo("bounds", map);
-    }
-    input.value = "";
   });
 }
 

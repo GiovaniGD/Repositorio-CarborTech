@@ -55,14 +55,18 @@
       <span id="place-address"></span>
     </div>
 
-    <!-- Nome do proprietário -->
-    <div id="dados-polygon" style="display: none;">
-      <p>Nome do(a) proprietário(a)</p>
-      <input type="text" id="owner-name" placeholder="Insira aqui o nome do(a) proprietário(a) da área" required>
-      <a id="submit-owner">Demarcar área</a>
+    <!-- Informações da área -->
+    <div id="areaInit-card" style="display: none;">
+      <h3 id="title-card-area">Informações da área</h3>
+      <p id="proprietarioInit-info"></p>
+      <p id="areaInit-info"></p>
+      <p id="perimetroInit-info"></p>
+      <p>Coordenadas:</p>
+      <p id="coordinatesInit-info"></p>
+      <button id="cancelarInit-cardButton">Cancelar</button>
+      <button id="cadastrarInit-cardButton">Cadastrar</button>
     </div>
 
-    <!-- Informações da área -->
     <div id="area-card" style="display: none;">
       <button id="fechar-card" class="fechar-card">×</button>
       <h3 id="title-card-area">Informações da área</h3>
@@ -71,6 +75,18 @@
       <p id="perimetro-info"></p>
       <p>Coordenadas:</p>
       <p id="coordinates-info"></p>
+    </div>
+
+    <!-- Aviso de clique -->
+    <div id="click-alert" style="display: none;">
+      <p>Clique em sua demarcação para cancelar ou cadastrar a área</p>
+    </div>
+
+    <!-- Nome do proprietário -->
+    <div id="dados-polygon" style="display: none;">
+      <p>Nome do(a) proprietário(a)</p>
+      <input type="text" id="owner-name" placeholder="Insira aqui o nome do(a) proprietário(a) da área" required>
+      <a id="submit-owner" class="submit-owners">Enviar dados</a>
     </div>
 
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1IQrOgjTbVBhj6-cVC-LD6updevCRk34&callback=initMap&libraries=places,drawing,geometry&v=weekly" defer></script>

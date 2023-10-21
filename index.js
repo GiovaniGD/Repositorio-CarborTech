@@ -1,4 +1,5 @@
-const express = require("express"); 
+const express = require("express");
+const expressLayouts = require('express-ejs-layouts');
 const path = require("path");
 const routes = require("./routes/routes");
 const session = require("express-session");
@@ -8,7 +9,7 @@ const connection = require("./models/db");
 
 const usuarioController = require('./controllers/usuarioController');
 const mapaController = require('./controllers/mapaController');
-const { pegarAreas } = require("./models/mapaModel");
+const mapaModel = require("./models/mapaModel");
 
 const app = express();
 const port = 3300;
@@ -16,6 +17,7 @@ const port = 3300;
     app.set("view engine", "ejs");
     app.set('layout', './usuarios/login');
     app.use(express.static(path.join(__dirname, "public")));
+    app.use(expressLayouts);
     app.use(express.urlencoded({ extended: true }));
     app.use(bodyParser.json());
     app.use(routes);
@@ -96,14 +98,14 @@ const port = 3300;
 
     app.get('/mapa', async (req, res) => {
         app.set('layout', './servicos/mapa');
-        res.render("servicos/mapa");
+        res.render("servicos/mapa", { area: req.session.area});
     });
 
-    app.get('/areas', async (req, res) => {
+    app.get('/areas', async (req, res, area) => {
         app.set('layout', './servicos/mapa');
         
         try {
-            const areas = await pegarAreas();
+            const areas = await mapaModel.pegarAreas();
             res.json({ areas });
         } catch (error) {
             console.error('Erro ao buscar áreas do servidor:', error);

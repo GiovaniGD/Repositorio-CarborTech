@@ -10,12 +10,6 @@ class MapaModel {
         this.coordinates = coordinates;
     }
 
-    static async todasAreas(){
-        let sql = `SELECT * FROM area ORDER BY id_area`;
-        let resp = await database.query(sql);
-        return resp;
-    }
-
     static async verificarArea(id_usuario, proprietario, area, perimetro, coordinates) {
         let sql = `SELECT * FROM area WHERE id_usuario = '${id_usuario}' AND proprietario = '${proprietario}' AND area = '${area}' AND perimetro = '${perimetro}' AND coordinates = '${coordinates}'`;
         let resp = await db.query(sql);
@@ -28,8 +22,8 @@ class MapaModel {
         return resp;
     }
 
-    static async pegarAreas(coordinates){
-        let sql = `SELECT coordinates FROM area`;
+    static async pegarAreas(){
+        let sql = `SELECT * FROM area`;
         let resp = await db.query(sql);
         return resp;
     }
