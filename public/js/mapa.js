@@ -228,6 +228,8 @@ function initMap(req, res) {
 
   const card = document.getElementById("pac-card");
   const input = document.getElementById("pac-input");
+  const biasInputElement = document.getElementById("use-location-bias");
+  const strictBoundsInputElement = document.getElementById("use-strict-bounds");
   const options = {
     fields: ["formatted_address", "geometry", "name"],
     strictBounds: false,
@@ -270,6 +272,47 @@ function initMap(req, res) {
     infowindowContent.children["place-name"].textContent = place.name;
     infowindowContent.children["place-address"].textContent = place.formatted_address;
     infowindow.open(map, marker);
+  });
+
+  function setupClickListener(id, types) {
+    const radioButton = document.getElementById(id);
+
+    radioButton.addEventListener("click", () => {
+      autocomplete.setTypes(types);
+      input.value = "";
+    });
+  }
+
+  setupClickListener("changetype-all", []);
+  setupClickListener("changetype-address", ["address"]);
+  setupClickListener("changetype-establishment", ["establishment"]);
+  setupClickListener("changetype-geocode", ["geocode"]);
+  setupClickListener("changetype-cities", ["(cities)"]);
+  setupClickListener("changetype-regions", ["(regions)"]);
+
+  biasInputElement.addEventListener("change", () => {
+    if (biasInputElement.checked) {
+      autocomplete.bindTo("bounds", map);
+    } else {
+      autocomplete.unbind("bounds");
+      autocomplete.setBounds({
+        east: 180,
+        west: -180,
+        north: 90,
+        south: -90,
+      });
+      strictBoundsInputElement.checked = biasInputElement.checked;
+    }
+    input.value = "";
+  });
+
+  strictBoundsInputElement.addEventListener("change", () => {
+    autocomplete.setOptions({ strictBounds: strictBoundsInputElement.checked });
+    if (strictBoundsInputElement.checked) {
+      biasInputElement.checked = strictBoundsInputElement.checked;
+      autocomplete.bindTo("bounds", map);
+    }
+    input.value = "";
   });
 }
 
