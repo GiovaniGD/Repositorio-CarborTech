@@ -113,7 +113,7 @@ const initDrawing = (map, req, res) => {
         const areaInfo = document.getElementById("areaInit-info");
 
         const proprietarioInfo = document.getElementById("proprietarioInit-info");
-        proprietarioInfo.textContent = `Proprietário ${proprietario}`;
+        proprietarioInfo.textContent = `Proprietário: ${proprietario}`;
 
         areaInfo.textContent = `Área: ${area}m²`;
         const perimetroInfo = document.getElementById("perimetroInit-info");

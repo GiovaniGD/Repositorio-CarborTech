@@ -105,4 +105,44 @@ export default [
       { option: "Temperado", correct: false },
     ],
   },
+  {
+    question:
+      "Qual o nome científico da araucária nativa do Brasil?",
+    answers: [
+      { option: "Araucaria tropofilia", correct: false },
+      { option: "Araucaria ulistifolia", correct: false },
+      { option: "Araucaria augustifolia", correct: true },
+      { option: "Araucaria handroanthus", correct: false },
+    ],
+  },
+  {
+    question:
+      "Qual a estação de florescimento do Ipê-amarelo?",
+    answers: [
+      { option: "Primavera", correct: true },
+      { option: "Verão", correct: false },
+      { option: "Inverno", correct: false },
+      { option: "Outono", correct: false },
+    ],
+  },
+  {
+    question:
+      "O que é considerado uma árvore exótica?",
+    answers: [
+      { option: "Espécies ameaçadas de extinção", correct: false },
+      { option: "Espécies raras", correct: false },
+      { option: "Árvores que só existem no Brasil", correct: false },
+      { option: "Árvores originárias de outros países", correct: true },
+    ],
+  },
+  {
+    question:
+      "Qual o principal problema enfrentado pelo bioma Pampa no Rio Grande do Sul?",
+    answers: [
+      { option: "Expansão da agropecuária ", correct: false },
+      { option: "Crescimento desgovernado de ervas daninhas", correct: false },
+      { option: "Monocultura de Eucalipto", correct: true },
+      { option: "Construção de barragens para ampliar o irrigamento de arroz", correct: false },
+    ],
+  },
 ];
