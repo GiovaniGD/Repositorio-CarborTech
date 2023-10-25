@@ -62,7 +62,8 @@ const port = 3300;
     });
     
     app.get('/compraAraucaria', (req, res) => {
-        res.render('servicos/compraAraucaria.ejs');
+        app.set('layout', './servicos/compraAraucaria');
+        res.render('servicos/compraAraucaria');
     });
 
 
@@ -72,7 +73,8 @@ const port = 3300;
     });
 
     app.get('/compraJabuticabeira', (req, res) => {
-        res.render('servicos/compraJabuticabeira.ejs');
+        app.set('layout', './servicos/compraJabuticabeira');
+        res.render('servicos/compraJabuticabeira');
     });
 
 

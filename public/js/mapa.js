@@ -133,7 +133,7 @@ const initDrawing = (map, req, res) => {
         }
 
         document.getElementById("submit-owner").addEventListener("click", () => {
-        const ownerInputDiv = document.getElementById("dados-polygon");
+          const ownerInputDiv = document.getElementById("dados-polygon");
           
           ownerInputDiv.style.display = "none";
           areaInitCard.style.display = "block";
@@ -147,6 +147,7 @@ const initDrawing = (map, req, res) => {
           window.location.href = '/mapa/cadastro';
         });
         document.getElementById("cancelarInit-cardButton").addEventListener("click", () => {
+          window.location.href = '/mapa';
           const areaInitCard = document.getElementById("areaInit-card");
           areaInitCard.style.display = "none";
           ownerInputDiv.style.display = "none";
@@ -195,7 +196,7 @@ function initMap(req, res) {
           coordinatesInfo.textContent = `${area.coordinates}m²`;
 
           const proprietarioInfo = document.getElementById("proprietario-info");
-          proprietarioInfo.textContent = `Proprietário ${area.proprietario}`;
+          proprietarioInfo.textContent = `Proprietário: ${area.proprietario}`;
 
           const areaInfo = document.getElementById("area-info");
           areaInfo.textContent = `Área: ${area.area}`;
