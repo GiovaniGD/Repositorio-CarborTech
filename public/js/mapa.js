@@ -51,7 +51,28 @@ const initDrawing = (map, req, res) => {
 
             ownerInputDiv.style.display = "block";
 
+            const disableMapInteraction = () => {
+              map.setOptions({ draggable: false, scrollwheel: false, keyboardShortcuts: false });
+            };
+
+            const enableMapInteraction = () => {
+              map.setOptions({ draggable: true, scrollwheel: true, keyboardShortcuts: true });
+            };
+
+            function disableDrawingManager() {
+              drawingManager.setMap(null);
+            }
+            
+            function enableDrawingManager() {
+              drawingManager.setMap(map);
+            }
+            
+            disableMapInteraction();
+            disableDrawingManager();
+
             submitButton.addEventListener("click", () => {
+              enableMapInteraction();
+              enableDrawingManager();
               const proprietario = ownerNameInput.value;
 
               if (proprietario) {
@@ -69,6 +90,15 @@ const initDrawing = (map, req, res) => {
  
     // Coordenadas
     google.maps.event.addListener(polygon, "click", () => {
+      const disableMapInteraction = () => {
+        map.setOptions({ draggable: false, scrollwheel: false, keyboardShortcuts: false });
+      };
+      function disableDrawingManager() {
+        drawingManager.setMap(null);
+      };
+      disableMapInteraction();
+      disableDrawingManager();
+
       const clickAlert = document.getElementById("click-alert");
       clickAlert.style.display = "none";
 
@@ -126,11 +156,6 @@ const initDrawing = (map, req, res) => {
         const areaInitCard = document.getElementById("areaInit-card");
 
         areaInitCard.style.display = "block";
-
-        if (ownerInputDiv.style.display !== "none") {
-          const areaInitCard = document.getElementById("areaInit-card");
-          areaInitCard.style.display = "none";
-        }
 
         document.getElementById("submit-owner").addEventListener("click", () => {
           const ownerInputDiv = document.getElementById("dados-polygon");
