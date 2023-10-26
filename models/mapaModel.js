@@ -8,16 +8,17 @@ class MapaModel {
         this.area = area;
         this.perimetro = perimetro;
         this.coordinates = coordinates;
+        this.usuario_cadastrante = usuario_cadastrante;
     }
 
-    static async verificarArea(id_usuario, proprietario, area, perimetro, coordinates) {
-        let sql = `SELECT * FROM area WHERE id_usuario = '${id_usuario}' AND proprietario = '${proprietario}' AND area = '${area}' AND perimetro = '${perimetro}' AND coordinates = '${coordinates}'`;
+    static async verificarArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante) {
+        let sql = `SELECT * FROM area WHERE id_usuario = '${id_usuario}' AND proprietario = '${proprietario}' AND area = '${area}' AND perimetro = '${perimetro}' AND coordinates = '${coordinates}' AND usuario_cadastrante = '${usuario_cadastrante}'`;
         let resp = await db.query(sql);
         return resp;
     }
 
-    static async cadastroArea(id_usuario, proprietario, area, perimetro, coordinates){
-        let sql = `INSERT INTO area (id_usuario, proprietario, area, perimetro, coordinates) VALUES ('${id_usuario}', '${proprietario}', '${area}', '${perimetro}', '${coordinates}')`;
+    static async cadastroArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante){
+        let sql = `INSERT INTO area (id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante) VALUES ('${id_usuario}', '${proprietario}', '${area}', '${perimetro}', '${coordinates}','${usuario_cadastrante}')`;
         let resp = await db.query(sql);
         return resp;
     }

@@ -3,9 +3,6 @@ const mapaModel = require("../models/mapaModel");
 async function cadastroArea(req, res) {
     if (req.session.usuario && req.session.usuario.id_usuario !== undefined) {
         const index = require('../index');
-        console.log('Proprietario em outro arquivo: ', index.proprietario);
-        console.log('Área em outro arquivo: ', index.area);
-        console.log('Perímetro em outro arquivo: ', index.perimetro);
         
         let id_usuario = req.session.usuario.id_usuario;
         console.log(id_usuario);
@@ -14,9 +11,10 @@ async function cadastroArea(req, res) {
         let area = index.area;
         let perimetro = index.perimetro;
         let coordinates = index.coordinates;
+        let usuario_cadastrante = index.usuario_cadastrante;
 
-        let respCadastro = await mapaModel.cadastroArea(id_usuario, proprietario, area, perimetro, coordinates);
-        let resp = await mapaModel.verificarArea(id_usuario, proprietario, area, perimetro, coordinates);
+        let respCadastro = await mapaModel.cadastroArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante);
+        let resp = await mapaModel.verificarArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante);
 
         if (resp.length > 0 && respCadastro.affectedRows > 0) {
             req.session.area = {
@@ -25,8 +23,8 @@ async function cadastroArea(req, res) {
                 area: resp[0].area,
                 perimetro: resp[0].perimetro,
                 coordinates: resp[0].coordinates,
+                usuario_cadastrante: resp[0].usuario_cadastrante,
             };
-            console.log('Você cadastrou uma nova área');
             res.redirect('/mapa');
         } else {
             console.log('Falha em cadastrar nova área');

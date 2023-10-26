@@ -114,6 +114,7 @@ const initDrawing = (map, req, res) => {
           });
         });
       });
+      
       // Informações da área
       const proprietario = polygons.get(polygon);
       console.log(`Nome do proprietário: ${proprietario}`);
@@ -138,6 +139,17 @@ const initDrawing = (map, req, res) => {
         })
         .catch(error => {
             console.error('Erro:', error);
+        });
+
+        fetch('http://localhost:3300/areas')
+        .then(response => response.json())
+        .then(data => {
+          data.areas.forEach(area => {
+            const usuario_cadastrante = area.usuario_cadastrante;
+
+            const usuarioInfo = document.getElementById("usuario-cadastranteInit");
+            usuarioInfo.textContent = `Área cadastrada por: ${usuario_cadastrante}`;
+          })
         });
 
         const areaInfo = document.getElementById("areaInit-info");
@@ -198,6 +210,17 @@ function initMap(req, res) {
   .then(response => response.json())
   .then(data => {
     console.log('Áreas do servidor:', data.areas);
+
+    fetch('http://localhost:3300/areas')
+    .then(response => response.json())
+    .then(data => {
+      data.areas.forEach(area => {
+        const usuario_cadastrante = area.usuario_cadastrante;
+
+        const usuarioInfo = document.getElementById("usuario-cadastrante");
+        usuarioInfo.textContent = `Área cadastrada por: ${usuario_cadastrante}`;
+      })
+    });
 
     data.areas.forEach(area => {
       const parsedCoordinates = JSON.parse(area.coordinates);

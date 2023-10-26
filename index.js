@@ -84,8 +84,9 @@ const port = 3300;
         const area = req.body.area;
         const perimetro = req.body.perimetro;
         const coordinates = req.body.coordinatesJSON;
+        const usuario_cadastrante = req.session.usuario.nome;
         
-        module.exports = { proprietario, area, perimetro, coordinates };
+        module.exports = { proprietario, area, perimetro, coordinates, usuario_cadastrante };
     });
 
     app.get('/coordenadas', async (req, res) => {
@@ -100,7 +101,7 @@ const port = 3300;
 
     app.get('/mapa', async (req, res) => {
         app.set('layout', './servicos/mapa');
-        res.render("servicos/mapa", { area: req.session.area});
+        res.render("servicos/mapa", { area: req.session.area });
     });
 
     app.get('/areas', async (req, res, area) => {
