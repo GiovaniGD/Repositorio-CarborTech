@@ -48,6 +48,7 @@ const initDrawing = (map, req, res) => {
             const ownerInputDiv = document.getElementById("dados-polygon");
             const ownerNameInput = document.getElementById("owner-name");
             const areaDescriptionInput = document.getElementById("area-description");
+            const emailProprietarioInput = document.getElementById("email-proprietario");
             const submitButton = document.getElementById("submit-owner");
 
             ownerInputDiv.style.display = "block";
@@ -74,13 +75,14 @@ const initDrawing = (map, req, res) => {
             submitButton.addEventListener("click", () => {
               enableMapInteraction();
               enableDrawingManager();
+
               const proprietario = ownerNameInput.value;
               const descricaoArea = areaDescriptionInput.value;
+              const email = emailProprietarioInput.value;
 
-              if (proprietario && descricaoArea) {
+              if (proprietario && descricaoArea && email) {
                 ownerInputDiv.style.display = "none";
-                console.log(descricaoArea)
-                polygons.set(polygon, { proprietario, descricaoArea });
+                polygons.set(polygon, { proprietario, descricaoArea, email });
 
                 const clickAlert = document.getElementById("click-alert");
                 clickAlert.style.display = "block";
@@ -123,10 +125,7 @@ const initDrawing = (map, req, res) => {
       const dadosPoligono = polygons.get(polygon);
       const proprietario = dadosPoligono.proprietario;
       const descricao = dadosPoligono.descricaoArea;
-      console.log(descricao)
-
-      console.log(`Nome do proprietário: ${proprietario}`);
-      console.log(`Descrição da área: ${descricao}`);
+      const emailProprietario = dadosPoligono.email;
 
         const area = google.maps.geometry.spherical.computeArea(polygon.getPath());
         const perimetro = google.maps.geometry.spherical.computeLength(polygon.getPath());
@@ -137,14 +136,16 @@ const initDrawing = (map, req, res) => {
 
         const descricaoAreaInfo = document.getElementById("area-description-infoInit");
         descricaoAreaInfo.textContent = `Descrição: ${descricao}`;
-        console.log(descricao)
+
+        const emailProprietarioInfo = document.getElementById("email-proprietario-infoInit");
+        emailProprietarioInfo.textContent = `Email do proprietário: ${emailProprietario}`;
 
         fetch(url, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ proprietario, area, perimetro, coordinatesJSON, descricao })
+          body: JSON.stringify({ proprietario, area, perimetro, coordinatesJSON, descricao, emailProprietario })
         })
         .then(response => response.json())
         .then(data => {
@@ -254,7 +255,7 @@ function initMap(req, res) {
 
       google.maps.event.addListener(polygon, "click", () => {
           const coordinatesInfo = document.getElementById("coordinates-info");
-          coordinatesInfo.textContent = `${area.coordinates}m²`;
+          coordinatesInfo.textContent = `${area.coordinates}`;
 
           const proprietarioInfo = document.getElementById("proprietario-info");
           proprietarioInfo.textContent = `Proprietário: ${area.proprietario}`;
@@ -267,6 +268,9 @@ function initMap(req, res) {
 
           const perimetroInfo = document.getElementById("perimetro-info");
           perimetroInfo.textContent = `Perímetro: ${area.perimetro}m`;
+
+          const emailProprietarioInfo = document.getElementById("email-proprietario-info");
+          emailProprietarioInfo.textContent = `Email do proprietário: ${area.email_proprietario}`;
     
           const areaCard = document.getElementById("area-card");
           areaCard.style.display = "block";

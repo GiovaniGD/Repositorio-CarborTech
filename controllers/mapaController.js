@@ -13,9 +13,10 @@ async function cadastroArea(req, res) {
         let coordinates = index.coordinates;
         let usuario_cadastrante = index.usuario_cadastrante;
         let descricao = index.descricao;
+        let email_proprietario = index.email;
 
-        let respCadastro = await mapaModel.cadastroArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao);
-        let resp = await mapaModel.verificarArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao);
+        let respCadastro = await mapaModel.cadastroArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario);
+        let resp = await mapaModel.verificarArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario);
 
         if (resp.length > 0 && respCadastro.affectedRows > 0) {
             req.session.area = {
@@ -26,6 +27,7 @@ async function cadastroArea(req, res) {
                 coordinates: resp[0].coordinates,
                 usuario_cadastrante: resp[0].usuario_cadastrante,
                 descricao: resp[0].descricao,
+                email_proprietario: resp[0].email_proprietario,
             };
             res.redirect('/mapa');
         } else {
