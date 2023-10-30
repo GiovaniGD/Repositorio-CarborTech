@@ -14,13 +14,13 @@ const mapaModel = require("./models/mapaModel");
 const app = express();
 const port = 3300;
 
+    app.use(routes);
     app.set("view engine", "ejs");
     app.set('layout', './usuarios/login');
     app.use(express.static(path.join(__dirname, "public")));
     app.use(expressLayouts);
     app.use(express.urlencoded({ extended: true }));
     app.use(bodyParser.json());
-    app.use(routes);
 
     app.use(session({secret: 'r0dr1galus'}));
 
@@ -48,6 +48,7 @@ const port = 3300;
         next();
       });
     
+      
     // Tela principal
     app.get('/', (req, res) => {
         app.set('layout', './principal');
