@@ -174,6 +174,15 @@ body {
   outline: none;
 }
 
+#area-description {
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  border: 0.05rem solid #a5a5a5;
+  border-radius: 0.3rem;
+  outline: none;
+}
+
 #submit-owner {
   background-color: #4684fb;
   box-shadow: 0.2rem 0.2rem #2a54a2;
@@ -228,7 +237,7 @@ body {
 #click-alert {
   position: fixed;
   display: none;
-  top: 18%;
+  top: 13%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #55ad6447;
@@ -336,6 +345,13 @@ body {
   }
 
   #owner-name {
+    padding: 0.6rem;
+    margin-bottom: 3rem;
+    border: 0.1rem solid #a5a5a5;
+    border-radius: 0.6rem;
+  }
+
+  #area-description {
     padding: 0.6rem;
     margin-bottom: 3rem;
     border: 0.1rem solid #a5a5a5;

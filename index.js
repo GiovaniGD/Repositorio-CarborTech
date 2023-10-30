@@ -85,8 +85,9 @@ const port = 3300;
         const perimetro = req.body.perimetro;
         const coordinates = req.body.coordinatesJSON;
         const usuario_cadastrante = req.session.usuario.nome;
+        const descricao = req.body.descricao;
         
-        module.exports = { proprietario, area, perimetro, coordinates, usuario_cadastrante };
+        module.exports = { proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao };
     });
 
     app.get('/coordenadas', async (req, res) => {

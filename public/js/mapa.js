@@ -47,6 +47,7 @@ const initDrawing = (map, req, res) => {
       } else {
             const ownerInputDiv = document.getElementById("dados-polygon");
             const ownerNameInput = document.getElementById("owner-name");
+            const areaDescriptionInput = document.getElementById("area-description");
             const submitButton = document.getElementById("submit-owner");
 
             ownerInputDiv.style.display = "block";
@@ -74,16 +75,19 @@ const initDrawing = (map, req, res) => {
               enableMapInteraction();
               enableDrawingManager();
               const proprietario = ownerNameInput.value;
+              const descricaoArea = areaDescriptionInput.value;
 
-              if (proprietario) {
-                console.log(`Nome do proprietário: ${proprietario}`);
+              if (proprietario && descricaoArea) {
                 ownerInputDiv.style.display = "none";
-                polygons.set(polygon, proprietario);
+                console.log(descricaoArea)
+                polygons.set(polygon, { proprietario, descricaoArea });
 
                 const clickAlert = document.getElementById("click-alert");
                 clickAlert.style.display = "block";
+                
+                disableDrawingManager();
             } else {
-                console.log("Nome do proprietário não fornecido.");
+                console.log("Algum(ns) dos valores não foi fornecido.");
             }
           });
       };
@@ -114,10 +118,15 @@ const initDrawing = (map, req, res) => {
           });
         });
       });
-      
+
       // Informações da área
-      const proprietario = polygons.get(polygon);
+      const dadosPoligono = polygons.get(polygon);
+      const proprietario = dadosPoligono.proprietario;
+      const descricao = dadosPoligono.descricaoArea;
+      console.log(descricao)
+
       console.log(`Nome do proprietário: ${proprietario}`);
+      console.log(`Descrição da área: ${descricao}`);
 
         const area = google.maps.geometry.spherical.computeArea(polygon.getPath());
         const perimetro = google.maps.geometry.spherical.computeLength(polygon.getPath());
@@ -126,12 +135,16 @@ const initDrawing = (map, req, res) => {
         coordinatesInfo.textContent = `${JSON.stringify(coordinates)}`;
         let coordinatesJSON = JSON.stringify(coordinates);
 
+        const descricaoAreaInfo = document.getElementById("area-description-infoInit");
+        descricaoAreaInfo.textContent = `Descrição: ${descricao}`;
+        console.log(descricao)
+
         fetch(url, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ proprietario, area, perimetro, coordinatesJSON })
+          body: JSON.stringify({ proprietario, area, perimetro, coordinatesJSON, descricao })
         })
         .then(response => response.json())
         .then(data => {
@@ -245,6 +258,9 @@ function initMap(req, res) {
 
           const proprietarioInfo = document.getElementById("proprietario-info");
           proprietarioInfo.textContent = `Proprietário: ${area.proprietario}`;
+
+          const descricaoAreaInfo = document.getElementById("area-description-info");
+          descricaoAreaInfo.textContent = `Descrição: ${area.descricao}`;
 
           const areaInfo = document.getElementById("area-info");
           areaInfo.textContent = `Área: ${area.area}`;

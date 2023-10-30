@@ -64,6 +64,7 @@
       <p>Coordenadas:</p>
       <p id="coordinatesInit-info"></p>
       <p id="usuario-cadastranteInit"></p>
+      <p id="area-description-infoInit"></p>
       <button id="cancelarInit-cardButton">Cancelar</button>
       <button id="cadastrarInit-cardButton">Cadastrar</button>
     </div>
@@ -77,17 +78,20 @@
       <p>Coordenadas:</p>
       <p id="coordinates-info"></p>
       <p id="usuario-cadastrante"></p>
+      <p id="area-description-info"></p>
     </div>
 
     <!-- Aviso de clique -->
     <div id="click-alert" style="display: none;">
-      <p>Clique em sua demarcação para cancelar ou cadastrar a área</p>
+      <p>Edite sua demarcação se necessário e clique em sua demarcação para cancelar ou cadastrar a área</p>
     </div>
 
     <!-- Nome do proprietário -->
     <div id="dados-polygon" style="display: none;">
       <p>Nome do(a) proprietário(a)</p>
       <input type="text" id="owner-name" placeholder="Insira aqui o nome do(a) proprietário(a) da área" required>
+      <p>Descrição da área</p>
+      <input type="text" id="area-description" placeholder="Dê detalhes sobre o estado de degradação da área, objetivos de restauração e preservação etc." required>
       <a id="submit-owner" class="submit-owners">Enviar dados</a>
     </div>
 
