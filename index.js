@@ -30,7 +30,7 @@ const port = 3300;
             next();
         }else{
             console.log('Não logado');
-            if(req.url == '/mapat' || req.url == '/perfil'){
+            if(req.url == '/mapat' || req.url == '/servico'){
                 res.redirect('/login?erro=2');
             }else{
                 next();
@@ -124,6 +124,14 @@ const port = 3300;
     });
 
     app.post('/mapa/cadastro', mapaController.cadastroArea);
+    
+    app.post('/idusuario', (req, res) => {
+        const usuarioarea = req.body.usuarioarea;
+        
+        module.exports = { usuarioarea };
+    });
+
+    app.get('/servico', mapaController.abrirServico);
 
 
     app.get('/quiz', (req, res) => {

@@ -49,4 +49,17 @@ async function pegarAreas(req, res) {
     }
 }
 
-module.exports = { cadastroArea, pegarAreas };
+async function abrirServico(req, res) {
+    const index = require('../index');
+    let usuarioarea = index.usuarioarea;
+
+    if(req.session.usuario.id_usuario === usuarioarea) {
+
+        // Solicitação de serviço
+
+    } else {
+        console.log("Você não possui permissão para isso.")
+    }
+}
+
+module.exports = { cadastroArea, pegarAreas, abrirServico };

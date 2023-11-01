@@ -230,6 +230,22 @@ function initMap(req, res) {
     .then(data => {
       data.areas.forEach(area => {
         const usuario_cadastrante = area.usuario_cadastrante;
+        const usuarioarea = area.id_usuario;
+
+        fetch('http://localhost:3300/idusuario', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ usuarioarea })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Resposta do servidor:', data);
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
 
         const usuarioInfo = document.getElementById("usuario-cadastrante");
         usuarioInfo.textContent = `Área cadastrada por: ${usuario_cadastrante}`;
@@ -274,6 +290,10 @@ function initMap(req, res) {
     
           const areaCard = document.getElementById("area-card");
           areaCard.style.display = "block";
+
+          document.getElementById('btn-solicitar-servico').onclick = function() {
+            window.location.href = '/servico';
+          };
 
           document.getElementById("fechar-card").addEventListener("click", () => {
             const areaCard = document.getElementById("area-card");
