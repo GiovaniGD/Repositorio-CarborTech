@@ -300,6 +300,23 @@ body {
   border: none;
   cursor: pointer;
 }
+
+.btn-solicitar-servico {
+  margin-left: 10.5rem;
+  margin-top: 1rem;
+  background-color: #4684fb;
+  box-shadow: 0.2rem 0.2rem #2a54a2;
+  border: none;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.2rem;
+  transition: all 0.5s;
+}
+
+.btn-solicitar-servico:hover {
+  background-color: #3570de;
+}
+
 @media (max-width: 62rem) {
   #pac-card {
     display: none;

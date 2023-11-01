@@ -146,12 +146,11 @@ body {
 }
 
 .register-buttons button {
-  padding: 0.45rem 1rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 0.2rem;
   margin-left: 1.5rem;
   cursor: pointer;
   text-decoration: none;
-
 }
 
 .btn-cadastrar-area {
@@ -163,18 +162,6 @@ body {
 }
 
 .btn-cadastrar-area:hover {
-  background-color: #3570de;
-}
-
-.btn-solicitar-servico {
-  background-color: #4684fb;
-  box-shadow: 0.2rem 0.2rem #2a54a2;
-  border: none;
-  color: #ffffff;
-  transition: all 0.5s;
-}
-
-.btn-solicitar-servico:hover {
   background-color: #3570de;
 }
 
