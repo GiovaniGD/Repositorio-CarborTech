@@ -301,6 +301,31 @@ body {
   cursor: pointer;
 }
 
+.register-buttons {
+  margin-left: 5rem;
+  justify-content: center;
+}
+
+.register-buttons button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.2rem;
+  margin-left: 1.5rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-apagar-area {
+  background-color: #4684fb;
+  box-shadow: 0.2rem 0.2rem #2a54a2;
+  color: #ffffff;
+  border: none;
+  transition: all 0.5s;
+}
+
+.btn-apagar-area:hover {
+  background-color: #3570de;
+}
+
 .btn-solicitar-servico {
   margin-left: 10.5rem;
   margin-top: 1rem;

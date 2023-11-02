@@ -133,6 +133,7 @@ const port = 3300;
 
     app.get('/servico', mapaController.abrirServico);
 
+    app.get('/apagarArea', mapaController.apagarArea);
 
     app.get('/quiz', (req, res) => {
         app.set('layout', './servicos/quiz');

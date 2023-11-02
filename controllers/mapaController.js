@@ -49,6 +49,21 @@ async function pegarAreas(req, res) {
     }
 }
 
+async function apagarArea(req, res) {
+    const index = require('../index');
+    let usuarioarea = index.usuarioarea;
+
+    if(req.session.usuario.id_usuario === usuarioarea) {
+
+        console.log(req.session.usuario.id_usuario)
+        console.log(usuarioarea)
+        // Apagar área
+
+    } else {
+        console.log("Você não possui permissão para isso.")
+    }
+}
+
 async function abrirServico(req, res) {
     const index = require('../index');
     let usuarioarea = index.usuarioarea;
@@ -62,4 +77,4 @@ async function abrirServico(req, res) {
     }
 }
 
-module.exports = { cadastroArea, pegarAreas, abrirServico };
+module.exports = { cadastroArea, pegarAreas, abrirServico, apagarArea };

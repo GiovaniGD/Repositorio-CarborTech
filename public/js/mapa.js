@@ -291,6 +291,10 @@ function initMap(req, res) {
           const areaCard = document.getElementById("area-card");
           areaCard.style.display = "block";
 
+          document.getElementById('btn-apagar-area').onclick = function() {
+            window.location.href = '/apagarArea';
+          };
+
           document.getElementById('btn-solicitar-servico').onclick = function() {
             window.location.href = '/servico';
           };
