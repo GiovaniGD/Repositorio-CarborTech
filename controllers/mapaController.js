@@ -5,8 +5,6 @@ async function cadastroArea(req, res) {
         const index = require('../index');
         
         let id_usuario = req.session.usuario.id_usuario;
-        console.log(id_usuario);
-    
         let proprietario = index.proprietario;
         let area = index.area;
         let perimetro = index.perimetro;
@@ -14,9 +12,12 @@ async function cadastroArea(req, res) {
         let usuario_cadastrante = index.usuario_cadastrante;
         let descricao = index.descricao;
         let email_proprietario = index.email;
+        let municipio = index.municipio;
+        let endereco = index.endereco;
+        let cep = index.cep;
 
-        let respCadastro = await mapaModel.cadastroArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario);
-        let resp = await mapaModel.verificarArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario);
+        let respCadastro = await mapaModel.cadastroArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, cep);
+        let resp = await mapaModel.verificarArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, cep);
 
         if (resp.length > 0 && respCadastro.affectedRows > 0) {
             req.session.area = {
@@ -28,6 +29,9 @@ async function cadastroArea(req, res) {
                 usuario_cadastrante: resp[0].usuario_cadastrante,
                 descricao: resp[0].descricao,
                 email_proprietario: resp[0].email_proprietario,
+                municipio: resp[0].municipio,
+                endereco: resp[0].endereco,
+                cep: resp[0].cep,
             };
             res.redirect('/mapa');
         } else {
@@ -55,8 +59,6 @@ async function apagarArea(req, res) {
 
     if(req.session.usuario.id_usuario === usuarioarea) {
 
-        console.log(req.session.usuario.id_usuario)
-        console.log(usuarioarea)
         // Apagar área
 
     } else {

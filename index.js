@@ -30,7 +30,7 @@ const port = 3300;
             next();
         }else{
             console.log('Não logado');
-            if(req.url == '/mapat' || req.url == '/servico'){
+            if(req.url == '/mapa' || req.url == '/servico'){
                 res.redirect('/login?erro=2');
             }else{
                 next();
@@ -88,8 +88,11 @@ const port = 3300;
         const usuario_cadastrante = req.session.usuario.nome;
         const descricao = req.body.descricao;
         const email = req.body.emailProprietario;
+        const municipio = req.body.municipio;
+        const endereco = req.body.endereco;
+        const cep = req.body.cep;
         
-        module.exports = { proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email };
+        module.exports = { proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email, municipio, endereco, cep };
     });
 
     app.get('/coordenadas', async (req, res) => {

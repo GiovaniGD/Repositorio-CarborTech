@@ -49,6 +49,9 @@ const initDrawing = (map, req, res) => {
             const ownerNameInput = document.getElementById("owner-name");
             const areaDescriptionInput = document.getElementById("area-description");
             const emailProprietarioInput = document.getElementById("email-proprietario");
+            const municipioInput = document.getElementById("municipio");
+            const enderecoInput = document.getElementById("endereco");
+            const cepInput = document.getElementById("cep");
             const submitButton = document.getElementById("submit-owner");
 
             ownerInputDiv.style.display = "block";
@@ -79,10 +82,13 @@ const initDrawing = (map, req, res) => {
               const proprietario = ownerNameInput.value;
               const descricaoArea = areaDescriptionInput.value;
               const email = emailProprietarioInput.value;
+              const municipio = municipioInput.value;
+              const endereco = enderecoInput.value;
+              const cep = cepInput.value;
 
-              if (proprietario && descricaoArea && email) {
+              if (proprietario && email && municipio && endereco && cep) {
                 ownerInputDiv.style.display = "none";
-                polygons.set(polygon, { proprietario, descricaoArea, email });
+                polygons.set(polygon, { proprietario, descricaoArea, email, municipio, endereco, cep });
 
                 const clickAlert = document.getElementById("click-alert");
                 clickAlert.style.display = "block";
@@ -126,6 +132,9 @@ const initDrawing = (map, req, res) => {
       const proprietario = dadosPoligono.proprietario;
       const descricao = dadosPoligono.descricaoArea;
       const emailProprietario = dadosPoligono.email;
+      const municipio = dadosPoligono.municipio;
+      const endereco = dadosPoligono.endereco;
+      const cep = dadosPoligono.cep;
 
         const area = google.maps.geometry.spherical.computeArea(polygon.getPath());
         const perimetro = google.maps.geometry.spherical.computeLength(polygon.getPath());
@@ -139,13 +148,22 @@ const initDrawing = (map, req, res) => {
 
         const emailProprietarioInfo = document.getElementById("email-proprietario-infoInit");
         emailProprietarioInfo.textContent = `Email do proprietário: ${emailProprietario}`;
+        
+        const municipioInfo = document.getElementById("municipio-infoInit");
+        municipioInfo.textContent = `Município: ${municipio}`;
+
+        const enderecoInfo = document.getElementById("endereco-infoInit");
+        enderecoInfo.textContent = `Endereço: ${endereco}`;
+        
+        const cepInfo = document.getElementById("cep-infoInit");
+        cepInfo.textContent = `CEP: ${cep}`;
 
         fetch(url, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ proprietario, area, perimetro, coordinatesJSON, descricao, emailProprietario })
+          body: JSON.stringify({ proprietario, area, perimetro, coordinatesJSON, descricao, emailProprietario, municipio, endereco, cep })
         })
         .then(response => response.json())
         .then(data => {
@@ -181,6 +199,15 @@ const initDrawing = (map, req, res) => {
         const ownerInputDiv = document.getElementById("dados-polygon");
         const areaInitCard = document.getElementById("areaInit-card");
 
+        const municipioInit = document.getElementById("municipio-infoInit");
+        municipioInit.textContent = `Município: ${municipio}`;
+
+        const enderecoInit = document.getElementById("endereco-infoInit");
+        enderecoInit.textContent = `Endereço: ${endereco}`;
+        
+        const cepInit = document.getElementById("cep-infoInit");
+        cepInit.textContent = `CEP: ${cep}`;
+
         areaInitCard.style.display = "block";
 
         document.getElementById("submit-owner").addEventListener("click", () => {
@@ -208,7 +235,7 @@ const initDrawing = (map, req, res) => {
   });
 };
 
-const coordinates = [];
+
 
 // Inicialização do mapa na tela
 function initMap(req, res) {
@@ -280,13 +307,22 @@ function initMap(req, res) {
           descricaoAreaInfo.textContent = `Descrição: ${area.descricao}`;
 
           const areaInfo = document.getElementById("area-info");
-          areaInfo.textContent = `Área: ${area.area}`;
+          areaInfo.textContent = `Área: ${area.area}m²`;
 
           const perimetroInfo = document.getElementById("perimetro-info");
           perimetroInfo.textContent = `Perímetro: ${area.perimetro}m`;
 
           const emailProprietarioInfo = document.getElementById("email-proprietario-info");
           emailProprietarioInfo.textContent = `Email do proprietário: ${area.email_proprietario}`;
+          
+          const municipioInit = document.getElementById("municipio-info");
+          municipioInit.textContent = `Município: ${area.municipio}`;
+
+          const enderecoInit = document.getElementById("endereco-info");
+          enderecoInit.textContent = `Endereço: ${area.endereco}`;
+          
+          const cepInit = document.getElementById("cep-info");
+          cepInit.textContent = `CEP: ${area.cep}`;
     
           const areaCard = document.getElementById("area-card");
           areaCard.style.display = "block";

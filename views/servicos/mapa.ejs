@@ -66,6 +66,9 @@
       <p id="usuario-cadastranteInit"></p>
       <p id="area-description-infoInit"></p>
       <p id="email-proprietario-infoInit"></p>
+      <p id="municipio-infoInit"></p>
+      <p id="endereco-infoInit"></p>
+      <p id="cep-infoInit"></p>
       <button id="cancelarInit-cardButton">Cancelar</button>
       <button id="cadastrarInit-cardButton">Cadastrar</button>
     </div>
@@ -81,6 +84,9 @@
       <p id="usuario-cadastrante"></p>
       <p id="area-description-info"></p>
       <p id="email-proprietario-info"></p>
+      <p id="municipio-info"></p>
+      <p id="endereco-info"></p>
+      <p id="cep-info"></p>
       <div class="register-buttons">
         <a>
             <button class="btn-apagar-area" id="btn-apagar-area">Apagar área</button>
@@ -102,9 +108,16 @@
       <input type="text" id="owner-name" class="dado-polygon" placeholder="Insira aqui o nome do(a) proprietário(a) da área" required>
       <p>Endereço de email</p>
       <input type="email" id="email-proprietario" class="dado-polygon" placeholder="Insira aqui seu endereço de email" required>
+      <p>Município</p>
+      <input type="text" id="municipio" class="dado-polygon" placeholder="Município onde está a área" required>
+      <p>Endereço</p>
+      <input type="text" id="endereco" class="dado-polygon" placeholder="Bairro, rua e número da propriedade" required>
+      <p>CEP</p>
+      <input type="text" id="cep" class="dado-polygon" placeholder="CEP da propriedade" required>
       <p>Descrição da área</p>
+
       <input type="text" id="area-description" class="dado-polygon" placeholder="Detalhes do estado de degradação da área, objetivos de restauração..." required>
-      <a id="submit-owner" class="submit-owners">Enviar dados</a>
+      <a id="submit-owner" class="submit-owners">Enviar</a>
     </div>
 
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1IQrOgjTbVBhj6-cVC-LD6updevCRk34&callback=initMap&libraries=places,drawing,geometry&v=weekly" defer></script>
