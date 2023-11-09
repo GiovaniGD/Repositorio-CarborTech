@@ -197,7 +197,7 @@ body {
 #area-card {
   position: fixed;
   width: 35rem;
-  max-height: 55%;
+  max-height: 70%;
   display: none;
   top: 50%;
   left: 50%;
@@ -213,7 +213,7 @@ body {
 #areaInit-card {
   position: fixed;
   width: 35rem;
-  max-height: 55%;
+  max-height: 70%;
   display: none;
   top: 50%;
   left: 50%;

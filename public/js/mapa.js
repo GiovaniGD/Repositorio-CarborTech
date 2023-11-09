@@ -235,7 +235,7 @@ const initDrawing = (map, req, res) => {
   });
 };
 
-
+const coordinates = [];
 
 // Inicialização do mapa na tela
 function initMap(req, res) {
