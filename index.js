@@ -48,7 +48,7 @@ const port = 3300;
         next();
       });
     
-      
+
     // Tela principal
     app.get('/', (req, res) => {
         app.set('layout', './principal');
@@ -78,21 +78,30 @@ const port = 3300;
         res.render('servicos/compraJabuticabeira');
     });
 
+    let dadosarea = null;
+
+    function areadados() {
+    return new Promise((resolve) => {
+        resolve(dadosarea);
+    });
+    }
 
     // Serviços
     app.post('/dadosArea', (req, res) => {
-        const proprietario = req.body.proprietario;
-        const area = req.body.area;
-        const perimetro = req.body.perimetro;
-        const coordinates = req.body.coordinatesJSON;
-        const usuario_cadastrante = req.session.usuario.nome;
-        const descricao = req.body.descricao;
-        const email = req.body.emailProprietario;
-        const municipio = req.body.municipio;
-        const endereco = req.body.endereco;
-        const cep = req.body.cep;
-        
-        module.exports = { proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email, municipio, endereco, cep };
+    const proprietario = req.body.proprietario;
+    const area = req.body.area;
+    const perimetro = req.body.perimetro;
+    const coordinates = req.body.coordinatesJSON;
+    const usuario_cadastrante = req.session.usuario.nome;
+    const descricao = req.body.descricao;
+    const email = req.body.emailProprietario;
+    const municipio = req.body.municipio;
+    const endereco = req.body.endereco;
+    const cep = req.body.cep;
+    const usuarioarea = req.body.usuarioarea;
+    
+    dadosarea = { proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email, municipio, endereco, cep, usuarioarea };
+    res.send('Dados da área definidos');
     });
 
     app.get('/coordenadas', async (req, res) => {
@@ -128,12 +137,6 @@ const port = 3300;
 
     app.post('/mapa/cadastro', mapaController.cadastroArea);
     
-    app.post('/idusuario', (req, res) => {
-        const usuarioarea = req.body.usuarioarea;
-        
-        module.exports = { usuarioarea };
-    });
-
     app.get('/servico', mapaController.abrirServico);
 
     app.get('/apagarArea', mapaController.apagarArea);
@@ -165,4 +168,6 @@ const port = 3300;
 
     app.listen(port, () =>
         console.log(`Servidor rodando em http://localhost:${port}`)
-);
+    );
+
+module.exports = { areadados };

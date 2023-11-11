@@ -1,25 +1,30 @@
 const mapaModel = require("../models/mapaModel");
 
 async function cadastroArea(req, res) {
+    const { areadados } = require('../index');
+
+    areadados().then(async(dados) => {
+
     if (req.session.usuario && req.session.usuario.id_usuario !== undefined) {
-        const index = require('../index');
-        
         let id_usuario = req.session.usuario.id_usuario;
-        let proprietario = index.proprietario;
-        let area = index.area;
-        let perimetro = index.perimetro;
-        let coordinates = index.coordinates;
-        let usuario_cadastrante = index.usuario_cadastrante;
-        let descricao = index.descricao;
-        let email_proprietario = index.email;
-        let municipio = index.municipio;
-        let endereco = index.endereco;
-        let cep = index.cep;
+        console.log(id_usuario);
+    
+        let proprietario = dados.proprietario;
+        let area = dados.area;
+        let perimetro = dados.perimetro;
+        let coordinates = dados.coordinates;
+        let usuario_cadastrante = dados.usuario_cadastrante;
+        let descricao = dados.descricao;
+        let email_proprietario = dados.email;
+        let municipio = dados.municipio;
+        let endereco = dados.endereco;
+        let cep = dados.cep;
 
         let respCadastro = await mapaModel.cadastroArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, cep);
         let resp = await mapaModel.verificarArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, cep);
 
         if (resp.length > 0 && respCadastro.affectedRows > 0) {
+
             req.session.area = {
                 id_area: resp[0].id_area,
                 proprietario: resp[0].proprietario,
@@ -41,6 +46,41 @@ async function cadastroArea(req, res) {
     } else {
         res.redirect('/login');
     }
+});
+}
+
+async function apagarArea(req, res) {
+    const {areadados} = require('../index');
+
+    areadados().then(async(dados) => {
+    let usuarioarea = dados.usuarioarea;
+
+    if(req.session.usuario.id_usuario === usuarioarea) {
+
+        console.log("AAAAEEAEE");
+        // Apagar área
+
+    } else {
+        alert("Você não possui permissão para isso.")
+    }
+});
+}
+
+async function abrirServico(req, res) {
+    const {areadados} = require('../index');
+
+    areadados().then(async(dados) => {
+    let usuarioarea = dados.usuarioarea;
+
+    if(req.session.usuario.id_usuario === usuarioarea) {
+
+        console.log("AAAAEEAEE");
+        // Apagar área
+
+    } else {
+        alert("Você não possui permissão para isso.")
+    }
+});
 }
 
 async function pegarAreas(req, res) {
@@ -53,30 +93,4 @@ async function pegarAreas(req, res) {
     }
 }
 
-async function apagarArea(req, res) {
-    const index = require('../index');
-    let usuarioarea = index.usuarioarea;
-
-    if(req.session.usuario.id_usuario === usuarioarea) {
-
-        // Apagar área
-
-    } else {
-        console.log("Você não possui permissão para isso.")
-    }
-}
-
-async function abrirServico(req, res) {
-    const index = require('../index');
-    let usuarioarea = index.usuarioarea;
-
-    if(req.session.usuario.id_usuario === usuarioarea) {
-
-        // Solicitação de serviço
-
-    } else {
-        console.log("Você não possui permissão para isso.")
-    }
-}
-
-module.exports = { cadastroArea, pegarAreas, abrirServico, apagarArea };
+module.exports = { cadastroArea, pegarAreas, apagarArea, abrirServico };

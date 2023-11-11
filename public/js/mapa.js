@@ -95,7 +95,7 @@ const initDrawing = (map, req, res) => {
                 
                 disableDrawingManager();
             } else {
-                console.log("Algum(ns) dos valores não foi fornecido.");
+                console.log("Algum dos valores não foi fornecido.");
             }
           });
       };
@@ -148,26 +148,52 @@ const initDrawing = (map, req, res) => {
 
         const emailProprietarioInfo = document.getElementById("email-proprietario-infoInit");
         emailProprietarioInfo.textContent = `Email do proprietário: ${emailProprietario}`;
-        
-        const municipioInfo = document.getElementById("municipio-infoInit");
-        municipioInfo.textContent = `Município: ${municipio}`;
 
-        const enderecoInfo = document.getElementById("endereco-infoInit");
-        enderecoInfo.textContent = `Endereço: ${endereco}`;
+        const municipioInfoInit = document.getElementById("municipio-infoInit");
+        municipioInfoInit.textContent = `Município: ${municipio}`;
+
+        const enderecoInfoInit = document.getElementById("endereco-infoInit");
+        enderecoInfoInit.textContent = `Endereço: ${endereco}`;
         
-        const cepInfo = document.getElementById("cep-infoInit");
-        cepInfo.textContent = `CEP: ${cep}`;
+        const cepInfoInit = document.getElementById("cep-infoInit");
+        cepInfoInit.textContent = `CEP: ${cep}`;
 
         fetch(url, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ proprietario, area, perimetro, coordinatesJSON, descricao, emailProprietario, municipio, endereco, cep })
+          body: JSON.stringify({ proprietario, area, perimetro, coordinatesJSON, descricao, emailProprietario, municipio, endereco, cep  })
         })
         .then(response => response.json())
         .then(data => {
             console.log('Resposta do servidor:', data);
+            fetch('http://localhost:3300/areas')
+    .then(response => response.json())
+    .then(data => {
+      data.areas.forEach(area => {
+        const usuario_cadastrante = area.usuario_cadastrante;
+        const usuarioarea = area.id_usuario;
+
+        fetch('http://localhost:3300/dadosArea', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ usuarioarea })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Resposta do servidor:', data);
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+
+        const usuarioInfo = document.getElementById("usuario-cadastrante");
+        usuarioInfo.textContent = `Área cadastrada por: ${usuario_cadastrante}`;
+      })
+    });
         })
         .catch(error => {
             console.error('Erro:', error);
@@ -199,15 +225,14 @@ const initDrawing = (map, req, res) => {
         const ownerInputDiv = document.getElementById("dados-polygon");
         const areaInitCard = document.getElementById("areaInit-card");
 
-        const municipioInit = document.getElementById("municipio-infoInit");
-        municipioInit.textContent = `Município: ${municipio}`;
-
-        const enderecoInit = document.getElementById("endereco-infoInit");
-        enderecoInit.textContent = `Endereço: ${endereco}`;
+        const municipioInfo = document.getElementById("municipio-infoInit");
+        municipioInfo.textContent = `Município: ${area.municipio}`;
         
-        const cepInit = document.getElementById("cep-infoInit");
-        cepInit.textContent = `CEP: ${cep}`;
-
+        const enderecoInfo = document.getElementById("endereco-infoInit");
+        enderecoInfo.textContent = `Endereço: ${area.endereco}`;
+        
+        const cepInfo = document.getElementById("cep-infoInit");
+        cepInfo.textContent = `CEP: ${area.cep}`;
         areaInitCard.style.display = "block";
 
         document.getElementById("submit-owner").addEventListener("click", () => {
@@ -259,7 +284,7 @@ function initMap(req, res) {
         const usuario_cadastrante = area.usuario_cadastrante;
         const usuarioarea = area.id_usuario;
 
-        fetch('http://localhost:3300/idusuario', {
+        fetch('http://localhost:3300/dadosArea', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -307,7 +332,7 @@ function initMap(req, res) {
           descricaoAreaInfo.textContent = `Descrição: ${area.descricao}`;
 
           const areaInfo = document.getElementById("area-info");
-          areaInfo.textContent = `Área: ${area.area}m²`;
+          areaInfo.textContent = `Área: ${area.area}`;
 
           const perimetroInfo = document.getElementById("perimetro-info");
           perimetroInfo.textContent = `Perímetro: ${area.perimetro}m`;
@@ -315,19 +340,19 @@ function initMap(req, res) {
           const emailProprietarioInfo = document.getElementById("email-proprietario-info");
           emailProprietarioInfo.textContent = `Email do proprietário: ${area.email_proprietario}`;
           
-          const municipioInit = document.getElementById("municipio-info");
-          municipioInit.textContent = `Município: ${area.municipio}`;
-
-          const enderecoInit = document.getElementById("endereco-info");
-          enderecoInit.textContent = `Endereço: ${area.endereco}`;
+          const municipioInfo = document.getElementById("municipio-info");
+          municipioInfo.textContent = `Município: ${area.municipio}`;
           
-          const cepInit = document.getElementById("cep-info");
-          cepInit.textContent = `CEP: ${area.cep}`;
+          const enderecoInfo = document.getElementById("endereco-info");
+          enderecoInfo.textContent = `Endereço: ${area.endereco}`;
+          
+          const cepInfo = document.getElementById("cep-info");
+          cepInfo.textContent = `CEP: ${area.cep}`;
     
           const areaCard = document.getElementById("area-card");
           areaCard.style.display = "block";
 
-          document.getElementById('btn-apagar-area').onclick = function() {
+           document.getElementById('btn-apagar-area').onclick = function() {
             window.location.href = '/apagarArea';
           };
 
