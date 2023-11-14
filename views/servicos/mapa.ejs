@@ -63,12 +63,12 @@
       <p id="perimetroInit-info"></p>
       <p>Coordenadas:</p>
       <p id="coordinatesInit-info"></p>
-      <p id="usuario-cadastranteInit"></p>
       <p id="area-description-infoInit"></p>
       <p id="email-proprietario-infoInit"></p>
       <p id="municipio-infoInit"></p>
       <p id="endereco-infoInit"></p>
       <p id="cep-infoInit"></p>
+      <p id="usuario_cadastrante-infoInit"></p>
       <button id="cancelarInit-cardButton">Cancelar</button>
       <button id="cadastrarInit-cardButton">Cadastrar</button>
     </div>
@@ -81,12 +81,12 @@
       <p id="perimetro-info"></p>
       <p>Coordenadas:</p>
       <p id="coordinates-info"></p>
-      <p id="usuario-cadastrante"></p>
       <p id="area-description-info"></p>
       <p id="email-proprietario-info"></p>
       <p id="municipio-info"></p>
       <p id="endereco-info"></p>
       <p id="cep-info"></p>
+      <p id="usuario_cadastrante-info"></p>
       <div class="register-buttons">
         <a>
             <button class="btn-apagar-area" id="btn-apagar-area">Apagar área</button>
@@ -102,7 +102,7 @@
       <p>Edite sua demarcação se necessário e clique nela para cancelar ou cadastrar a área</p>
     </div>
 
-    <!-- Nome do proprietário -->
+    <!-- Dados da área para inserir  -->
     <div id="dados-polygon" style="display: none;">
       <p>Nome do(a) proprietário(a)</p>
       <input type="text" id="owner-name" class="dado-polygon" placeholder="Insira aqui o nome do(a) proprietário(a) da área" required>
@@ -114,6 +114,7 @@
       <input type="text" id="endereco" class="dado-polygon" placeholder="Bairro, rua e número da propriedade" required>
       <p>CEP</p>
       <input type="text" id="cep" class="dado-polygon" placeholder="CEP da propriedade" required>
+      <input style="display: none;" type="text" id="usuario_cadastrante" class="dado-polygon" value="<%= usuario.nome %>" required>
       <p>Descrição da área</p>
 
       <input type="text" id="area-description" class="dado-polygon" placeholder="Detalhes do estado de degradação da área, objetivos de restauração..." required>

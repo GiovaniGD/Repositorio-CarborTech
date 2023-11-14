@@ -88,20 +88,19 @@ const port = 3300;
 
     // Serviços
     app.post('/dadosArea', (req, res) => {
-    const proprietario = req.body.proprietario;
-    const area = req.body.area;
-    const perimetro = req.body.perimetro;
-    const coordinates = req.body.coordinatesJSON;
-    const usuario_cadastrante = req.session.usuario.nome;
-    const descricao = req.body.descricao;
-    const email = req.body.emailProprietario;
-    const municipio = req.body.municipio;
-    const endereco = req.body.endereco;
-    const cep = req.body.cep;
-    const usuarioarea = req.body.usuarioarea;
-    
-    dadosarea = { proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email, municipio, endereco, cep, usuarioarea };
-    res.send('Dados da área definidos');
+        const proprietario = req.body.proprietario;
+        const area = req.body.area;
+        const perimetro = req.body.perimetro;
+        const coordinates = req.body.coordinatesJSON;
+        const usuario_cadastrante = req.body.usuario_cadastrante;
+        const descricao = req.body.descricao;
+        const email = req.body.emailProprietario;
+        const municipio = req.body.municipio;
+        const endereco = req.body.endereco;
+        const cep = req.body.cep;
+        
+        dadosarea = { proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email, municipio, endereco, cep };
+        res.send('Dados da área definidos');
     });
 
     app.get('/coordenadas', async (req, res) => {

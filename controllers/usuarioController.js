@@ -78,7 +78,6 @@ async function cadastrar(req, res) {
 
 // Pega o id do usuário
 async function pegarUsuario(req, res) {
-  console.log(req.session.usuario)
   if (req.session.usuario) {
     const usuario = req.session.usuario;
     res.locals.usuario = usuario;

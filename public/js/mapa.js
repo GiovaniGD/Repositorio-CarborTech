@@ -52,6 +52,7 @@ const initDrawing = (map, req, res) => {
             const municipioInput = document.getElementById("municipio");
             const enderecoInput = document.getElementById("endereco");
             const cepInput = document.getElementById("cep");
+            const idInput = document.getElementById("usuario_cadastrante");
             const submitButton = document.getElementById("submit-owner");
 
             ownerInputDiv.style.display = "block";
@@ -85,10 +86,11 @@ const initDrawing = (map, req, res) => {
               const municipio = municipioInput.value;
               const endereco = enderecoInput.value;
               const cep = cepInput.value;
+              const usuario_cadastrante = idInput.value;
 
               if (proprietario && email && municipio && endereco && cep) {
                 ownerInputDiv.style.display = "none";
-                polygons.set(polygon, { proprietario, descricaoArea, email, municipio, endereco, cep });
+                polygons.set(polygon, { proprietario, descricaoArea, email, municipio, endereco, cep, usuario_cadastrante });
 
                 const clickAlert = document.getElementById("click-alert");
                 clickAlert.style.display = "block";
@@ -135,6 +137,7 @@ const initDrawing = (map, req, res) => {
       const municipio = dadosPoligono.municipio;
       const endereco = dadosPoligono.endereco;
       const cep = dadosPoligono.cep;
+      const usuario_cadastrante = dadosPoligono.usuario_cadastrante;
 
         const area = google.maps.geometry.spherical.computeArea(polygon.getPath());
         const perimetro = google.maps.geometry.spherical.computeLength(polygon.getPath());
@@ -158,29 +161,16 @@ const initDrawing = (map, req, res) => {
         const cepInfoInit = document.getElementById("cep-infoInit");
         cepInfoInit.textContent = `CEP: ${cep}`;
 
+        const usuarioCadastranteInit = document.getElementById("usuario_cadastrante-infoInit");
+        usuarioCadastranteInit.textContent = `Área cadastrada por: ${usuario_cadastrante}`;
+
+
         fetch(url, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ proprietario, area, perimetro, coordinatesJSON, descricao, emailProprietario, municipio, endereco, cep  })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Resposta do servidor:', data);
-            fetch('http://localhost:3300/areas')
-    .then(response => response.json())
-    .then(data => {
-      data.areas.forEach(area => {
-        const usuario_cadastrante = area.usuario_cadastrante;
-        const usuarioarea = area.id_usuario;
-
-        fetch('http://localhost:3300/dadosArea', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ usuarioarea })
+          body: JSON.stringify({ proprietario, area, perimetro, coordinatesJSON, usuario_cadastrante, descricao, emailProprietario, municipio, endereco, cep })
         })
         .then(response => response.json())
         .then(data => {
@@ -189,27 +179,6 @@ const initDrawing = (map, req, res) => {
         .catch(error => {
             console.error('Erro:', error);
         });
-
-        const usuarioInfo = document.getElementById("usuario-cadastrante");
-        usuarioInfo.textContent = `Área cadastrada por: ${usuario_cadastrante}`;
-      })
-    });
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-        });
-
-        fetch('http://localhost:3300/areas')
-        .then(response => response.json())
-        .then(data => {
-          data.areas.forEach(area => {
-            const usuario_cadastrante = area.usuario_cadastrante;
-
-            const usuarioInfo = document.getElementById("usuario-cadastranteInit");
-            usuarioInfo.textContent = `Área cadastrada por: ${usuario_cadastrante}`;
-          })
-        });
-
         const areaInfo = document.getElementById("areaInit-info");
 
         const proprietarioInfo = document.getElementById("proprietarioInit-info");
@@ -225,14 +194,6 @@ const initDrawing = (map, req, res) => {
         const ownerInputDiv = document.getElementById("dados-polygon");
         const areaInitCard = document.getElementById("areaInit-card");
 
-        const municipioInfo = document.getElementById("municipio-infoInit");
-        municipioInfo.textContent = `Município: ${area.municipio}`;
-        
-        const enderecoInfo = document.getElementById("endereco-infoInit");
-        enderecoInfo.textContent = `Endereço: ${area.endereco}`;
-        
-        const cepInfo = document.getElementById("cep-infoInit");
-        cepInfo.textContent = `CEP: ${area.cep}`;
         areaInitCard.style.display = "block";
 
         document.getElementById("submit-owner").addEventListener("click", () => {
@@ -275,35 +236,6 @@ function initMap(req, res) {
   fetch('http://localhost:3300/areas')
   .then(response => response.json())
   .then(data => {
-    console.log('Áreas do servidor:', data.areas);
-
-    fetch('http://localhost:3300/areas')
-    .then(response => response.json())
-    .then(data => {
-      data.areas.forEach(area => {
-        const usuario_cadastrante = area.usuario_cadastrante;
-        const usuarioarea = area.id_usuario;
-
-        fetch('http://localhost:3300/dadosArea', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ usuarioarea })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Resposta do servidor:', data);
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-        });
-
-        const usuarioInfo = document.getElementById("usuario-cadastrante");
-        usuarioInfo.textContent = `Área cadastrada por: ${usuario_cadastrante}`;
-      })
-    });
-
     data.areas.forEach(area => {
       const parsedCoordinates = JSON.parse(area.coordinates);
       const coordinates = parsedCoordinates.map(coord => ({
@@ -322,6 +254,23 @@ function initMap(req, res) {
       polygon.setMap(map);
 
       google.maps.event.addListener(polygon, "click", () => {
+          const usuario_cadastrante = area.usuario_cadastrante;
+
+          fetch('http://localhost:3300/dadosArea', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ usuario_cadastrante  })
+          })
+          .then(response => response.json())
+          .then(data => {
+              console.log('Resposta do servidor:', data);
+          })
+          .catch(error => {
+              console.error('Erro:', error);
+          });
+
           const coordinatesInfo = document.getElementById("coordinates-info");
           coordinatesInfo.textContent = `${area.coordinates}`;
 
@@ -348,6 +297,9 @@ function initMap(req, res) {
           
           const cepInfo = document.getElementById("cep-info");
           cepInfo.textContent = `CEP: ${area.cep}`;
+
+          const usuario_cadastranteInfo = document.getElementById("usuario_cadastrante-info");
+          usuario_cadastranteInfo.textContent = `Área cadastrada por: ${area.usuario_cadastrante}`;
     
           const areaCard = document.getElementById("area-card");
           areaCard.style.display = "block";

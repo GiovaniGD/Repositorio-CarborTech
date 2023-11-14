@@ -4,83 +4,80 @@ async function cadastroArea(req, res) {
     const { areadados } = require('../index');
 
     areadados().then(async(dados) => {
+        if (req.session.usuario && req.session.usuario.id_usuario !== undefined) {
+            let id_usuario = req.session.usuario.id_usuario;
+            console.log(id_usuario);
+        
+            let proprietario = dados.proprietario;
+            let area = dados.area;
+            let perimetro = dados.perimetro;
+            let coordinates = dados.coordinates;
+            let usuario_cadastrante = dados.usuario_cadastrante;
+            let descricao = dados.descricao;
+            let email_proprietario = dados.email;
+            let municipio = dados.municipio;
+            let endereco = dados.endereco;
+            let cep = dados.cep;
 
-    if (req.session.usuario && req.session.usuario.id_usuario !== undefined) {
-        let id_usuario = req.session.usuario.id_usuario;
-        console.log(id_usuario);
-    
-        let proprietario = dados.proprietario;
-        let area = dados.area;
-        let perimetro = dados.perimetro;
-        let coordinates = dados.coordinates;
-        let usuario_cadastrante = dados.usuario_cadastrante;
-        let descricao = dados.descricao;
-        let email_proprietario = dados.email;
-        let municipio = dados.municipio;
-        let endereco = dados.endereco;
-        let cep = dados.cep;
+            let respCadastro = await mapaModel.cadastroArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, cep);
+            let resp = await mapaModel.verificarArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, cep);
 
-        let respCadastro = await mapaModel.cadastroArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, cep);
-        let resp = await mapaModel.verificarArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, cep);
+            if (resp.length > 0 && respCadastro.affectedRows > 0) {
 
-        if (resp.length > 0 && respCadastro.affectedRows > 0) {
-
-            req.session.area = {
-                id_area: resp[0].id_area,
-                proprietario: resp[0].proprietario,
-                area: resp[0].area,
-                perimetro: resp[0].perimetro,
-                coordinates: resp[0].coordinates,
-                usuario_cadastrante: resp[0].usuario_cadastrante,
-                descricao: resp[0].descricao,
-                email_proprietario: resp[0].email_proprietario,
-                municipio: resp[0].municipio,
-                endereco: resp[0].endereco,
-                cep: resp[0].cep,
-            };
-            res.redirect('/mapa');
+                req.session.area = {
+                    id_area: resp[0].id_area,
+                    proprietario: resp[0].proprietario,
+                    area: resp[0].area,
+                    perimetro: resp[0].perimetro,
+                    coordinates: resp[0].coordinates,
+                    usuario_cadastrante: resp[0].usuario_cadastrante,
+                    descricao: resp[0].descricao,
+                    email_proprietario: resp[0].email_proprietario,
+                    municipio: resp[0].municipio,
+                    endereco: resp[0].endereco,
+                    cep: resp[0].cep,
+                };
+                res.redirect('/mapa');
+            } else {
+                console.log('Falha em cadastrar nova área');
+                res.redirect('/mapa');
+            }
         } else {
-            console.log('Falha em cadastrar nova área');
-            res.redirect('/mapa');
+            res.redirect('/login');
         }
-    } else {
-        res.redirect('/login');
-    }
-});
+    });
 }
 
 async function apagarArea(req, res) {
-    const {areadados} = require('../index');
+    const { areadados } = require('../index');
 
     areadados().then(async(dados) => {
-    let usuarioarea = dados.usuarioarea;
+        let usuario_cadastrante = dados.usuario_cadastrante;
 
-    if(req.session.usuario.id_usuario === usuarioarea) {
+        if(req.session.usuario.nome === usuario_cadastrante) {
 
-        console.log("AAAAEEAEE");
-        // Apagar área
+            console.log("AAAAEEAEE");
 
-    } else {
-        alert("Você não possui permissão para isso.")
-    }
-});
+        } else {
+            console.log("Você não possui permissão para isso.")
+        }
+    });
 }
 
 async function abrirServico(req, res) {
-    const {areadados} = require('../index');
+    const { areadados } = require('../index');
 
     areadados().then(async(dados) => {
-    let usuarioarea = dados.usuarioarea;
+        let usuario_cadastrante = dados.usuario_cadastrante;
 
-    if(req.session.usuario.id_usuario === usuarioarea) {
+        if(req.session.usuario.nome === usuario_cadastrante) {
 
-        console.log("AAAAEEAEE");
-        // Apagar área
+            console.log("AAAAEEAEE");
 
-    } else {
-        alert("Você não possui permissão para isso.")
-    }
-});
+        } else {
+            console.log("Você não possui permissão para isso.")
+        }
+    });
 }
 
 async function pegarAreas(req, res) {
