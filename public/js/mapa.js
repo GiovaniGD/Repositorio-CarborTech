@@ -221,7 +221,9 @@ const initDrawing = (map, req, res) => {
   });
 };
 
+
 const coordinates = [];
+
 
 // Inicialização do mapa na tela
 function initMap(req, res) {
@@ -262,7 +264,7 @@ function initMap(req, res) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ usuario_cadastrante, coordinatesJSON  })
+            body: JSON.stringify({ usuario_cadastrante, coordinatesJSON })
           })
           .then(response => response.json())
           .then(data => {
@@ -301,17 +303,26 @@ function initMap(req, res) {
 
           const usuario_cadastranteInfo = document.getElementById("usuario_cadastrante-info");
           usuario_cadastranteInfo.textContent = `Área cadastrada por: ${area.usuario_cadastrante}`;
+
+          const registerButtons = document.getElementById('register-buttons');
+          registerButtons.style.display = "none";
+
+          if (area.usuario_cadastrante === data.user) {
+            registerButtons.style.display = "block";
+
+            document.getElementById('btn-apagar-area').onclick = function() {
+              window.location.href = '/apagarArea';
+            };
+  
+            document.getElementById('btn-solicitar-servico').onclick = function() {
+              window.location.href = '/servico';
+            };
+          } else {
+            registerButtons.style.display = "none";
+          }
     
           const areaCard = document.getElementById("area-card");
           areaCard.style.display = "block";
-
-           document.getElementById('btn-apagar-area').onclick = function() {
-            window.location.href = '/apagarArea';
-          };
-
-          document.getElementById('btn-solicitar-servico').onclick = function() {
-            window.location.href = '/servico';
-          };
 
           document.getElementById("fechar-card").addEventListener("click", () => {
             const areaCard = document.getElementById("area-card");

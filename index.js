@@ -113,7 +113,9 @@ const port = 3300;
         
         try {
             const areas = await mapaModel.pegarAreas();
-            res.json({ areas });
+            const user = req.session.usuario.nome;
+
+            res.json({ areas, user });
         } catch (error) {
             console.error('Erro ao buscar áreas do servidor:', error);
             res.status(500).json({ error: 'Erro ao recuperar áreas.' });
