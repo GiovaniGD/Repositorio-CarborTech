@@ -127,12 +127,12 @@ export default [
   },
   {
     question:
-      "O que é considerado uma árvore exótica?",
+      "O que é considerado uma espécie exótica?",
     answers: [
       { option: "Espécies ameaçadas de extinção", correct: false },
       { option: "Espécies raras", correct: false },
-      { option: "Árvores que só existem no Brasil", correct: false },
-      { option: "Árvores originárias de outros países", correct: true },
+      { option: "Espécies que só existem no Brasil", correct: false },
+      { option: "Espécies originárias de outros países", correct: true },
     ],
   },
   {
