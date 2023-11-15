@@ -103,16 +103,6 @@ const port = 3300;
         res.send('Dados da área definidos');
     });
 
-    app.get('/coordenadas', async (req, res) => {
-        try {
-          const areas = await MapaModel.pegarAreas();
-          res.json({ areas });
-        } catch (error) {
-          console.error('Erro ao recuperar áreas:',   error);
-          res.status(500).json({ error: 'Erro ao recuperar áreas.' });
-        }
-      });
-
     app.get('/mapa', async (req, res) => {
         app.set('layout', './servicos/mapa');
         res.render("servicos/mapa", { area: req.session.area });

@@ -26,6 +26,7 @@ async function cadastroArea(req, res) {
 
                 req.session.area = {
                     id_area: resp[0].id_area,
+                    id_usuario: resp[0].id_usuario,
                     proprietario: resp[0].proprietario,
                     area: resp[0].area,
                     perimetro: resp[0].perimetro,
@@ -37,6 +38,7 @@ async function cadastroArea(req, res) {
                     endereco: resp[0].endereco,
                     cep: resp[0].cep,
                 };
+                res.locals.layoutVariables = { area: req.session.area };
                 res.redirect('/mapa');
             } else {
                 console.log('Falha em cadastrar nova área');
@@ -55,9 +57,10 @@ async function apagarArea(req, res) {
         let usuario_cadastrante = dados.usuario_cadastrante;
 
         if(req.session.usuario.nome === usuario_cadastrante) {
+            let coordenadasArea = dados.coordinates;
 
-            console.log("AAAAEEAEE");
-
+            await mapaModel.apagarArea(coordenadasArea);
+            res.redirect('/mapa');
         } else {
             console.log("Você não possui permissão para isso.")
         }
@@ -71,23 +74,15 @@ async function abrirServico(req, res) {
         let usuario_cadastrante = dados.usuario_cadastrante;
 
         if(req.session.usuario.nome === usuario_cadastrante) {
+            let coordenadasArea = dados.coordinates;
 
-            console.log("AAAAEEAEE");
-
+            //Solicitar serviço
+            
+            res.redirect('/mapa');
         } else {
             console.log("Você não possui permissão para isso.")
         }
     });
 }
 
-async function pegarAreas(req, res) {
-    try {
-      const areas = await MapaModel.pegarAreas();
-      res.json({ areas });
-    } catch (error) {
-      console.error('Erro ao recuperar áreas:', error);
-      res.status(500).json({ error: 'Erro ao recuperar áreas.' });
-    }
-}
-
-module.exports = { cadastroArea, pegarAreas, apagarArea, abrirServico };
+module.exports = { cadastroArea, apagarArea, abrirServico };

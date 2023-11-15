@@ -255,13 +255,14 @@ function initMap(req, res) {
 
       google.maps.event.addListener(polygon, "click", () => {
           const usuario_cadastrante = area.usuario_cadastrante;
+          const coordinatesJSON = area.coordinates;
 
           fetch('http://localhost:3300/dadosArea', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ usuario_cadastrante  })
+            body: JSON.stringify({ usuario_cadastrante, coordinatesJSON  })
           })
           .then(response => response.json())
           .then(data => {
