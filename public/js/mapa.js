@@ -315,7 +315,7 @@ function initMap(req, res) {
             };
   
             document.getElementById('btn-solicitar-servico').onclick = function() {
-              window.location.href = '/servico';
+              window.location.href = '/servicoArea';
             };
           } else {
             registerButtons.style.display = "none";

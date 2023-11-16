@@ -30,7 +30,7 @@ const port = 3300;
             next();
         }else{
             console.log('Não logado');
-            if(req.url == '/mapa' || req.url == '/servico'){
+            if(req.url == '/mapa' || req.url == '/servicoArea'){
                 res.redirect('/login?erro=2');
             }else{
                 next();
@@ -76,6 +76,11 @@ const port = 3300;
     app.get('/compraJabuticabeira', (req, res) => {
         app.set('layout', './servicos/compraJabuticabeira');
         res.render('servicos/compraJabuticabeira');
+    });
+
+    app.get('/servicoArea', (req, res) => {
+        app.set('layout', './servicos/servicoArea');
+        res.render('servicos/servicoArea');
     });
 
     let dadosarea = null;

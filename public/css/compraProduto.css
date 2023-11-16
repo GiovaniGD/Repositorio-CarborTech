@@ -25,9 +25,9 @@ body {
 }
 
 #form-compra {
-  background: #55ad63;
+  background: #387543;
   border-radius: 1rem;
-  box-shadow: 0.2rem 0.2rem #3d8249;
+  box-shadow: 0.2rem 0.2rem #264d2d;
   display: flex;
   flex-direction: column;
   gap: 1.5vh;
@@ -53,7 +53,7 @@ body {
   align-items: center;
   background: #4684fb;
   border: none;
-  box-shadow: 0.2rem 0.2rem #2a54a2;
+  box-shadow: 0.2rem 0.2rem #264d95;
   border-radius: 0.4rem;
   color: white;
   font-size: 1rem;
