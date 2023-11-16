@@ -30,7 +30,7 @@ const port = 3300;
             next();
         }else{
             console.log('Não logado');
-            if(req.url == '/mapa' || req.url == '/servicoArea'){
+            if(req.url == '/mapa' || req.url == '/servicoArea' || req.url == '/compraJabuticabeira' || req.url == '/compraAraucaria'){
                 res.redirect('/login?erro=2');
             }else{
                 next();
