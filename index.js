@@ -102,9 +102,9 @@ const port = 3300;
         const email = req.body.emailProprietario;
         const municipio = req.body.municipio;
         const endereco = req.body.endereco;
-        const cep = req.body.cep;
+        const tipo = req.body.tipo;
         
-        dadosarea = { proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email, municipio, endereco, cep };
+        dadosarea = { proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email, municipio, endereco, tipo };
         res.send('Dados da área definidos');
     });
 

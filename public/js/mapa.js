@@ -85,12 +85,12 @@ const initDrawing = (map, req, res) => {
               const email = emailProprietarioInput.value;
               const municipio = municipioInput.value;
               const endereco = enderecoInput.value;
-              const cep = cepInput.value;
+              const tipo = cepInput.value;
               const usuario_cadastrante = idInput.value;
 
-              if (proprietario && email && municipio && endereco && cep) {
+              if (proprietario && email && municipio && endereco && tipo) {
                 ownerInputDiv.style.display = "none";
-                polygons.set(polygon, { proprietario, descricaoArea, email, municipio, endereco, cep, usuario_cadastrante });
+                polygons.set(polygon, { proprietario, descricaoArea, email, municipio, endereco, tipo, usuario_cadastrante });
 
                 const clickAlert = document.getElementById("click-alert");
                 clickAlert.style.display = "block";
@@ -136,7 +136,7 @@ const initDrawing = (map, req, res) => {
       const emailProprietario = dadosPoligono.email;
       const municipio = dadosPoligono.municipio;
       const endereco = dadosPoligono.endereco;
-      const cep = dadosPoligono.cep;
+      const tipo = dadosPoligono.tipo;
       const usuario_cadastrante = dadosPoligono.usuario_cadastrante;
 
         const area = google.maps.geometry.spherical.computeArea(polygon.getPath());
@@ -159,7 +159,7 @@ const initDrawing = (map, req, res) => {
         enderecoInfoInit.textContent = `Endereço: ${endereco}`;
         
         const cepInfoInit = document.getElementById("cep-infoInit");
-        cepInfoInit.textContent = `CEP: ${cep}`;
+        cepInfoInit.textContent = `Tipo de área: ${tipo}`;
 
         const usuarioCadastranteInit = document.getElementById("usuario_cadastrante-infoInit");
         usuarioCadastranteInit.textContent = `Área cadastrada por: ${usuario_cadastrante}`;
@@ -170,7 +170,7 @@ const initDrawing = (map, req, res) => {
           headers: {
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ proprietario, area, perimetro, coordinatesJSON, usuario_cadastrante, descricao, emailProprietario, municipio, endereco, cep })
+          body: JSON.stringify({ proprietario, area, perimetro, coordinatesJSON, usuario_cadastrante, descricao, emailProprietario, municipio, endereco, tipo })
         })
         .then(response => response.json())
         .then(data => {
@@ -299,7 +299,7 @@ function initMap(req, res) {
           enderecoInfo.textContent = `Endereço: ${area.endereco}`;
           
           const cepInfo = document.getElementById("cep-info");
-          cepInfo.textContent = `CEP: ${area.cep}`;
+          cepInfo.textContent = `Tipo de área: ${area.tipo}`;
 
           const usuario_cadastranteInfo = document.getElementById("usuario_cadastrante-info");
           usuario_cadastranteInfo.textContent = `Área cadastrada por: ${area.usuario_cadastrante}`;
