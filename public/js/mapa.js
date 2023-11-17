@@ -1,4 +1,4 @@
-const url = 'https://carbortech.onrender.com/dadosArea';
+const url = 'http://localhost:3300/dadosArea';
 
 // Função para demarcação no mapa
 const initDrawing = (map, req, res) => {
@@ -235,7 +235,7 @@ function initMap(req, res) {
   });
 
   // Exibir áreas salvas no mapa
-  fetch('https://carbortech.onrender.com/areas')
+  fetch('http://localhost:3300/areas')
   .then(response => response.json())
   .then(data => {
     data.areas.forEach(area => {
@@ -259,7 +259,7 @@ function initMap(req, res) {
           const usuario_cadastrante = area.usuario_cadastrante;
           const coordinatesJSON = area.coordinates;
 
-          fetch('https://carbortech.onrender.com/dadosArea', {
+          fetch('http://localhost:3300/dadosArea', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -39,6 +39,12 @@ class MapaModel {
         let resp = await db.query(sql);
         return resp;
     }
+
+    static async apagarAreaId(idArea){
+        let sql = `DELETE FROM area WHERE id_area = '${idArea}'`;
+        let resp = await db.query(sql);
+        return resp;
+    }
 }
 
 module.exports = MapaModel;

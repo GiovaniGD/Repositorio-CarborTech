@@ -4,8 +4,6 @@ const path = require("path");
 const routes = require("./routes/routes");
 const session = require("express-session");
 const bodyParser = require('body-parser');
-const dotenv = require('dotenv').config();
-const connection = require("./models/db");
 
 const usuarioController = require('./controllers/usuarioController');
 const mapaController = require('./controllers/mapaController');
@@ -119,6 +117,8 @@ const port = 3300;
         try {
             const areas = await mapaModel.pegarAreas();
             const user = req.session.usuario.nome;
+
+            await mapaController.verificarSobreposicao(areas);
 
             res.json({ areas, user });
         } catch (error) {
