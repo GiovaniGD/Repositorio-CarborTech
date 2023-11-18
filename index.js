@@ -103,7 +103,6 @@ const port = 3300;
         const tipo = req.body.tipo;
         
         dadosarea = { proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email, municipio, endereco, tipo };
-        res.send('Dados da área definidos');
     });
 
     app.get('/mapa', async (req, res) => {
@@ -111,7 +110,7 @@ const port = 3300;
         res.render("servicos/mapa", { area: req.session.area });
     });
 
-    app.get('/areas', async (req, res, area) => {
+    app.get('/areas', async (req, res) => {
         app.set('layout', './servicos/mapa');
         
         try {

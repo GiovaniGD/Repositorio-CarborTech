@@ -48,7 +48,7 @@
   border: none;
   box-shadow: 0.2rem 0.2rem #2a54a2;
   transition: all 0.5s;
-  padding: 0.35rem 1.4rem;
+  padding: 0.5rem 1.4rem;
   border-radius: 0.2rem;
   margin-top: 0.9rem;
   font-size: 1.1rem;
@@ -73,7 +73,7 @@
   }
 
   .content {
-    margin-left: 1.7rem;
+    margin-left: 1rem;
   }
 
   .content-title {
@@ -300,8 +300,8 @@ footer {
 
 .div-video {
   background-color: #bad4bb;
-  width: 26.1rem;
-  height: 15rem;
+  width: 30rem;
+  height: 17rem;
   border-radius: 0.8rem;
   box-shadow: 1rem 1rem 2rem #182b18;
   border: 0.3rem solid #336833;
@@ -338,7 +338,7 @@ footer {
     position: absolute;
     display: block;
     padding-left: 0rem;
-    width: 24rem;
+    width: 20rem;
     padding-top: 15vh;
     font-size: 1rem;
     margin-top: 10rem;
@@ -346,7 +346,7 @@ footer {
   }
 
   .div-video {
-    width: 30rem;
+    width: 19rem;
     height: 27vh;
     border-radius: 0.8rem;
     margin: 0 auto;

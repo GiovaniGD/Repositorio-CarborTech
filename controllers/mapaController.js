@@ -6,7 +6,6 @@ async function cadastroArea(req, res) {
     areadados().then(async(dados) => {
         if (req.session.usuario && req.session.usuario.id_usuario !== undefined) {
             let id_usuario = req.session.usuario.id_usuario;
-            console.log(id_usuario);
         
             let proprietario = dados.proprietario;
             let area = dados.area;
@@ -101,7 +100,6 @@ async function verificarSobreposicao(areas) {
         if (sobreposta) {
             const ultimaArea = areas.pop();
             const idArea = ultimaArea.id_area;
-            console.log(`id da área: ${idArea}`);
 
             await mapaModel.apagarAreaId(idArea);
 

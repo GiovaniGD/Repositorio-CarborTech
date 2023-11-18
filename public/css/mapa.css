@@ -180,9 +180,9 @@ body {
   color: #fff;
   border: none;
   border-radius: 0.3rem;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1.5rem;
   cursor: pointer;
-  margin-left: 11.5rem;
+  margin-left: 12.5rem;
   margin-top: 1.7rem;
   outline: none !important;
   text-decoration: none;
@@ -229,7 +229,7 @@ body {
 #click-alert {
   position: fixed;
   display: none;
-  top: 13%;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #55ad6447;
@@ -239,6 +239,9 @@ body {
   overflow-y: auto;
   transition: all 200ms;
   z-index: 9999;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
 }
 
 #click-alert p {
@@ -260,7 +263,7 @@ body {
   color: #fff;
   border: none;
   border-radius: 0.3rem;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1.5rem;
   cursor: pointer;
   margin-left: 1.5rem;
   margin-top: 1.7rem;
@@ -278,9 +281,9 @@ body {
   color: #fff;
   border: none;
   border-radius: 0.3rem;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1.5rem;
   cursor: pointer;
-  margin-left: 9rem;
+  margin-left: 8rem;
   margin-bottom: 1rem;
   margin-top: 1.7rem;
   outline: none !important;
@@ -343,6 +346,29 @@ body {
 }
 
 @media (max-width: 62rem) {
+  #areaInit-card {
+    width: 57.5rem;
+    max-height: 75%;
+    padding: 3rem;
+    border-radius: 1rem;
+    font-size: 2rem;
+  }
+
+  #cancelarInit-cardButton {
+    padding: 1rem 1.8rem;
+    margin-left: 10.3rem;
+    margin-bottom: 1rem;
+    margin-top: 1.7rem;
+    min-width: 14rem;
+  }
+
+  #cadastrarInit-cardButton {
+    padding: 1rem 1.8rem;
+    margin-bottom: 1rem;
+    margin-top: 1.7rem;
+    min-width: 14rem;
+  }
+
   #pac-card {
     display: none;
   }
@@ -374,8 +400,8 @@ body {
 
   #submit-owner {
     border-radius: 0.6rem;
-    padding: 1rem 2rem;
-    margin-left: 16rem;
+    padding: 1.5rem 2.5rem;
+    margin-left: 20rem;
   }
 
   #owner-name {
@@ -414,5 +440,20 @@ body {
     background: transparent;
     border: none;
     cursor: pointer;
+  }
+
+  #click-alert {
+    top: 18%;
+    left: 50%;
+    width: 90%;
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+  
+  #click-alert p {
+    color: white;
+    font-weight: 600;
+    font-size: 2rem;
+    margin: 0;
   }
 }
