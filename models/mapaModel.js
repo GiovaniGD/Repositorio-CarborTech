@@ -16,14 +16,14 @@ class MapaModel {
         this.tipo = tipo;
     }
 
-    static async verificarArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, tipo) {
-        let sql = `SELECT * FROM area WHERE id_usuario = '${id_usuario}' AND proprietario = '${proprietario}' AND area = '${area}' AND perimetro = '${perimetro}' AND coordinates = '${coordinates}' AND usuario_cadastrante = '${usuario_cadastrante}' AND descricao = '${descricao}' AND email_proprietario = '${email_proprietario}' AND municipio = '${municipio}'  AND endereco = '${endereco}' AND tipo = '${tipo}'`;
+    static async verificarArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, tipo, email_cadastrante) {
+        let sql = `SELECT * FROM area WHERE id_usuario = '${id_usuario}' AND proprietario = '${proprietario}' AND area = '${area}' AND perimetro = '${perimetro}' AND coordinates = '${coordinates}' AND usuario_cadastrante = '${usuario_cadastrante}' AND descricao = '${descricao}' AND email_proprietario = '${email_proprietario}' AND municipio = '${municipio}'  AND endereco = '${endereco}' AND tipo = '${tipo}' AND email_cadastrante = '${email_cadastrante}'`;
         let resp = await db.query(sql);
         return resp;
     }
 
-    static async cadastroArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, tipo){
-        let sql = `INSERT INTO area (id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, tipo) VALUES ('${id_usuario}', '${proprietario}', '${area}', '${perimetro}', '${coordinates}', '${usuario_cadastrante}', '${descricao}', '${email_proprietario}', '${municipio}', '${endereco}', '${tipo}')`;
+    static async cadastroArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, tipo, email_cadastrante){
+        let sql = `INSERT INTO area (id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, tipo, email_cadastrante) VALUES ('${id_usuario}', '${proprietario}', '${area}', '${perimetro}', '${coordinates}', '${usuario_cadastrante}', '${descricao}', '${email_proprietario}', '${municipio}', '${endereco}', '${tipo}', '${email_cadastrante}')`;
         let resp = await db.query(sql);
         return resp;
     }

@@ -17,9 +17,10 @@ async function cadastroArea(req, res) {
             let municipio = dados.municipio;
             let endereco = dados.endereco;
             let tipo = dados.tipo;
+            let email_cadastrante = dados.email_cadastrante;
 
-            let respCadastro = await mapaModel.cadastroArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, tipo);
-            let resp = await mapaModel.verificarArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, tipo);
+            let respCadastro = await mapaModel.cadastroArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, tipo, email_cadastrante);
+            let resp = await mapaModel.verificarArea(id_usuario, proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email_proprietario, municipio, endereco, tipo, email_cadastrante);
 
             if (resp.length > 0 && respCadastro.affectedRows > 0) {
 
@@ -36,6 +37,7 @@ async function cadastroArea(req, res) {
                     municipio: resp[0].municipio,
                     endereco: resp[0].endereco,
                     tipo: resp[0].tipo,
+                    email_cadastrante: resp[0].email_cadastrante,
                 };
                 res.locals.layoutVariables = { area: req.session.area };
                 res.redirect('/mapa');
@@ -53,33 +55,13 @@ async function apagarArea(req, res ) {
     const { areadados } = require('../index');
 
     areadados().then(async(dados) => {
-        let usuario_cadastrante = dados.usuario_cadastrante;
+        let email_cadastrante = dados.email_cadastrante;
 
-        if(req.session.usuario.nome === usuario_cadastrante) {
+        if(req.session.usuario.email === email_cadastrante) {
             let coordenadasArea = dados.coordinates;
 
             await mapaModel.apagarArea(coordenadasArea);
 
-            res.redirect('/mapa');
-        } else {
-            console.log("Você não possui permissão para isso.")
-        }
-    });
-}
-
-async function abrirServico(req, res, ) {
-    const { areadados } = require('../index');
-
-    areadados().then(async(dados) => {
-        let usuario_cadastrante = dados.usuario_cadastrante;
-        console.log(dados);
-
-        if(req.session.usuario.nome === usuario_cadastrante) {
-            let coordenadasArea = dados.coordinates;
-
-            await servicosModel.abrirServico(coordenadasArea);
-            //Solicitar serviço
-            
             res.redirect('/mapa');
         } else {
             console.log("Você não possui permissão para isso.")
@@ -171,4 +153,4 @@ async function verificarSobreposicao(areas) {
            q.lng >= Math.min(p.lng, r.lng);
   }
 
-module.exports = { cadastroArea, apagarArea, abrirServico, verificarSobreposicao };
+module.exports = { cadastroArea, apagarArea, verificarSobreposicao };

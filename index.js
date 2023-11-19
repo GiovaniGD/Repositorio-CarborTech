@@ -78,8 +78,8 @@ const port = 3300;
 
     app.get('/servicoArea', (req, res) => {
         app.set('layout', './servicos/servicoArea');
-        res.render('servicos/servicoArea');
-    });
+        res.render('servicos/servicoArea', { email_servico: req.session.usuario.email });
+      });
 
     let dadosarea = null;
 
@@ -101,8 +101,9 @@ const port = 3300;
         const municipio = req.body.municipio;
         const endereco = req.body.endereco;
         const tipo = req.body.tipo;
+        const email_cadastrante = req.body.email_cadastrante;
         
-        dadosarea = { proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email, municipio, endereco, tipo };
+        dadosarea = { proprietario, area, perimetro, coordinates, usuario_cadastrante, descricao, email, municipio, endereco, tipo, email_cadastrante };
     });
 
     app.get('/mapa', async (req, res) => {
@@ -115,7 +116,7 @@ const port = 3300;
         
         try {
             const areas = await mapaModel.pegarAreas();
-            const user = req.session.usuario.nome;
+            const user = req.session.usuario.email;
 
             await mapaController.verificarSobreposicao(areas);
 
@@ -131,8 +132,6 @@ const port = 3300;
     });
 
     app.post('/mapa/cadastro', mapaController.cadastroArea);
-    
-    app.get('/servico', mapaController.abrirServico);
 
     app.get('/apagarArea', mapaController.apagarArea);
 

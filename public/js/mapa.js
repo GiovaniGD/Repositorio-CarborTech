@@ -1,4 +1,4 @@
-const url = 'https://carbortech.onrender.com/dadosArea';
+const url = 'http://localhost:3300/dadosArea';
 
 // Função para demarcação no mapa
 const initDrawing = (map, req, res) => {
@@ -53,6 +53,7 @@ const initDrawing = (map, req, res) => {
             const enderecoInput = document.getElementById("endereco");
             const cepInput = document.getElementById("cep");
             const idInput = document.getElementById("usuario_cadastrante");
+            const emailCadastranteInput = document.getElementById("email-cadastrante");
             const submitButton = document.getElementById("submit-owner");
 
             ownerInputDiv.style.display = "block";
@@ -87,10 +88,11 @@ const initDrawing = (map, req, res) => {
               const endereco = enderecoInput.value;
               const tipo = cepInput.value;
               const usuario_cadastrante = idInput.value;
+              const email_cadastrante = emailCadastranteInput.value;
 
               if (proprietario && email && municipio && endereco && tipo) {
                 ownerInputDiv.style.display = "none";
-                polygons.set(polygon, { proprietario, descricaoArea, email, municipio, endereco, tipo, usuario_cadastrante });
+                polygons.set(polygon, { proprietario, descricaoArea, email, municipio, endereco, tipo, usuario_cadastrante, email_cadastrante });
 
                 const clickAlert = document.getElementById("click-alert");
                 clickAlert.style.display = "block";
@@ -138,6 +140,7 @@ const initDrawing = (map, req, res) => {
       const endereco = dadosPoligono.endereco;
       const tipo = dadosPoligono.tipo;
       const usuario_cadastrante = dadosPoligono.usuario_cadastrante;
+      const email_cadastrante = dadosPoligono.email_cadastrante;
 
         const area = google.maps.geometry.spherical.computeArea(polygon.getPath());
         const perimetro = google.maps.geometry.spherical.computeLength(polygon.getPath());
@@ -170,7 +173,7 @@ const initDrawing = (map, req, res) => {
           headers: {
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ proprietario, area, perimetro, coordinatesJSON, usuario_cadastrante, descricao, emailProprietario, municipio, endereco, tipo })
+          body: JSON.stringify({ proprietario, area, perimetro, coordinatesJSON, usuario_cadastrante, descricao, emailProprietario, municipio, endereco, tipo, email_cadastrante })
         })
         .then(response => response.json())
         .then(data => {
@@ -235,7 +238,7 @@ function initMap(req, res) {
   });
 
   // Exibir áreas salvas no mapa
-  fetch('https://carbortech.onrender.com/areas')
+  fetch('http://localhost:3300/areas')
   .then(response => response.json())
   .then(data => {
     data.areas.forEach(area => {
@@ -256,15 +259,15 @@ function initMap(req, res) {
       polygon.setMap(map);
 
       google.maps.event.addListener(polygon, "click", () => {
-          const usuario_cadastrante = area.usuario_cadastrante;
+          const email_cadastrante = area.email_cadastrante;
           const coordinatesJSON = area.coordinates;
 
-          fetch('https://carbortech.onrender.com/dadosArea', {
+          fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ usuario_cadastrante, coordinatesJSON })
+            body: JSON.stringify({ email_cadastrante, coordinatesJSON })
           })
           .then(response => response.json())
           .then(data => {
@@ -307,7 +310,8 @@ function initMap(req, res) {
           const registerButtons = document.getElementById('register-buttons');
           registerButtons.style.display = "none";
 
-          if (area.usuario_cadastrante === data.user) {
+          console.log(`data.user: ${data.user}`);
+          if (area.email_cadastrante === data.user) {
             registerButtons.style.display = "block";
 
             document.getElementById('btn-apagar-area').onclick = function() {
@@ -315,6 +319,7 @@ function initMap(req, res) {
             };
   
             document.getElementById('btn-solicitar-servico').onclick = function() {
+              
               window.location.href = '/servicoArea';
             };
           } else {
