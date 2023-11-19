@@ -58,10 +58,10 @@
     <!-- Informações da área -->
     <div id="areaInit-card" style="display: none;">
       <h3 id="title-card-area">Informações da área</h3>
+      <p id="area-description-infoInit"></p>
       <p id="proprietarioInit-info"></p>
       <p id="areaInit-info"></p>
       <p id="perimetroInit-info"></p>
-      <p id="area-description-infoInit"></p>
       <p id="email-proprietario-infoInit"></p>
       <p id="municipio-infoInit"></p>
       <p id="endereco-infoInit"></p>
@@ -76,10 +76,10 @@
     <div id="area-card" style="display: none;">
       <button id="fechar-card" class="fechar-card">×</button>
       <h3 id="title-card-area">Informações da área</h3>
+      <p id="area-description-info"></p>
       <p id="proprietario-info"></p>
       <p id="area-info"></p>
       <p id="perimetro-info"></p>
-      <p id="area-description-info"></p>
       <p id="email-proprietario-info"></p>
       <p id="municipio-info"></p>
       <p id="endereco-info"></p>
@@ -89,10 +89,13 @@
       <p id="coordinates-info"></p>
       <div class="register-buttons" id="register-buttons">
         <a>
-            <button class="btn-apagar-area" id="btn-apagar-area">Apagar área</button>
+          <button class="btn-apagar-area" id="btn-apagar-area">Apagar <i class="bi bi-trash-fill"></i></button>
         </a>
         <a>
-            <button class="btn-solicitar-servico" id="btn-solicitar-servico">Solicitar serviço</button>
+          <button class="btn-editar-area" id="btn-editar-area">Editar <i class="bi bi-pencil-square"></i></button>
+        </a>
+        <a>
+          <button class="btn-solicitar-servico" id="btn-solicitar-servico">Solicitar serviço <i class="bi bi-tree-fill"></i></button>
         </a>
       </div>
     </div>
@@ -103,8 +106,14 @@
       <p>Verifique se ela não se sobrepõe a outra. Caso sim, será excluída.</p>
     </div>
 
+    <div style="display: none;" id="div-salvar-area">
+      <button class="btn-salvar-area" id="btn-salvar-area">Salvar</button>
+    </div>
+
     <!-- Dados da área para inserir  -->
     <div id="dados-polygon" style="display: none;">
+      <p>Título/descrição da área</p>
+      <input type="text" id="area-description" class="dado-polygon" placeholder="Detalhes do estado de degradação da área, objetivos de restauração..." required>
       <p>Nome do(a) proprietário(a)</p>
       <input type="text" id="owner-name" class="dado-polygon" placeholder="Insira aqui o nome do(a) proprietário(a) da área" required>
       <p>Email do proprietário</p>
@@ -117,9 +126,7 @@
       <input type="text" id="cep" class="dado-polygon" placeholder="Tipo da área de preservação (APP, RPPN, Reserva Legal etc.)" required>
       <input style="display: none;" type="text" id="email-cadastrante" class="dado-polygon" value="<%= usuario.email %>" required>
       <input style="display: none;" type="text" id="usuario_cadastrante" class="dado-polygon" value="<%= usuario.nome %>" required>
-      <p>Descrição da área</p>
-
-      <input type="text" id="area-description" class="dado-polygon" placeholder="Detalhes do estado de degradação da área, objetivos de restauração..." required>
+      
       <a id="submit-owner" class="submit-owners">Enviar</a>
     </div>
 

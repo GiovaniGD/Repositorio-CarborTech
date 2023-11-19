@@ -51,22 +51,32 @@ async function cadastroArea(req, res) {
     });
 }
 
-async function apagarArea(req, res ) {
-    const { areadados } = require('../index');
+async function apagarArea(req, res) {
+  const { areadados } = require('../index');
 
-    areadados().then(async(dados) => {
-        let email_cadastrante = dados.email_cadastrante;
+  areadados().then(async(dados) => {
+    let coordenadasArea = dados.coordinates;
 
-        if(req.session.usuario.email === email_cadastrante) {
-            let coordenadasArea = dados.coordinates;
+    await mapaModel.apagarArea(coordenadasArea);
 
-            await mapaModel.apagarArea(coordenadasArea);
+    res.redirect('/mapa');
+  });
+}
 
-            res.redirect('/mapa');
-        } else {
-            console.log("Você não possui permissão para isso.")
-        }
-    });
+async function editarArea(req, res) {
+  const { areadados } = require('../index');
+
+  areadados().then(async(dados) => {
+    let coordenadasArea = dados.coordinates;
+    let descricaoArea = dados.descricao;
+    let areaArea = dados.area;
+    let perimetroArea = dados.perimetro;
+
+    console.log(dados);
+    await mapaModel.editarArea(coordenadasArea, descricaoArea, areaArea, perimetroArea);
+
+    res.redirect('/mapa');
+  });
 }
 
 async function verificarSobreposicao(areas) {
@@ -153,4 +163,4 @@ async function verificarSobreposicao(areas) {
            q.lng >= Math.min(p.lng, r.lng);
   }
 
-module.exports = { cadastroArea, apagarArea, verificarSobreposicao };
+module.exports = { cadastroArea, apagarArea, editarArea, verificarSobreposicao };

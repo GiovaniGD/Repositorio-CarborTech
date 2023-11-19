@@ -1,4 +1,5 @@
 const url = 'http://localhost:3300/dadosArea';
+let poligonoEditavel;
 
 // Função para demarcação no mapa
 const initDrawing = (map, req, res) => {
@@ -150,7 +151,7 @@ const initDrawing = (map, req, res) => {
         let coordinatesJSON = JSON.stringify(coordinates);
 
         const descricaoAreaInfo = document.getElementById("area-description-infoInit");
-        descricaoAreaInfo.textContent = `Descrição: ${descricao}`;
+        descricaoAreaInfo.textContent = `Título/descrição: ${descricao}`;
 
         const emailProprietarioInfo = document.getElementById("email-proprietario-infoInit");
         emailProprietarioInfo.textContent = `Email do proprietário: ${emailProprietario}`;
@@ -182,6 +183,7 @@ const initDrawing = (map, req, res) => {
         .catch(error => {
             console.error('Erro:', error);
         });
+
         const areaInfo = document.getElementById("areaInit-info");
 
         const proprietarioInfo = document.getElementById("proprietarioInit-info");
@@ -261,6 +263,8 @@ function initMap(req, res) {
       google.maps.event.addListener(polygon, "click", () => {
           const email_cadastrante = area.email_cadastrante;
           const coordinatesJSON = area.coordinates;
+      
+          poligonoEditavel = polygon;
 
           fetch(url, {
             method: 'POST',
@@ -284,10 +288,10 @@ function initMap(req, res) {
           proprietarioInfo.textContent = `Proprietário: ${area.proprietario}`;
 
           const descricaoAreaInfo = document.getElementById("area-description-info");
-          descricaoAreaInfo.textContent = `Descrição: ${area.descricao}`;
+          descricaoAreaInfo.textContent = `Título/descrição: ${area.descricao}`;
 
           const areaInfo = document.getElementById("area-info");
-          areaInfo.textContent = `Área: ${area.area}`;
+          areaInfo.textContent = `Área: ${area.area}m²`;
 
           const perimetroInfo = document.getElementById("perimetro-info");
           perimetroInfo.textContent = `Perímetro: ${area.perimetro}m`;
@@ -310,12 +314,84 @@ function initMap(req, res) {
           const registerButtons = document.getElementById('register-buttons');
           registerButtons.style.display = "none";
 
-          console.log(`data.user: ${data.user}`);
           if (area.email_cadastrante === data.user) {
             registerButtons.style.display = "block";
 
             document.getElementById('btn-apagar-area').onclick = function() {
               window.location.href = '/apagarArea';
+            };
+
+            document.getElementById('btn-editar-area').onclick = function() {
+              const descricao = area.descricao;
+
+              const areaCard = document.getElementById("area-card");
+              areaCard.style.display = "none";
+
+              const divSalvarArea = document.getElementById("div-salvar-area");
+              divSalvarArea.style.display = "block";
+
+              poligonoEditavel.setEditable(true);
+              poligonoEditavel.setDraggable(true);
+
+              google.maps.event.addListener(poligonoEditavel.getPath(), 'set_at', function(index) {
+                const newCoordinates = poligonoEditavel.getPath().getArray().map(vertex => ({
+                  lat: vertex.lat(),
+                  lng: vertex.lng()
+                }));
+            
+                const coordinatesJSON = JSON.stringify(newCoordinates);
+
+                const area = google.maps.geometry.spherical.computeArea(poligonoEditavel.getPath());
+                const perimetro = google.maps.geometry.spherical.computeLength(poligonoEditavel.getPath());
+
+                fetch(url, {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ coordinatesJSON, descricao, area, perimetro })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Resposta do servidor:', data);
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+
+              });
+
+              google.maps.event.addListener(poligonoEditavel.getPath(), 'insert_at', function(index) {
+                const newCoordinates = poligonoEditavel.getPath().getArray().map(vertex => ({
+                  lat: vertex.lat(),
+                  lng: vertex.lng()
+                }));
+
+                const coordinatesJSON = JSON.stringify(newCoordinates);
+
+                const area = google.maps.geometry.spherical.computeArea(poligonoEditavel.getPath());
+                const perimetro = google.maps.geometry.spherical.computeLength(poligonoEditavel.getPath());
+
+                fetch(url, {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ coordinatesJSON, descricao, area, perimetro })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Resposta do servidor:', data);
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+
+              });
+
+              document.getElementById('btn-salvar-area').onclick = function() {
+                window.location.href = '/editarArea';
+              };
             };
   
             document.getElementById('btn-solicitar-servico').onclick = function() {

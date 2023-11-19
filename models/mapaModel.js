@@ -45,6 +45,12 @@ class MapaModel {
         let resp = await db.query(sql);
         return resp;
     }
+
+    static async editarArea(coordenadasArea, descricaoArea, areaArea, perimetroArea){
+        let sql = `UPDATE area SET coordinates = '${coordenadasArea}', area = '${areaArea}', perimetro = '${perimetroArea}' WHERE descricao = '${descricaoArea}'`;
+        let resp = await db.query(sql);
+        return resp;
+    }
 }
 
 module.exports = MapaModel;

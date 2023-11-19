@@ -304,8 +304,12 @@ body {
   cursor: pointer;
 }
 
+div a button i.bi {
+  padding-right: 0;
+}
+
 .register-buttons {
-  margin-left: 5rem;
+  margin-left: 0.5rem;
   justify-content: center;
 }
 
@@ -330,7 +334,7 @@ body {
 }
 
 .btn-solicitar-servico {
-  margin-left: 10.5rem;
+  margin-left: 2rem;
   margin-top: 1rem;
   background-color: #4684fb;
   box-shadow: 0.2rem 0.2rem #2a54a2;
@@ -342,6 +346,45 @@ body {
 }
 
 .btn-solicitar-servico:hover {
+  background-color: #3570de;
+}
+
+.btn-editar-area {
+  margin-left: 10.5rem;
+  margin-top: 1rem;
+  background-color: #4684fb;
+  box-shadow: 0.2rem 0.2rem #2a54a2;
+  border: none;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.2rem;
+  transition: all 0.5s;
+}
+
+.btn-editar-area:hover {
+  background-color: #3570de;
+}
+
+div#div-salvar-area {
+  position: absolute; 
+  background-color: white;
+  border-radius: 0.5rem 0.5rem 0 0;
+  left: 46%;
+  bottom: 0%;
+}
+
+button#btn-salvar-area {
+  background-color: #4684fb;
+  box-shadow: 0.2rem 0.2rem #2a54a2;
+  border: none;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  margin: 1.5rem;
+  border-radius: 0.2rem;
+  transition: all 0.5s;
+}
+
+button#btn-salvar-area:hover {
   background-color: #3570de;
 }
 

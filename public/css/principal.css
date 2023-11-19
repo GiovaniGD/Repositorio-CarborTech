@@ -312,6 +312,10 @@ body {
   background-color: #3570de;
 }
 
+div a button i.bi {
+  padding-right: 0;
+}
+
 /*Cards responsivos*/
 @media (max-width: 50rem) {
   #title-card{
