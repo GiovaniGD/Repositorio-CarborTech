@@ -134,6 +134,8 @@ const port = 3300;
     app.post('/mapa/cadastro', mapaController.cadastroArea);
 
     app.get('/apagarArea', mapaController.apagarArea);
+    
+    app.post('/editarArea', mapaController.editarArea);
 
     app.get('/editarArea', mapaController.editarArea);
 

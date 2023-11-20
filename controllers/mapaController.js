@@ -71,9 +71,15 @@ async function editarArea(req, res) {
     let descricaoArea = dados.descricao;
     let areaArea = dados.area;
     let perimetroArea = dados.perimetro;
+    let usuarioArea = dados.usuario_cadastrante;
+    let proprietarioArea = dados.proprietario;
+    let emailArea = dados.email;
+    let municipioArea = dados.municipio;
+    let enderecoArea = dados.endereco;
+    let tipoArea = dados.tipo;
+    let emailCadastranteArea = dados.email_cadastrante;
 
-    console.log(dados);
-    await mapaModel.editarArea(coordenadasArea, descricaoArea, areaArea, perimetroArea);
+    await mapaModel.editarArea(proprietarioArea, areaArea, perimetroArea, usuarioArea, coordenadasArea, descricaoArea, emailArea, municipioArea, enderecoArea, tipoArea, emailCadastranteArea);
 
     res.redirect('/mapa');
   });

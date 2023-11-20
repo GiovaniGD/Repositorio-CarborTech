@@ -46,8 +46,8 @@ class MapaModel {
         return resp;
     }
 
-    static async editarArea(coordenadasArea, descricaoArea, areaArea, perimetroArea){
-        let sql = `UPDATE area SET coordinates = '${coordenadasArea}', area = '${areaArea}', perimetro = '${perimetroArea}' WHERE descricao = '${descricaoArea}'`;
+    static async editarArea(proprietarioArea, areaArea, perimetroArea, usuarioArea, coordenadasArea, descricaoArea, emailArea, municipioArea, enderecoArea, tipoArea, emailCadastranteArea){
+        let sql = `UPDATE area SET proprietario = '${proprietarioArea}', area = '${areaArea}', perimetro = '${perimetroArea}', usuario_cadastrante = '${usuarioArea}', coordinates = '${coordenadasArea}', email_proprietario = '${emailArea}', municipio = '${municipioArea}', endereco = '${enderecoArea}', tipo = '${tipoArea}', email_cadastrante = '${emailCadastranteArea}' WHERE descricao = '${descricaoArea}'`;
         let resp = await db.query(sql);
         return resp;
     }
