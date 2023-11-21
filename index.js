@@ -77,8 +77,15 @@ const port = 3300;
     });
 
     app.get('/servicoArea', (req, res) => {
-        app.set('layout', './servicos/servicoArea');
-        res.render('servicos/servicoArea', { email_servico: req.session.usuario.email });
+        areadados().then((resultado) => {
+            let endereco = resultado.endereco;
+            let municipio = resultado.municipio;
+
+            app.set('layout', './servicos/servicoArea');
+            res.render('servicos/servicoArea', { email_servico: req.session.usuario.email, endereco, municipio });
+        }).catch((error) => {
+            console.error('Erro:', error);
+        });
       });
 
     let dadosarea = null;

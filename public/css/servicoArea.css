@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  
+  body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    justify-content: center;
+    background-image: url("../assets/img/back-quiz.png");
+    background-repeat: no-repeat;
+    background-size: 150vh;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    scrollbar-width: none;
+  }
+  
+  #comprar {
+    color: #5e5e5e;
+    font-weight: 600;
+  }
+  
+  #form-compra {
+    background: #387543;
+    border-radius: 1rem;
+    box-shadow: 0.2rem 0.2rem #264d2d;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+    margin: 0 1rem;
+    padding: 1.3rem;
+  }
+  
+  .info-compra {
+    background-color: #e8e8e8;
+    box-shadow: 0.2rem 0.2rem #767676;
+    border: none;
+    border-radius: 0.3rem;
+    color: #313131;
+    font-size: 1.15rem;
+    outline: none;
+    padding: 0.7rem;
+    width: 100%;
+  }
+  
+  #realizarPedido {
+    align-items: center;
+    background: #4684fb;
+    border: none;
+    box-shadow: 0.2rem 0.2rem #264d95;
+    border-radius: 0.4rem;
+    color: white;
+    font-size: 1rem;
+    padding: 0.8rem 1.1rem;
+    transition: all 0.5s;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  #realizarPedido:hover {
+    background-color: #3570de;
+  }
+
+  .campo-header {
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .info-especies {
+    background-color: #e8e8e8;
+    box-shadow: 0.2rem 0.2rem #767676;
+    border: none;
+    border-radius: 0.3rem;
+    color: #313131;
+    font-size: 1.15rem;
+    outline: none;
+    padding: 0.7rem;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+  }

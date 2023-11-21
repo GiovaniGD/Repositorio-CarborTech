@@ -1,4 +1,4 @@
-const url = 'https://carbortech.onrender.com/dadosArea';
+const url = 'http://localhost:3300/dadosArea';
 let poligonoEditavel;
 const polygons = new Map();
 
@@ -77,7 +77,7 @@ const initDrawing = (map, req, res) => {
             disableMapInteraction();
             disableDrawingManager();
 
-            fetch('https://carbortech.onrender.com/areas')
+            fetch('http://localhost:3300/areas')
               .then(response => response.json())
               .then(data => {
                 const areasRegistradas = data.areas;
@@ -249,7 +249,7 @@ function initMap(req, res) {
   });
 
   // Exibir áreas salvas no mapa
-  fetch('https://carbortech.onrender.com/areas')
+  fetch('http://localhost:3300/areas')
   .then(response => response.json())
   .then(data => {
     data.areas.forEach(area => {
@@ -445,6 +445,25 @@ function initMap(req, res) {
             
             
             document.getElementById('btn-solicitar-servico').onclick = function() {
+              let endereco = area.endereco;
+              let municipio = area.municipio;
+              
+              console.log(`endereCo: ${area.endereco}`);
+
+              fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ endereco, municipio })
+              })
+              .then(response => response.json())
+              .then(data => {
+                  console.log('Resposta do servidor:', data);
+              })
+              .catch(error => {
+                  console.error('Erro:', error);
+              });
               
               window.location.href = '/servicoArea';
             };
