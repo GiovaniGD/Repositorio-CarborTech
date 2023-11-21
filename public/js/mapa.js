@@ -1,4 +1,4 @@
-const url = 'http://localhost:3300/dadosArea';
+const url = 'https://carbortech.onrender.com/dadosArea';
 let poligonoEditavel;
 const polygons = new Map();
 
@@ -77,7 +77,7 @@ const initDrawing = (map, req, res) => {
             disableMapInteraction();
             disableDrawingManager();
 
-            fetch('http://localhost:3300/areas')
+            fetch('https://carbortech.onrender.com/areas')
               .then(response => response.json())
               .then(data => {
                 const areasRegistradas = data.areas;
@@ -249,7 +249,7 @@ function initMap(req, res) {
   });
 
   // Exibir áreas salvas no mapa
-  fetch('http://localhost:3300/areas')
+  fetch('https://carbortech.onrender.com/areas')
   .then(response => response.json())
   .then(data => {
     data.areas.forEach(area => {
