@@ -95,13 +95,7 @@ const initDrawing = (map, req, res) => {
               const usuario_cadastrante = idInput.value;
               const email_cadastrante = emailCadastranteInput.value;
 
-              const descricaoJaExistente = areasRegistradas.some(area => area.descricao === descricaoArea);
-                  
-              if (descricaoJaExistente) {
-                  alert("Título/descrição já existente.");
-              }
-
-              if (proprietario && email && municipio && endereco && tipo && !descricaoJaExistente) {
+              if (proprietario && email && municipio && endereco && tipo) {
                 ownerInputDiv.style.display = "none";
                 polygons.set(polygon, { proprietario, descricaoArea, email, municipio, endereco, tipo, usuario_cadastrante, email_cadastrante });
 
